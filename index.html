@@ -1,14 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head><!-- configaração do site-->
-        <meta charset="UTF-8"> <!-- esse código é usado para o site não ter erros com acentuações --> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Meu primeiro exercício</title>
-    </head>
-    <body><!-- interação do site-->
-        <h1>Olá, mundo!</h1>
-        <hr>
-        <p> Primeiro documento html do curso do guanabara</p>    
-        <P> Momento único! Estou criando um site! </P>
-    </body>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TL PERFORMANCE | Store</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-flex">
+            <a href="index.html" class="logo-link">
+    <img src="img/logo.png" alt="TL Performance Logo" class="logo-img">
+</a>
+            
+            <nav class="category-tabs">
+                <a href="#" class="tab-item active">Halteres</a>
+                <a href="#" class="tab-item">Anilhas</a>
+                <a href="#" class="tab-item">Acessórios</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="bag-display">
+                    SUA BAG <span>[ 0 ]</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <div class="container hero-grid">
+            
+            <div class="hero-info">
+                <h1>MONTE SEU <br>SET DE TREINO</h1>
+                
+                <form oninput="res.value=parseInt(peso.value)">
+                    <fieldset>
+                        <legend>Personalize seu Equipamento</legend>
+                        
+                        <div class="field-box">
+                            <label for="nome">Seu Nome</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
+                        </div>
+
+                        <div class="field-box">
+                            <label for="tipo">O que você procura?</label>
+                            <input type="text" id="tipo" name="tipo" placeholder="Ex: Par de Halteres, Barra Olímpica...">
+                        </div>
+
+                        <div class="range-container">
+                            <div class="range-info">
+                                <label for="peso">Carga aproximada</label>
+                                <output name="res" for="peso">20</output>kg
+                            </div>
+                            <input type="range" id="peso" name="peso" min="2" max="100" value="20">
+                        </div>
+
+                        <div class="field-box">
+                            <label for="obs">Alguma observação?</label>
+                            <textarea id="obs" name="obs" rows="3" placeholder="Ex: Cor preta, pegada emborrachada..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-buy">Adicionar à Bag</button>
+                    </fieldset>
+                </form>
+            </div>
+
+            <div class="hero-visual">
+                <div class="gray-card">
+                    <div class="img-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>TL PERFORMANCE — EQUIPANDO O SEU MELHOR TREINO 2026</p>
+        </div>
+    </footer>
+
+</body>
 </html>
