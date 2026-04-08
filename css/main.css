@@ -1,0 +1,502 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem ;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    /*o que fica abaixo da barra*/
+    background: #000;
+}
+
+html::-webkit-scrollbar-thumb {
+    /*cor da barra*/
+    background: rgb(0, 0, 0);
+}
+body{
+    background: #7a7a7a;
+}
+section{
+    padding: 5rem 9%;
+}
+.heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+.heading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: .1rem;
+    width: 100%;
+    background: #aaa;
+    z-index: -1;
+}
+.heading span {
+    font-size: 3rem;
+    color: rgb(238, 87, 5);
+    background: #000;
+    padding: .5rem 1.5rem;
+    border: 0.1rem solid #aaa;
+    border-radius: .5rem;
+}
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    padding-right: 3rem;
+    background: linear-gradient(130deg, rgb(238, 87, 51) 93%,
+    transparent 90%);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.btn:hover{
+    transform: scale (1.1);
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+    z-index: 10000;
+    background: #000;
+}
+
+.header .logo {
+    font-weight: bolder;
+    color: #fff;
+    font-size: 3rem;
+}
+
+.header .logo span {
+    color: rgb(238, 87, 51);
+}
+
+.header .navbar a {
+    display: inline-block;
+    padding: 1.5rem 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+}
+.header .navbar a:hover {
+     background: rgb(238, 87, 51);
+}
+#menu-btn {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+.home {
+    padding: 0;
+    margin-top: 5rem;
+}
+.home .slide {
+    min-height: 90vh;
+    background-size: cover !important;
+    background-position: center !important;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+}
+
+.home .slide .content {
+    width: 60rem;
+}
+
+.home .slide .content span {
+    font-size: 2rem;
+    color: rgb(238, 87, 51);
+    display: block;
+}
+.home .slide .content h3 {
+    font-size: 5rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+/*class de swipwer para criar as bolinhas*/
+.swiper-pagination-bullet {
+    height: 2rem;
+    width: 2rem;
+    background: #fff;
+    border-radius: 0;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgb(238, 87, 51);
+}
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8rem;
+}
+
+.about .image {
+    flex: 1 1 40rem;
+    position: relative;
+    padding: 2rem; /* Espaço para os quadrados não colarem na foto */
+}
+
+.about .image img {
+    width: 100%;
+    height: 45rem; /* Altura que definimos antes */
+    object-fit: cover; 
+    /* Esta linha abaixo faz o "foco" da imagem ir para o topo */
+    object-position:center; 
+    border-radius: .5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.about .image::before,
+.about .image::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    background: rgb(238, 87, 51);
+    height: 15rem;
+    width: 15rem;
+}
+
+.about .image::before {
+    top: 0;
+    left: 0;
+}
+
+.about .image::after {
+    bottom: 0;
+    right: 0;
+}
+
+.about .image img {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.about .content {
+    flex: 1 1 42rem;
+}
+
+.about .content span {
+    font-size: 2rem;
+    color: rgb(238, 87, 51);
+}
+
+.about .content .title {
+    font-size: 4rem;
+    color: #fff;
+    padding-top: 1rem;
+}
+
+.about .content p {
+    font-size: 1.5rem;
+    color: #eee;
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.about .content .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.about .content .box-container .box {
+    flex: 1 1 20rem;
+}
+
+.about .content .box-container .box h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.about .content .box-container .box h3 i {
+    padding-right: 1rem;
+    color: rgb(238, 87, 51);
+}
+
+.about .content .box-container .box p {
+    font-size: 1.4rem;
+    color: #eee;
+    padding: 0;
+}
+
+/* Seção Features (Serviços) */
+.features .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.features .box-container .box {
+    text-align: center;
+    background: #000;
+    padding: 3rem;
+}
+
+.features .box-container .box .image {
+    height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.features .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.features .box-container .box .content {
+    padding-top: 2rem;
+}
+
+.features .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+/* Seção Suplementos / Planos */
+.suppl {
+    background: #111;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.suppl .information {
+    flex: 1 1 40rem;
+}
+
+.suppl .information span {
+    font-size: 2rem;
+    color: rgb(238, 87, 51);
+}
+
+.suppl .information h3 {
+    font-size: 4rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.suppl .information p {
+    font-size: 1.6rem;
+    color: #eee;
+    padding: 0.5rem 0;
+}
+
+.suppl .information p i {
+    color: rgb(238, 87, 51);
+    padding-right: 1rem;
+}
+
+/* Banner de Desconto */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/banner-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 10rem 9%;
+}
+
+.banner span {
+    font-size: 2.5rem;
+    color: rgb(238, 87, 51);
+}
+
+.banner h3 {
+    font-size: 4rem;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.banner p {
+    font-size: 1.8rem;
+    color: #eee;
+    margin: 1rem auto;
+    max-width: 60rem;
+}
+
+/* Performance e Saúde */
+#per .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+#per .box-container .box {
+    padding: 3rem;
+    background: #000;
+    text-align: center;
+}
+
+#per .box-container .box i {
+    font-size: 4rem;
+    color: rgb(238, 87, 51);
+    margin-bottom: 1.5rem;
+}
+
+#per .box-container .box h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#per .box-container .box p {
+    font-size: 1.4rem;
+    color: #eee;
+    line-height: 1.8;
+}
+
+/* Coleções */
+.colections .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    gap: 2rem;
+}
+
+.colections .box-container .box {
+    position: relative;
+    overflow: hidden;
+}
+
+.colections .box-container .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.colections .box-container .box .content {
+    position: absolute;
+    top: 50%; left: 5%;
+    transform: translateY(-50%);
+}
+
+.colections .box-container .box .content h3 {
+    font-size: 3rem;
+    color: #fff;
+}
+/* Ícone flutuante do carrinho */
+#cart-icon {
+    position: fixed;
+    top: 9rem;
+    right: 2rem;
+    background: rgb(238, 87, 51);
+    color: #fff;
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.3);
+}
+
+#cart-count {
+    background: #fff;
+    color: #000;
+    padding: .2rem .5rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    margin-left: .5rem;
+    font-weight: bold;
+}
+
+/* Menu Lateral do Carrinho */
+#cart-sidebar {
+    position: fixed;
+    top: 0; right: -100%; /* Começa escondido à direita */
+    height: 100%;
+    width: 35rem;
+    background: #111;
+    z-index: 11000;
+    padding: 2rem;
+    transition: 0.4s linear;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+#cart-sidebar.active {
+    right: 0; /* Desliza para dentro da tela */
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .1rem solid #aaa;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.cart-header h2 {
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.cart-header button {
+    background: rgb(238, 87, 51);
+    color: #fff;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+#cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: #222;
+    padding: 1rem;
+}
+
+.cart-item p {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.cart-total {
+    font-size: 2rem;
+    color: #fff;
+    padding-top: 2rem;
+    border-top: .1rem solid #aaa;
+    text-align: right;
+}

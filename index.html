@@ -1,86 +1,303 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TL PERFORMANCE | Store</title>
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <link rel="stylesheet" href="css/style.css">
-
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Total Loss</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 </head>
+
 <body>
+    <header class="header">
+        <a href="index.html" class="logo"><span>Total</span>Loss</a>
 
-    <header class="main-header">
-        <div class="container header-flex">
-            <a href="index.html" class="logo-link">
-    <img src="img/logo.png" alt="TL Performance Logo" class="logo-img">
-</a>
-            
-            <nav class="category-tabs">
-                <a href="#" class="tab-item active">Halteres</a>
-                <a href="#" class="tab-item">Anilhas</a>
-                <a href="#" class="tab-item">Acessórios</a>
-            </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
 
-            <div class="header-actions">
-                <div class="bag-display">
-                    SUA BAG <span>[ 0 ]</span>
+        <nav class="navbar">
+            <a href="#home">Início</a>
+            <a href="#about">Sobre</a>
+            <a href="#features">Serviços</a>
+            <a href="#suppl">Suplementos</a>
+            <a href="#per">Performace e Saúde</a>
+            <a href="#colections">Coleções</a>
+            <a href="#support">Suporte</a>
+
+        </nav>
+    </header>
+    <!--Fim cabeçalho-->
+    <div id="cart-icon" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div id="cart-sidebar" class="hidden">
+        <div class="cart-header">
+            <h2>Meu Carrinho</h2>
+            <button onclick="toggleCart()">Fechar</button>
+        </div>
+        <div id="cart-items">
+        </div>
+        <div class="cart-total">
+            Total: R$ <span id="total-price">0.00</span>
+        </div>
+    </div>
+    <main>
+        <section id="home" class="home">
+            <div class="swiper home-slider">
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-slide slide" styLe="background: url(/whey-bolsa.jpeg) no-repeat;">
+                    <div class="content">
+                        <span>Seja Forte, seja fit</span>
+                        <h3>Torne-se mais forte do que suas desculpas.</h3> <a href="#" class="btn">Iniciar</a>
+                    </div>
+                </div>
+
+                <div class="swiper home-slider">
+                    <div class="swiper-wrapper"></div>
+                    <div class="swiper-slide slide" styLe="background: url(img/pesos-2.jpeg) no-repeat;">
+                        <div class="content">
+                            <span>Seja Forte, seja fit</span>
+                            <h3>Torne-se mais forte do que suas desculpas.</h3> <a href="#" class="btn">Iniciar</a>
+                        </div>
+                    </div>
+
+                    <div class="swiper home-slider">
+                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-slide slide" styLe="background: url(img/ozempic.jpeg) no-repeat;">
+                            <div class="content">
+                                <span>Seja Forte, seja fit</span>
+                                <h3>Torne-se mais forte do que suas desculpas.</h3> <a href="#" class="btn">Iniciar</a>
+                            </div>
+                            <div class="swiper-pagination"> </div>
+                        </div>
+
+        </section>
+        <!--Fim home-->
+        <section id="about" class="about">
+            <div class="image">
+                <img src="img/treino-1.jpeg" alt="">
+            </div>
+
+            <div class="content">
+                <span>Sobre Nós</span>
+                <h3 class="title">Cada dia é uma chance de se tornar melhor</h3>
+                <p> Escrever algo sobre </p>
+
+                <div class="box-container">
+                    <div class="box">
+                        <h3><i class="fas fa-check"></i>Corpo e Mente</h3>
+                        <p>Treine seu corpo e sua mente será treinada</p>
+                    </div>
+
+                    <div class="box">
+                        <h3><i class="fas fa-check"></i>Vida Saudável</h3>
+                        <p>Conquiste uma vida saudável</p>
+                    </div>
+
+                    <div class="box">
+                        <h3><i class="fas fa-check"></i>Estratégias</h3>
+                        <p>Estratégias para seu treinamento</p>
+                    </div>
+
+                    <div class="box">
+                        <h3><i class="fas fa-check"></i>Treino</h3>
+                        <p>Treine seu corpo fortemente</p>
+                    </div>
+                </div>
+                <a href="#" class="btn">Ler mais</a>
+            </div>
+
+            <section id="features" class="features">
+                <h1 class="heading"> <span>O que Oferecemos</span> </h1>
+
+                <div class="box-container">
+                    <div class="box">
+                        <div class="image">
+                            <img src="https://i.pinimg.com/736x/2e/12/cb/2e12cbb9c5b43982b7f537d0969cd3f7.jpg" alt="">
+                        </div>
+                        <div class="content">
+                            <img src="img/logo.png" alt="">
+                            <h3>Musculação</h3>
+                            <p>Falar Mais sobre Musculação</p>
+                            <a href="#" class="btn">Ler Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!--Fim sobre-->
+        <section id="suppl" class="suppl">
+            <div class="information">
+                <span>Plano de Preços</span>
+                <h3>plano de preços acessível para você</h3>
+                <p>falar um pouco sobre isso</p>
+                <p> <i class="fas fa-bone"></i> <strong>Whey Protein:</strong> Recuperação Muscular </p>
+                <p> <i class="fas fa-bolt"></i> <strong>Creatina:</strong> Força e Performance </p>
+                <p> <i class="fas fa-brain"></i> <strong>Ômega 3:</strong> Saúde Cognitiva </p>
+                <p> <i class="fas fa-apple-alt"></i> <strong>Multivitamínico:</strong> Imunidade </p>
+                <a href="#" class="btn">Todos os Valores</a>
+            </div>
+
+        </section>
+        <!--Fim suplementos-->
+
+        <section class="banner">
+            <span>Junte-se a nós</span>
+            <h3>Ganhe até 60% de desconto </h3>
+            <p> Na primeira compra de 2 itens ganhe 60% de desconto</p>
+            <a href="#" class="btn">Quero</a>
+        </section>
+        <section id="per">
+            <h1 class="heading"> <span>Performance e Saúde</span> </h1>
+            <div class="box-container">
+                <div class="box">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Avaliação Bioimpedância</h3>
+                    <p>Entenda sua composição corporal detalhadamente.</p>
+                </div>
+                <div class="box">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Plano Nutricional</h3>
+                    <p>Dietas personalizadas por nutricionistas esportivos.</p>
+                </div>
+                <div class="box">
+                    <i class="fas fa-notes-medical"></i>
+                    <h3>Check-up Mensal</h3>
+                    <p>Acompanhamento de biomarcadores para saúde total.</p>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
+        <!--Fim performance-->
 
-    <main class="hero-section">
-        <div class="container hero-grid">
-            
-            <div class="hero-info">
-                <h1>MONTE SEU <br>SET DE TREINO</h1>
-                
-                <form oninput="res.value=parseInt(peso.value)">
-                    <fieldset>
-                        <legend>Personalize seu Equipamento</legend>
-                        
-                        <div class="field-box">
-                            <label for="nome">Seu Nome</label>
-                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo">
-                        </div>
+        <section id="colections" class="colections">
+            <h1 class="heading"> <span>Coleções Total Loss</span> </h1>
+            <div class="box-container">
+                <div class="box">
+                    <div class="image">
+                        <img src="img/whey.jpeg" alt="Roupas Masc">
+                    </div>
+                    <div class="content">
+                        <h3>Linha Masculina</h3>
+                        <a href="#" class="btn">Comprar Agora</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image">
+                        <img src="img/col-2.jpeg" alt="Roupas Fem">
+                    </div>
+                    <div class="content">
+                        <h3>Linha Feminina</h3>
+                        <a href="#" class="btn">Comprar Agora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Fim coleções-->
+        <section class="review">
+            <div class="information">
+                <span>Feedbacks</span>
+                <h3>O que nossos clientes dizem</h3>
+                <p>Quer saber o que nossos clientes falam sobre nós?</p>
+                <a href="#" class="btn">Leia Todos</a>
+            </div>
 
-                        <div class="field-box">
-                            <label for="tipo">O que você procura?</label>
-                            <input type="text" id="tipo" name="tipo" placeholder="Ex: Par de Halteres, Barra Olímpica...">
-                        </div>
-
-                        <div class="range-container">
-                            <div class="range-info">
-                                <label for="peso">Carga aproximada</label>
-                                <output name="res" for="peso">20</output>kg
+            <div class="swiper review-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide">
+                        <p>Ótima interface </p>
+                        <div class="user">
+                            <img src="https://i.postimg.cc/4xhDF81N/pic-1.png" alt="">
+                            <div class="info">
+                                <h3>João Luiz</h3>
+                                <span>Personal</span>
                             </div>
-                            <input type="range" id="peso" name="peso" min="2" max="100" value="20">
+                            <i class="fas fa-quote-left"></i>
                         </div>
 
-                        <div class="field-box">
-                            <label for="obs">Alguma observação?</label>
-                            <textarea id="obs" name="obs" rows="3" placeholder="Ex: Cor preta, pegada emborrachada..."></textarea>
-                        </div>
+                    </div>
 
-                        <button type="submit" class="btn-buy">Adicionar à Bag</button>
-                    </fieldset>
+                    <div class="swiper-slide slide">
+                        <p>O melhor atendimento que eu já tive</p>
+                        <div class="user">
+                            <img src="https://i.postimg.cc/ry7XCXSY/pic-2.png" alt="">
+                            <div class="info">
+                                <h3>Luana</h3>
+                                <span>designer</span>
+                            </div>
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+        <section id="support" class="support">
+            <h1 class="heading"> <span>Suporte ao Cliente</span> </h1>
+            <div class="row">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@totalloss.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rio de Janeiro, Brasil - Rua Ana Maria Braga, 123</p>
+                </div>
+                <form action="">
+                    <input type="text" placeholder="Seu Nome" class="box">
+                    <input type="email" placeholder="Seu Email" class="box">
+                    <textarea placeholder="Sua Mensagem" class="box" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Enviar Mensagem" class="btn">
                 </form>
             </div>
-
-            <div class="hero-visual">
-                <div class="gray-card">
-                    <div class="img-placeholder"></div>
-                </div>
-            </div>
-        </div>
+        </section>
+        <!--Fim suporte-->
     </main>
+    <!--Fim conteúdo principal-->
+    <footer class="footer">
+        <div class="box-container"></div>
+        <div class="box">
+            <a class="links" href="#home">Início</a>
+            <a class="links" href="#about">Sobre</a>
+            <a class="links" href="#features">Serviços</a>
+            <a class="links" href="#suppl">Suplementos</a>
+            <a class="links" href="#per">Performace e Saúde</a>
+            <a class="links" href="#colections">Coleções</a>
+            <a class="links" href="#support">Suporte</a>
+        </div>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>TL PERFORMANCE — EQUIPANDO O SEU MELHOR TREINO 2026</p>
+        <div class="box">
+            <h3>Horário de Funcionamento</h3>
+            <p> Segunda : <i> 7:00 - 22:00 </i> </p>
+            <p> Terça : <i> 7:00 - 22:00 </i> </p>
+            <p> Quarta : <i> 7:00 - 22:00 </i> </p>
+            <p> Quinta : <i> 7:00 - 22:00 </i> </p>
+            <p> Sexta : <i> 7:00 - 22:00 </i> </p>
+            <p> Sábado : <i> 7:00am - 10:30 </i> </p>
+            <p> Domingo : <i> Fechado </i> </p>
+        </div>
+
+        <div class="box">
+            <h3>Nossos Contatos</h3>
+            <p> <i class="fas fa-phone"></i> 21 8222-3333 </p>
+            <p> <i class="fas fa-envelope"></i> totaloss@gmail.com </p>
+            <p> <i class="fas fa-map"></i> Niterói, Brazil </p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-pinterest"></a>
+            </div>
+        </div class="box">
+        <h3>Novidades</h3>
+        <p>Se inscreva para receber as Novidades</p>
+        <input type="email" name="" class="email" placeholder="digite seu e-mail" id="">
+        <input type="submit" value="subscribe" class="btn">
+        <div>
+
         </div>
     </footer>
 
+    <script src='main.js'></script>
 </body>
+
 </html>
