@@ -253,23 +253,44 @@ section{
     padding: 0;
 }
 
-/* Seção Features (Serviços) */
+/* =========================================
+   Seção Features (Serviços) - Premium
+========================================= */
 .features .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
+    gap: 3rem; /* Mais respiro entre os cards */
 }
 
 .features .box-container .box {
     text-align: center;
-    background: #000;
-    padding: 3rem;
+    background: #111; /* Fundo escuro para dar profundidade */
+    border-radius: 1rem; /* Arredondamento suave e moderno */
+    overflow: hidden;
+    border: 0.1rem solid #222;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.3);
 }
 
+/* Efeito Hover: O card levanta e ganha um brilho laranja sutil */
+.features .box-container .box:hover {
+    transform: translateY(-1.5rem);
+    box-shadow: 0 1.5rem 3rem rgba(238, 87, 51, 0.15); 
+    border-color: rgb(238, 87, 51);
+}
+
+/* CORREÇÃO DO VAZAMENTO DA SEÇÃO ABOUT */
 .features .box-container .box .image {
     height: 25rem;
     width: 100%;
     overflow: hidden;
+    position: relative;
+    padding: 0; /* Remove o padding que estava herdando do About */
+}
+
+/* Esconde os quadrados laranjas gigantes que não pertencem a esta área */
+.features .box-container .box .image::before,
+.features .box-container .box .image::after {
+    display: none !important;
 }
 
 .features .box-container .box .image img {
@@ -278,15 +299,45 @@ section{
     object-fit: cover;
 }
 
+.features .box-container .box:hover .image img {
+    transform: scale(1.1);
+}
+
 .features .box-container .box .content {
-    padding-top: 2rem;
+    padding: 2rem 2.5rem 3rem 2.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CORREÇÃO DO ÍCONE E EFEITO FLUTUANTE */
+.features .box-container .box .content img {
+    width: 7rem; /* Define um tamanho fixo e elegante */
+    height: 7rem;
+    object-fit: contain;
+    margin-top: -5.5rem; /* Puxa o ícone para cima, sobrepondo a foto */
+    margin-bottom: 1.5rem;
+    background: #000; /* Fundo preto no ícone */
+    padding: 1.5rem;
+    border-radius: 50%; /* Deixa o fundo do ícone redondo */
+    border: 0.2rem solid rgb(238, 87, 51); /* Borda laranja no ícone */
+    position: relative;
+    z-index: 10;
 }
 
 .features .box-container .box .content h3 {
     font-size: 2.5rem;
     color: #fff;
+    margin-bottom: 1.5rem;
 }
 
+.features .box-container .box .content p {
+    font-size: 1.5rem;
+    color: #aaa; /* Um cinza mais suave para a descrição */
+    line-height: 1.8;
+    margin-bottom: 2.5rem; /* Afasta o texto do botão */
+}
 /* Seção Suplementos / Planos */
 .suppl {
     background: #111;
@@ -350,6 +401,7 @@ section{
 }
 
 /* Performance e Saúde */
+/* Seção de Serviços (Performance e Saúde - #per) */
 #per .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -360,12 +412,26 @@ section{
     padding: 3rem;
     background: #000;
     text-align: center;
+    border-radius: .5rem; /* Consistência com o design (cantos arredondados) */
+    border: 0.1rem solid #333; /* Borda sutil para não sumir no fundo cinza/preto */
+}
+
+/* Efeito Hover: O card "pula" e ganha destaque ao passar o mouse */
+#per .box-container .box:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.5);
+    border-color: rgb(238, 87, 51); /* A borda fica com a cor principal (laranja) */
 }
 
 #per .box-container .box i {
     font-size: 4rem;
     color: rgb(238, 87, 51);
     margin-bottom: 1.5rem;
+}
+
+/* Efeito extra: O ícone dá um leve zoom quando o usuário passa o mouse no card */
+#per .box-container .box:hover i {
+    transform: scale(1.1);
 }
 
 #per .box-container .box h3 {
@@ -379,7 +445,6 @@ section{
     color: #eee;
     line-height: 1.8;
 }
-
 /* Coleções */
 .colections .box-container {
     display: grid;
@@ -499,4 +564,381 @@ section{
     padding-top: 2rem;
     border-top: .1rem solid #aaa;
     text-align: right;
+}
+/* =========================================
+   Seção de Feedbacks (Review)
+========================================= */
+.review {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    background: #111; /* Fundo escuro para dar contraste com outras seções */
+}
+
+/* Lado esquerdo: Informações */
+.review .information {
+    flex: 1 1 35rem;
+}
+
+.review .information span {
+    font-size: 2rem;
+    color: rgb(238, 87, 51);
+}
+
+.review .information h3 {
+    font-size: 4rem;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+.review .information p {
+    font-size: 1.6rem;
+    color: #eee;
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+/* Lado direito: Slider de Avaliações */
+.review .review-slider {
+    flex: 1 1 50rem;
+}
+
+.review .slide {
+    background: #000;
+    border-radius: .5rem;
+    padding: 3rem;
+    border: 0.1rem solid #333;
+}
+
+.review .slide p {
+    font-size: 1.5rem;
+    color: #eee;
+    line-height: 2;
+    margin-bottom: 2rem;
+}
+
+.review .slide .user {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.review .slide .user img {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover;
+}
+
+.review .slide .user .info h3 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.review .slide .user .info span {
+    font-size: 1.4rem;
+    color: rgb(238, 87, 51);
+}
+
+.review .slide .user i {
+    font-size: 5rem;
+    color: #222; /* Aspas grandes e discretas ao fundo */
+    margin-left: auto; /* Empurra as aspas para o canto direito */
+}
+
+
+/* =========================================
+   Seção de Suporte ao Cliente
+========================================= */
+.support {
+    background: #1a1a1a;
+}
+
+.support .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+/* Informações de Contato */
+.support .row .contact-info {
+    flex: 1 1 40rem;
+}
+
+.support .row .contact-info h3 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.support .row .contact-info p {
+    font-size: 1.6rem;
+    color: #eee;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.support .row .contact-info p i {
+    color: rgb(238, 87, 51);
+    font-size: 2rem;
+}
+
+/* Formulário de Contato */
+.support .row form {
+    flex: 1 1 40rem;
+    background: #000;
+    padding: 3rem;
+    border-radius: .5rem;
+    border: 0.1rem solid #333;
+}
+
+.support .row form .box {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #111;
+    color: #fff;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    border: 0.1rem solid #333;
+    text-transform: none; /* Importante: permite digitar e-mails em letras minúsculas */
+}
+
+/* Efeito ao clicar no input do formulário */
+.support .row form .box:focus {
+    border-color: rgb(238, 87, 51);
+    background: #1a1a1a;
+}
+
+.support .row form textarea {
+    resize: none; /* Impede que o usuário arraste a caixa de texto e quebre o layout */
+    height: 15rem;
+}
+
+.support .row form .btn {
+    width: 100%; /* Faz o botão de enviar ocupar toda a largura do form */
+    text-align: center;
+}
+/* =========================================
+   Rodapé (Footer)
+========================================= */
+.footer {
+    background: #000;
+    padding: 5rem 9%;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 3rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    padding-bottom: 2rem;
+}
+
+.footer .box-container .box p,
+.footer .box-container .box a.links {
+    display: block;
+    font-size: 1.5rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box p i {
+    padding-right: 1rem;
+    color: rgb(238, 87, 51); /* Ícones laranjas */
+}
+
+/* Efeito ao passar o mouse nos links */
+.footer .box-container .box a.links:hover {
+    color: rgb(238, 87, 51);
+    padding-left: 1rem;
+}
+
+/* Redes Sociais */
+.footer .box-container .box .share {
+    margin-top: 1.5rem;
+}
+
+.footer .box-container .box .share a {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    color: #fff;
+    background: #111;
+    border: 0.1rem solid #333;
+    margin-right: 0.5rem;
+}
+
+.footer .box-container .box .share a:hover {
+    background: rgb(238, 87, 51);
+    border-color: rgb(238, 87, 51);
+}
+
+/* Formulário de Novidades */
+.footer .box-container .box .email {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.2rem;
+    border-radius: .5rem;
+    background: #111;
+    color: #fff;
+    font-size: 1.6rem;
+    border: 0.1rem solid #333;
+    text-transform: none; /* Deixa o e-mail em minúsculo */
+}
+
+.footer .box-container .box .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+/* =========================================
+   Rodapé (Footer) - Correção Exclusiva via CSS
+========================================= */
+.footer {
+    background: #000;
+    padding: 5rem 9%;
+    display: grid;
+    gap: 1.5rem 3rem;
+    align-items: start;
+}
+
+/* Esconde a div vazia que está sobrando no seu HTML para não bugar o layout */
+.footer > .box-container {
+    display: none;
+}
+
+/* Esconde a última div vazia no final do HTML */
+.footer > div:last-child {
+    display: none;
+}
+
+/* Estilos dos Textos e Títulos (incluindo o H3 solto) */
+.footer .box h3, 
+.footer > h3 {
+    font-size: 2.2rem;
+    color: #fff;
+    padding-bottom: 1rem;
+}
+
+.footer .box p, 
+.footer > p,
+.footer .box a.links {
+    display: block;
+    font-size: 1.5rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+
+.footer .box p i {
+    padding-right: 1rem;
+    color: rgb(238, 87, 51); /* Ícones laranjas */
+}
+
+/* Animação nos links ao passar o mouse */
+.footer .box a.links:hover {
+    color: rgb(238, 87, 51);
+    padding-left: 1rem;
+}
+
+/* Redes Sociais */
+.footer .box .share {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.footer .box .share a {
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    color: #fff;
+    background: #111;
+    border: 0.1rem solid #333;
+}
+
+.footer .box .share a:hover {
+    background: rgb(238, 87, 51);
+    border-color: rgb(238, 87, 51);
+}
+
+/* Input e Botão de Novidades (que estão soltos no HTML) */
+.footer .email {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 1.2rem;
+    border-radius: .5rem;
+    background: #111;
+    color: #fff;
+    font-size: 1.6rem;
+    border: 0.1rem solid #333;
+    text-transform: none; /* Deixa o e-mail em minúsculo */
+}
+
+.footer .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* =========================================
+   A MÁGICA DO GRID (Responsividade)
+========================================= */
+
+/* Desktop: Força 4 colunas perfeitamente alinhadas */
+@media (min-width: 991px) {
+    .footer {
+        grid-template-columns: repeat(4, 1fr);
+        /* Esta é a linha que resolve o problema do espaçamento: */
+        grid-template-rows: max-content max-content max-content auto;
+    }
+    
+    /* Define as 3 divs nas 3 primeiras colunas, ocupando 4 linhas virtuais */
+    .footer > .box:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 4; }
+    .footer > .box:nth-of-type(2) { grid-column: 2; grid-row: 1 / span 4; }
+    .footer > .box:nth-of-type(3) { grid-column: 3; grid-row: 1 / span 4; }
+    
+    /* Empurra os itens da 4ª coluna para o topo com "align-self: start" */
+    .footer > h3:last-of-type { 
+        grid-column: 4; grid-row: 1; 
+        margin-top: 0; 
+        align-self: start; 
+    }
+    .footer > p:last-of-type { 
+        grid-column: 4; grid-row: 2; 
+        padding: 0 0 1rem 0; 
+        align-self: start; 
+    }
+    .footer > .email { 
+        grid-column: 4; grid-row: 3; 
+        align-self: start; 
+        margin-bottom: 1rem; 
+    }
+    .footer > .btn { 
+        grid-column: 4; grid-row: 4; 
+        margin-top: 0; 
+        align-self: start; 
+    }
+}
+
+/* Mobile e Tablet: Empilha tudo em 1 ou 2 colunas */
+@media (max-width: 990px) {
+    .footer {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-template-rows: auto;
+    }
 }
