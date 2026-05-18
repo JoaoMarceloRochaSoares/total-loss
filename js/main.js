@@ -6,46 +6,116 @@ menu.onclick = () =>{
     navbar.classList.toggle('active');
 };
 
-// CARRINHO
+//CARRINHO
 let cart = [];
 let total = 0;
+const cartIcon = document.getElementById("cart-icon");
+const cartSidebar = document.getElementById("cart-sidebar");
+
+cartIcon.addEventListener("mouseenter", () => {
+    cartSidebar.classList.add("active");
+});
+
+cartSidebar.addEventListener("mouseleave", () => {
+    cartSidebar.classList.remove("active");
+});
  
-// Abrir/fechar carrinho
-function toggleCart() {
-    document.getElementById("cart-sidebar").classList.toggle("active");
-}
- 
-// Adicionar item ao carrinho
 function addToCart(name, price) {
-    cart.push({ name, price });
-    total += price;
- 
+
+    const existingProduct = cart.find(item => item.name === name);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({
+            name,
+            price,
+            quantity: 1
+        });
+    }
+
     updateCart();
 }
- 
-// Atualizar carrinho na tela
+
+function removeFromCart(name) {
+
+    cart = cart.filter(item => item.name !== name);
+
+    updateCart();
+}
+
+function changeQuantity(name, change) {
+
+    const product = cart.find(item => item.name === name);
+
+    if (!product) return;
+
+    product.quantity += change;
+
+    if (product.quantity <= 0) {
+        removeFromCart(name);
+        return;
+    }
+
+    updateCart();
+}
+
 function updateCart() {
+
     const cartItems = document.getElementById("cart-items");
     const cartCount = document.getElementById("cart-count");
     const totalPrice = document.getElementById("total-price");
- 
+
     cartItems.innerHTML = "";
- 
+
+    let total = 0;
+    let totalItems = 0;
+
     cart.forEach(item => {
+
+        total += item.price * item.quantity;
+        totalItems += item.quantity;
+
         let div = document.createElement("div");
         div.classList.add("cart-item");
- 
+
         div.innerHTML = `
-            <p>${item.name}</p>
-            <p>R$ ${item.price.toFixed(2)}</p>
+            <div class="cart-product-info">
+                <p class="cart-product-name">${item.name}</p>
+
+                <div class="cart-quantity">
+                    <button onclick="changeQuantity('${item.name}', -1)">
+                        -
+                    </button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="changeQuantity('${item.name}', 1)">
+                        +
+                    </button>
+                </div>
+            </div>
+
+            <div class="cart-right">
+                <p>
+                    R$ ${(item.price * item.quantity).toFixed(2)}
+                </p>
+
+                <button class="remove-btn"
+                    onclick="removeFromCart('${item.name}')">
+                    ✖
+                </button>
+            </div>
         `;
- 
+
         cartItems.appendChild(div);
     });
- 
-    cartCount.innerText = cart.length;
+
+    cartCount.innerText = totalItems;
     totalPrice.innerText = total.toFixed(2);
-}[
+}
+
+[
     {
         "id": 1,
         "nome": "Whey Protein Isolate",
