@@ -433,7 +433,7 @@ section{
     position: fixed;
     top: 9rem;
     right: 2rem;
-    background: rgb(238, 87, 51);
+    background: transparent;
     color: #fff;
     padding: 1rem 1.5rem;
     font-size: 2rem;
@@ -441,6 +441,9 @@ section{
     z-index: 1000;
     border-radius: .5rem;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,0.3);
+}
+#cart-icon img{
+    width: 40px;
 }
 
 #cart-count {
