@@ -428,193 +428,7 @@ section{
     font-size: 3rem;
     color: #fff;
 }
-/* Ícone flutuante do carrinho */
-#cart-icon {
-    position: fixed;
-    top: 9rem;
-    right: 2rem;
-    background: transparent;
-    color: #fff;
-    padding: 1rem 1.5rem;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1000;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.3);
-}#cart-icon {
-    position: fixed;
 
-    top: 8.5rem;
-    right: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    cursor: pointer;
-    z-index: 1000;
-
-    color: #fff;
-
-    font-size: 2.2rem;
-
-    transition: 0.3s;
-}
-#cart-icon {
-    position: fixed;
-
-    top: 8.5rem;
-    right: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    cursor: pointer;
-    z-index: 1000;
-
-    color: #fff;
-
-    font-size: 2.2rem;
-
-    transition: 0.3s;
-}
-#cart-icon {
-    position: fixed;
-
-    top: 8.5rem;
-    right: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    cursor: pointer;
-    z-index: 1000;
-
-    color: #fff;
-
-    font-size: 2.2rem;
-
-    transition: 0.3s;
-}
-#cart-icon {
-    position: fixed;
-
-    top: 8.5rem;
-    right: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    cursor: pointer;
-    z-index: 1000;
-
-    color: #fff;
-
-    font-size: 2.2rem;
-
-    transition: 0.3s;
-}
-#cart-icon {
-    position: fixed;
-
-    top: 8.5rem;
-    right: 2rem;
-
-    display: flex;
-    align-items: center;
-    gap: .8rem;
-
-    cursor: pointer;
-    z-index: 1000;
-
-    color: #fff;
-
-    font-size: 2.2rem;
-
-    transition: 0.3s;
-}
-
-
-#cart-count {
-    background: #fff;
-    color: #000;
-    padding: .2rem .5rem;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    margin-left: .5rem;
-    font-weight: bold;
-}
-
-/* Menu Lateral do Carrinho */
-#cart-sidebar {
-    position: fixed;
-    top: 0; right: -100%; /* Começa escondido à direita */
-    height: 100%;
-    width: 35rem;
-    background: #111;
-    z-index: 11000;
-    padding: 2rem;
-    transition: 0.4s linear;
-    display: flex;
-    flex-direction: column;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-}
-
-#cart-sidebar.active {
-    right: 0; /* Desliza para dentro da tela */
-}
-
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: .1rem solid #aaa;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-}
-
-.cart-header h2 {
-    color: #fff;
-    font-size: 2.2rem;
-}
-
-.cart-header button {
-    background: rgb(238, 87, 51);
-    color: #fff;
-    padding: .5rem 1rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-#cart-items {
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    background: #222;
-    padding: 1rem;
-}
-
-.cart-item p {
-    color: #fff;
-    font-size: 1.5rem;
-}
-
-.cart-total {
-    font-size: 2rem;
-    color: #fff;
-    padding-top: 2rem;
-    border-top: .1rem solid #aaa;
-    text-align: right;
-}
 /* =========================================
    Seção de Feedbacks (Review)
 ========================================= */
@@ -1175,6 +989,100 @@ section{
     border-top: .1rem solid #aaa;
     text-align: right;
 }
+
+/* Área inferior do carrinho */
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 2rem;
+    color: #fff;
+
+    padding-top: 2rem;
+    margin-top: 2rem;
+
+    border-top: .1rem solid #aaa;
+    gap: 1.5rem;
+}
+
+/* Item do carrinho */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #222;
+    padding: 1.2rem;
+    border-radius: .5rem;
+
+    margin-bottom: 1rem;
+}
+
+/* Nome produto */
+.cart-product-name {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: .8rem;
+}
+
+/* Quantidade */
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cart-quantity button {
+    background: rgb(238, 87, 51);
+    color: #fff;
+
+    width: 2.8rem;
+    height: 2.8rem;
+
+    border-radius: .3rem;
+    cursor: pointer;
+
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.cart-quantity span {
+    color: #fff;
+    font-size: 1.5rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+/* Lado direito */
+.cart-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .8rem;
+}
+
+.cart-right p {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#cart-icon svg{
+    width: 2.4rem;
+    height: 2.4rem;
+    stroke-width: 1.7;
+}
+
+#cart-icon{
+    position: fixed;
+}
+
+#cart-icon i{
+    position: relative;
+}
+
+
 /* =========================================
    Seção de Feedbacks (Review)
 ========================================= */
@@ -1582,22 +1490,6 @@ section{
     margin-bottom: 1.5rem;
 }
 
-/* Área inferior do carrinho */
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-size: 2rem;
-    color: #fff;
-
-    padding-top: 2rem;
-    margin-top: 2rem;
-
-    border-top: .1rem solid #aaa;
-    gap: 1.5rem;
-}
-
 /* Valor total */
 .total-info {
     font-weight: bold;
@@ -1623,68 +1515,6 @@ section{
     transform: translateY(-2px);
 }
 
-/* Item do carrinho */
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background: #222;
-    padding: 1.2rem;
-    border-radius: .5rem;
-
-    margin-bottom: 1rem;
-}
-
-/* Nome produto */
-.cart-product-name {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: .8rem;
-}
-
-/* Quantidade */
-.cart-quantity {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.cart-quantity button {
-    background: rgb(238, 87, 51);
-    color: #fff;
-
-    width: 2.8rem;
-    height: 2.8rem;
-
-    border-radius: .3rem;
-    cursor: pointer;
-
-    font-size: 1.6rem;
-    font-weight: bold;
-}
-
-.cart-quantity span {
-    color: #fff;
-    font-size: 1.5rem;
-    min-width: 2rem;
-    text-align: center;
-}
-
-/* Lado direito */
-.cart-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: .8rem;
-}
-
-.cart-right p {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
 /* Botão remover */
 .remove-btn {
     background: crimson;
@@ -1699,18 +1529,4 @@ section{
 
 .remove-btn:hover {
     background: red;
-}
-
-#cart-icon svg{
-    width: 2.4rem;
-    height: 2.4rem;
-    stroke-width: 1.7;
-}
-
-#cart-icon{
-    position: fixed;
-}
-
-#cart-icon i{
-    position: relative;
 }
