@@ -27,22 +27,30 @@
             <a href="#support">Suporte</a>
         </nav>
     </header>
-    <div id="cart-icon" onclick="toggleCart()">
-        🛒 <span id="cart-count">0</span>
+    <div id="cart-icon">
+    <i data-lucide="shopping-cart"></i>
+    <span id="cart-count">0</span>
+</div>
+ 
+<div id="cart-sidebar" class="hidden">
+    <div class="cart-header">
+        <h2>Meu Carrinho</h2>
     </div>
-
-    <div id="cart-sidebar" class="hidden">
-        <div class="cart-header">
-            <h2>Meu Carrinho</h2>
-            <button onclick="toggleCart()">Fechar</button>
-        </div>
-        <div id="cart-items">
-        </div>
-        <div class="cart-total">
+ 
+    <div id="cart-items">
+    </div>
+ 
+    <div class="cart-total">
+        <div class="total-info">
             Total: R$ <span id="total-price">0.00</span>
         </div>
+ 
+        <button class="checkout-btn">
+            Finalizar Compra
+        </button>
     </div>
-
+</div>
+    
     <main>
         <section id="home" class="home">
 
