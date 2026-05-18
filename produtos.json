@@ -1,0 +1,15 @@
+  {
+        "id": 2,
+        "nome": "Creatina Monohidratada",
+        "preco": 95.00,
+        "categoria": "Performance",
+        "imagem": "https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+        "id": 3,
+        "nome": "BCAA 2:1:1",
+        "preco": 79.90,
+        "categoria": "Recuperação",
+        "imagem": "https://images.unsplash.com/photo-1579722820308-d74e571900a9?q=80&w=400&auto=format&fit=crop"
+    }
+]
