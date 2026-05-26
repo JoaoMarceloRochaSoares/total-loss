@@ -10,9 +10,9 @@
 
 html {
     font-size: 62.5%;
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-    overflow-x: hidden;
+    scroll-behavior: smooth; 
+    scroll-padding-top: 7rem;
+
 }
 
 html::-webkit-scrollbar {
@@ -991,4 +991,67 @@ section {
     color: rgb(238, 87, 51);
     font-size: 1.8rem;
     margin: 1rem 0;
+}
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+.tab-input {
+    display: none;
+}
+
+.tab-label {
+    padding: 1.2rem 3rem;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 0.1rem solid #333;
+    border-radius: .5rem;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+}
+
+.tab-label:hover {
+    border-color: rgb(238, 87, 51);
+    color: rgb(238, 87, 51);
+}
+
+#tab-creations:checked ~ .tabs-container label[for="tab-creations"],
+#tab-products:checked ~ .tabs-container label[for="tab-products"] {
+    background: linear-gradient(130deg, rgb(238, 87, 51) 93%, transparent 90%);
+    color: #fff;
+    border-color: rgb(238, 87, 51);
+    transform: scale(1.05);
+}
+
+.tab-content {
+    display: none;
+    width: 100%;
+}
+
+#tab-creations:checked ~ .content-wrapper #creations-content {
+    display: block;
+}
+
+#tab-products:checked ~ .content-wrapper #products-content {
+    display: block;
+}
+
+@media (max-width: 450px) {
+    .tabs-container {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    .tab-label {
+        text-align: center;
+        width: 100%;
+    }
 }
