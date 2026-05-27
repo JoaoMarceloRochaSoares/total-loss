@@ -257,7 +257,7 @@ if(productList){
     window.location.pathname.includes("index");
  
 const visibleProducts = isHomePage
-    ? products.slice(0, 6)
+    ? products.slice(0, 3)
     : products;
  
 visibleProducts.forEach(p => {
