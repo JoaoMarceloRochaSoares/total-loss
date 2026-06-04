@@ -1,4 +1,4 @@
-<?php include 'C:/xampp/htdocs/logindojohnson/conexao.php'; ?>
+<?php include '../conexao.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
