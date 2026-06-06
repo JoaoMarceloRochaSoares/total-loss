@@ -63,9 +63,21 @@
 
 <body>
 
-<header class="header">
-<a href="index.html" class="logo"><span>Total</span>Loss</a>
-</header>
+    <header class="header">
+        <a href="index.html" class="logo"><span>Total</span>Loss</a>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="index.html">Início</a>
+            <a href="index.html#about">Sobre</a>
+            <a href="index.html#features">Serviços</a>
+            <a href="index.html#suppl">Suplementos</a>
+            <a href="index.html#mar">Matérias</a>
+            <a href="index.html#support">Suporte</a>
+            <a href="login e registro/Login/login.php">Login</a>
+        </nav>
+    </header>
 
 <section class="topic-page">
 
@@ -107,5 +119,10 @@ Além disso, o Whey pode auxiliar no aumento da ingestão proteica diária de fo
 
 </section>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="main.js"></script>
+    <script>
+        if (typeof lucide !== "undefined") lucide.createIcons();
+    </script>
 </body>
 </html>
