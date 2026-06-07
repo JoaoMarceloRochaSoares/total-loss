@@ -128,3 +128,33 @@ new Swiper(".home-slider",{
         clickable:true
     }
 });
+
+/// Parte do popup do suporte
+document.getElementById('contato-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    fetch('Suporte_action.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then(resposta => {
+        const popup = document.getElementById('popup-contato');
+        const msg = document.getElementById('popup-msg');
+        if (resposta.includes('sucesso')) {
+            msg.textContent = 'Mensagem enviada com sucesso!';
+        } else {
+            msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
+        }
+        popup.style.display = 'flex';
+    });
+});
+
+function fecharPopupContato() {
+    const card = document.querySelector('.popup-contato-card');
+    card.classList.add('fechando');
+    setTimeout(() => {
+        document.getElementById('popup-contato').style.display = 'none';
+        card.classList.remove('fechando');
+    }, 300);
+}
