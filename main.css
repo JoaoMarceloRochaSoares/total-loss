@@ -1170,7 +1170,7 @@ section {
 }
 
 .cart-quantity button {
-    background: rgb(238, 87, 51);
+    background: #333;
     color: #fff;
     border: none;
     width: 2.5rem;
@@ -1182,7 +1182,7 @@ section {
 }
 
 .cart-quantity button:hover {
-    background: rgb(200, 70, 40);
+     background: rgb(238, 87, 51);
 }
 
 .remove-btn {
