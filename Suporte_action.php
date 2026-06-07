@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql->bind_param("sss", $nome, $email, $mensagem);
 
     if ($sql->execute()) {
-        echo "Sucesso";
+        echo "sucesso";
     } else {
-        echo "Erro";
+        echo "erro";
     }
 }
 ?>
