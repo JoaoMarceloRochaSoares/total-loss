@@ -120,13 +120,13 @@ if (productList) {
 }
 
 // SLIDER 
-<<<<<<< HEAD
+
 new Swiper(".home-slider", {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: { el: ".swiper-pagination", clickable: true }
 });
-=======
+
 new Swiper(".home-slider",{
     loop:true,
     autoplay:{
@@ -168,4 +168,4 @@ function fecharPopupContato() {
         card.classList.remove('fechando');
     }, 300);
 }
->>>>>>> eaab87ad404615b68352ff8197366433121d4ef4
+
