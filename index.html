@@ -274,10 +274,10 @@
                     <p><i class="fas fa-map-marker-alt"></i> Niterói, Rio de Janeiro, Brasil</p>
                 </div>
                 
-                <form action="#" onsubmit="event.preventDefault();">
-                    <input type="text" placeholder="Seu Nome" class="box" required>
-                    <input type="email" placeholder="Seu Email" class="box" required>
-                    <textarea placeholder="Sua Mensagem" class="box" cols="30" rows="10" required></textarea>
+                <form action="contato_action.php" method="POST">
+                    <input type="text" name="nome" placeholder="Seu Nome" class="box" required>
+                    <input type="email" name="email" placeholder="Seu Email" class="box" required>
+                    <textarea name="mensagem" placeholder="Sua Mensagem" class="box" cols="30" rows="10" required></textarea>
                     <input type="submit" value="Enviar Mensagem" class="btn">
                 </form>
             </div>
