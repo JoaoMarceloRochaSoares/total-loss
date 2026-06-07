@@ -119,22 +119,9 @@ if (productList) {
     });
 }
 
-// SLIDER 
-<<<<<<< HEAD
+// SLIDER
 new Swiper(".home-slider", {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: { el: ".swiper-pagination", clickable: true }
-});
-=======
-new Swiper(".home-slider",{
-    loop:true,
-    autoplay:{
-        delay:3000,
-        disableOnInteraction:false
-    },
-    pagination:{
-        el:".swiper-pagination",
-        clickable:true
-    }
 });
