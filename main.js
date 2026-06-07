@@ -140,6 +140,7 @@ new Swiper(".home-slider",{
 });
 
 /// Parte do popup do suporte
+
 document.getElementById('contato-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const formData = new FormData(this);
@@ -168,4 +169,3 @@ function fecharPopupContato() {
         card.classList.remove('fechando');
     }, 300);
 }
->>>>>>> eaab87ad404615b68352ff8197366433121d4ef4
