@@ -1287,7 +1287,7 @@ section {
 
 .popup-contato-card button:hover {
     background: rgb(238,87,51);
-    transition: 0.2s;
+    transition: 0.4s;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.8); }
