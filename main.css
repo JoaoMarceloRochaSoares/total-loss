@@ -1168,3 +1168,35 @@ section {
     transform:translateY(-3px);
     opacity:.9;
 }
+
+.cart-quantity button {
+    background: rgb(238, 87, 51);
+    color: #fff;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: .3rem;
+    transition: 0.2s;
+}
+
+.cart-quantity button:hover {
+    background: rgb(200, 70, 40);
+}
+
+.remove-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-radius: .3rem;
+    transition: 0.2s;
+}
+
+.remove-btn:hover {
+    background: red;
+}
