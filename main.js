@@ -139,7 +139,7 @@ document.getElementById('contato-form').addEventListener('submit', function(e) {
     fetch('Suporte_action.php', {
         method: 'POST',
         body: formData
-    })
+    });
     .then(res => res.text())
     .then(resposta => {
         const popup = document.getElementById('popup-contato');
