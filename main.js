@@ -123,46 +123,35 @@ if (productList) {
     });
 }
 
-// SLIDER 
-
+// ===== SLIDER =====
 new Swiper(".home-slider", {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: { el: ".swiper-pagination", clickable: true }
 });
 
-new Swiper(".home-slider",{
-    loop:true,
-    autoplay:{
-        delay:3000,
-        disableOnInteraction:false
-    },
-    pagination:{
-        el:".swiper-pagination",
-        clickable:true
-    }
-});
-
-/// Parte do popup do suporte
-
-document.getElementById('contato-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    fetch('Suporte_action.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.text())
-    .then(resposta => {
-        const popup = document.getElementById('popup-contato');
-        const msg = document.getElementById('popup-msg');
-        if (resposta.includes('sucesso')) {
-            msg.textContent = 'Mensagem enviada com sucesso!';
-        } else {
-            msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
-        }
-        popup.style.display = 'flex';
-    });
+// ===== POPUP SUPORTE =====
+const contatoForm = document.getElementById('contato-form');
+if (contatoForm) {
+    contatoForm.addEventListener('submit', function(e) {  // <-- parêntese que faltava
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('Suporte_action.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(resposta => {
+            const popup = document.getElementById('popup-contato');
+            const msg = document.getElementById('popup-msg');
+            if (resposta.includes('sucesso')) {
+                msg.textContent = 'Mensagem enviada com sucesso!';
+            } else {
+                msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
+            }
+            popup.style.display = 'flex';
+        });
+    }); // <-- fechamento correto
 }
 
 function fecharPopupContato() {
