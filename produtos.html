@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Total Loss</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        .products-page {
+            margin-top: 7rem;
+            background: #111;
+        }
+
+        .top-bar {
+            background: rgb(238, 87, 51);
+            color: #fff;
+            text-align: center;
+            padding: .8rem;
+            font-size: 1.4rem;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 10001;
+            font-weight: 300;
+        }
+
+        .header {
+            top: 3.5rem;
+        }
+
+        #cart-icon {
+            top: 12rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        Adicione R$ 250,00 ao carrinho para ter <strong>FRETE GRÁTIS</strong> no Rio de Janeiro
+    </div>
+
+    <header class="header">
+        <a href="index.html" class="logo"><span>Total</span>Loss</a>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+    <a href="index.html">Início</a>
+    <a href="index.html#about">Sobre</a>
+    <a href="index.html#features">Serviços</a>
+    <a href="index.html#suppl">Suplementos</a>
+    <a href="index.html#mar">Matérias</a>
+    <a href="index.html#support">Suporte</a>
+</nav>
+    </header>
+
+    <div id="cart-icon">
+        <i data-lucide="shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <div id="cart-sidebar" class="hidden">
+        <div class="cart-header">
+            <h2>Meu Carrinho</h2>
+        </div>
+
+        <div id="cart-items"></div>
+
+        <div class="cart-total">
+            <div class="total-info">
+                Total: R$ <span id="total-price">0.00</span>
+            </div>
+            <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <main>
+        <section class="products-page suppl">
+            <h1 class="heading">
+                <span>Catálogo de Produtos</span>
+            </h1>
+
+            <div class="products-grid" id="product-list"></div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="main.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
