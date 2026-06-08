@@ -131,19 +131,7 @@ new Swiper(".home-slider", {
     pagination: { el: ".swiper-pagination", clickable: true }
 });
 
-new Swiper(".home-slider",{
-    loop:true,
-    autoplay:{
-        delay:3000,
-        disableOnInteraction:false
-    },
-    pagination:{
-        el:".swiper-pagination",
-        clickable:true
-    }
-});
-
-/// Parte do popup do suporte
+// Parte do popup do suporte
 
 document.getElementById('contato-form').addEventListener('submit', function(e) {
     e.preventDefault();
