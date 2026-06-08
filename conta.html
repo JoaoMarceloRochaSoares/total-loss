@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta — Total Loss</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .account-page {
+            margin-top: 8rem;
+            min-height: 80vh;
+            padding: 4rem 9%;
+        }
+
+        .account-grid {
+            display: grid;
+            grid-template-columns: 26rem 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .profile-card {
+            background: #1a1a1a;
+            border: .1rem solid #2a2a2a;
+            border-radius: 1.2rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 9rem;
+        }
+
+        .avatar {
+            width: 8rem;
+            height: 8rem;
+            background: rgb(238, 87, 51);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            color: #fff;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .profile-name  { font-size: 2rem; color: #fff; font-weight: 700; margin-bottom: 2.5rem; }
+
+        .profile-nav { display: flex; flex-direction: column; gap: .5rem; }
+
+        .profile-nav-btn {
+            padding: 1.2rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: #aaa;
+            font-size: 1.5rem;
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+            border-radius: .8rem;
+            text-align: left;
+            transition: .2s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .profile-nav-btn:hover, .profile-nav-btn.active {
+            background: rgba(238,87,51,.12);
+            color: rgb(238, 87, 51);
+        }
+        .profile-nav-btn i { width: 1.8rem; }
+
+        .logout-btn {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 1.2rem;
+            background: #2a2a2a;
+            border: none;
+            color: #f55;
+            font-size: 1.4rem;
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+            border-radius: .8rem;
+            transition: .2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .8rem;
+        }
+        .logout-btn:hover { background: rgba(255,50,50,.15); }
+
+        /* Conteúdo */
+        .account-content {
+            background: #1a1a1a;
+            border: .1rem solid #2a2a2a;
+            border-radius: 1.2rem;
+            padding: 3rem;
+            min-height: 40rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: .1rem solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-title i { color: rgb(238, 87, 51); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Pedidos */
+        .order-card {
+            background: #111;
+            border: .1rem solid #2a2a2a;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .order-meta { font-size: 1.3rem; color: #555; }
+        .order-meta strong { color: #888; }
+
+        .order-status {
+            padding: .4rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: rgba(238,87,51,.15);
+            color: rgb(238, 87, 51);
+        }
+
+        .order-items { border-top: .1rem solid #222; padding-top: 1.2rem; margin-bottom: 1.2rem; }
+
+        .order-item-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            color: #ccc;
+            padding: .4rem 0;
+        }
+        .order-item-row span:last-child { color: #fff; font-weight: 600; }
+
+        .order-total {
+            border-top: .1rem solid #222;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .order-total span:first-child { color: #aaa; }
+        .order-total span:last-child  { color: rgb(238, 87, 51); }
+
+        .empty-state {
+            text-align: center;
+            padding: 6rem 2rem;
+            color: #444;
+        }
+        .empty-state i { font-size: 5rem; margin-bottom: 1.5rem; display: block; color: #333; }
+        .empty-state p { font-size: 1.6rem; margin-bottom: 2rem; }
+        .empty-state a {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: rgb(238, 87, 51);
+            color: #fff;
+            border-radius: .8rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: .2s;
+        }
+        .empty-state a:hover { background: rgb(210,70,35); }
+
+        @media (max-width: 768px) {
+            .account-grid { grid-template-columns: 1fr; }
+            .profile-card { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo"><span>Total</span>Loss</a>
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <nav class="navbar">
+        <a href="index.html">Início</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="index.html#features">Serviços</a>
+        <a href="index.html#suppl">Suplementos</a>
+        <a href="index.html#mar">Matérias</a>
+        <a href="index.html#support">Suporte</a>
+    </nav>
+</header>
+
+<main class="account-page">
+    <div class="account-grid">
+
+        <div class="profile-card">
+            <div class="avatar" id="avatar-letra">?</div>
+            <p class="profile-name" id="profile-name">—</p>
+
+            <div class="profile-nav">
+                <button class="profile-nav-btn active" onclick="showTab('orders', this)">
+                    <i class="fas fa-box"></i> Meus Pedidos
+                </button>
+            </div>
+
+            <button class="logout-btn" onclick="sair()">
+                <i class="fas fa-sign-out-alt"></i> Sair da conta
+            </button>
+        </div>
+
+        <div class="account-content">
+            <div class="tab-content active" id="tab-orders">
+                <p class="section-title"><i class="fas fa-box"></i> Meus Pedidos</p>
+                <div id="orders-list"></div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    // Verifica se está logado
+    const usuario = localStorage.getItem('tl_usuario');
+    if (!usuario) {
+        window.location.href = 'https://perdatotal.up.railway.app/Login/login.php';
+    }
+
+    // Preenche perfil
+    document.getElementById('avatar-letra').textContent = usuario ? usuario.charAt(0).toUpperCase() : '?';
+    document.getElementById('profile-name').textContent = usuario || '—';
+
+    function showTab(name, btn) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.profile-nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + name).classList.add('active');
+        btn.classList.add('active');
+    }
+
+    // Pedidos
+    function renderOrders() {
+        const list   = document.getElementById('orders-list');
+        const orders = JSON.parse(localStorage.getItem('tl_pedidos_' + usuario) || '[]');
+
+        if (orders.length === 0) {
+            list.innerHTML = `
+                <div class="empty-state">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p>Você ainda não fez nenhum pedido</p>
+                    <a href="produtos.html">Ver produtos</a>
+                </div>`;
+            return;
+        }
+
+        list.innerHTML = orders.map(o => `
+            <div class="order-card">
+                <div class="order-header">
+                    <div class="order-meta">
+                        <strong>Pedido #${o.id}</strong><br>
+                        <i class="fas fa-calendar-alt" style="margin-right:.4rem"></i>${o.data}
+                    </div>
+                    <span class="order-status">Confirmado</span>
+                </div>
+                <div class="order-items">
+                    ${o.itens.map(i => `
+                        <div class="order-item-row">
+                            <span>${i.name} × ${i.quantity}</span>
+                            <span>R$ ${(i.price * i.quantity).toFixed(2)}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="order-total">
+                    <span>Total</span>
+                    <span>R$ ${o.total}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    renderOrders();
+
+    function sair() {
+        localStorage.removeItem('tl_usuario');
+        window.location.href = 'index.html';
+    }
+
+    // Navbar menu
+    const menuBtn = document.getElementById('menu-btn');
+    const navbar  = document.querySelector('.navbar');
+    if (menuBtn) menuBtn.onclick = () => {
+        menuBtn.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    };
+</script>
+</body>
+</html>
