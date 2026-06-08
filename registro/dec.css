@@ -1,0 +1,103 @@
+body { 
+    background-image: url(../Fundo.jpg);/*fundo*/
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex; /*permite organizar de forma flexivel*/
+    justify-content: center; /*centraliza no eixo x*/
+    align-items: center; /*centraliza no eixo y*/
+    text-align: center; /*alinha o texto no centro*/
+    flex-direction: column; /*faz os elementos ficarem como se fosse lista*/
+    font-family: "Montserrat", sans-serif; /*fonte*/
+    height: 100vh;/*define a altura do bgl*/
+}
+input {
+    margin: 15px; /*margem entre os itens*/
+    padding: 10px; /*tamanho da caixa de texto*/
+    border: 1px solid #000000; /*borda do item*/
+    border-radius: 15px;
+}
+.card{
+    background-color: rgb(40, 40, 40, 0.6);
+    backdrop-filter: blur(7px);
+    padding: 40px;
+    padding-bottom: 100px;
+    border-radius: 30px; /*arredonda as bordas*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px; /*define a largura do item*/
+}
+.campo {
+    color: #c0bfbf;
+    font-size: 21px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+a{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    margin-top: 30px;
+    transition: 0.3s;
+}
+a:hover{
+    transform: scale(1.1);
+    color: #E84B1A;
+}
+button {
+    background-color: #c0bfbf;
+    color:rgba(15, 15, 15, 0.75);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    padding: 12px 30px;
+    width: 150px;
+    height: 45px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+button:hover{
+    transform: scale(1.1);
+    background-color: #E84B1A;
+}
+input.erro {
+    border: 2px solid red !important;
+    background-color: #fff0f0 !important;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.popup-sucesso {
+    border: 2px solid #4CAF50;
+}
+.popup-erro {
+    border: 2px solid red;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.8); }
+}
+.popup-card-animar {
+    animation: fadeIn 0.4s ease;
+}
