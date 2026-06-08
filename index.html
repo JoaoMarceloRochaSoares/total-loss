@@ -285,13 +285,19 @@
                     <p><i class="fas fa-map-marker-alt"></i> Niterói, Rio de Janeiro, Brasil</p>
                 </div>
 
-                <form id="contato-form" action="Suporte_action.php" method="POST">
+                <form id="contato-form" method="POST">
                     <input type="text" name="nome" placeholder="Seu Nome" class="box" required>
                     <input type="email" name="email" placeholder="Seu Email" class="box" required>
                     <textarea name="mensagem" placeholder="Sua Mensagem" class="box" cols="30" rows="10"
                         required></textarea>
                     <input type="submit" value="Enviar Mensagem" class="btn">
                 </form>
+                <div id="popup-contato">
+                    <div class="popup-contato-card">
+                        <p id="popup-msg"></p>
+                        <button onclick="fecharPopupContato()">Fechar</button>
+                    </div>
+                </div>
             </div>
         </section>
 
