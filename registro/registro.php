@@ -26,7 +26,7 @@
             <div class="campo">
                 <p id="popup-mensagem"></p>
             </div>
-            <button type="button" onclick="window.location.href='Login/login.php'">Login</button>
+            <button type="button" onclick="window.location.href='/Login/login.php'">Login</button>
         </div>
     </div>
     <script src="registro.js"></script>
