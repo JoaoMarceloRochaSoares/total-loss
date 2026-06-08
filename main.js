@@ -1,14 +1,14 @@
 let menu = document.querySelector('#menu-btn');
 let navbar = document.querySelector('.navbar');
 
-menu.onclick = () =>{
+menu.onclick = () => {
     menu.classList.toggle('fa-times');
     navbar.classList.toggle('active');
 };
 
-//CARRINHO
+// ===== CARRINHO =====
 let cart = [];
-let total = 0;
+
 const cartIcon = document.getElementById("cart-icon");
 const cartSidebar = document.getElementById("cart-sidebar");
 
@@ -19,7 +19,7 @@ cartIcon.addEventListener("mouseenter", () => {
 cartSidebar.addEventListener("mouseleave", () => {
     cartSidebar.classList.remove("active");
 });
- 
+
 function addToCart(name, price) {
     const existingProduct = cart.find(item => item.name === name);
     if (existingProduct) {
@@ -53,6 +53,7 @@ function updateCart() {
     cartItems.innerHTML = "";
     let total = 0;
     let totalItems = 0;
+
     cart.forEach(item => {
         total += item.price * item.quantity;
         totalItems += item.quantity;
@@ -74,10 +75,12 @@ function updateCart() {
         `;
         cartItems.appendChild(div);
     });
+
     cartCount.innerText = totalItems;
     totalPrice.innerText = total.toFixed(2);
 }
 
+// ===== PRODUTOS =====
 const products = [
     { title: "Kit Whey Gourmet 100g", price: 164.90, oldPrice: 210.88, discount: "-13%", image: "https://www.gsuplementos.com.br/upload/produto/layout/4074/mockup.webp", launch: true },
     { title: "Kit Whey Gourmet 400g e Creatina 250g", price: 109.90, oldPrice: 149.77, discount: "-18%", image: "https://product-data.raiadrogasil.io/images/18249088.webp", launch: true },
@@ -97,7 +100,8 @@ const products = [
 const productList = document.getElementById("product-list");
 
 if (productList) {
-    const isHomePage = window.location.pathname === '/' || window.location.pathname.includes('index');
+    const path = window.location.pathname;
+    const isHomePage = path === '/' || path.endsWith('index.html') || path.endsWith('index.php');
     const visibleProducts = isHomePage ? products.slice(0, 3) : products;
 
     visibleProducts.forEach(p => {
@@ -106,59 +110,56 @@ if (productList) {
         card.innerHTML = `
             ${p.discount ? `<div class="tl-badge">${p.discount}</div>` : ""}
             <div class="tl-product-img">
-                <img src="${p.image}" alt="${p.title}">
+                <img src="${p.image}" alt="${p.title}" loading="lazy">
             </div>
             ${p.launch ? `<div class="tl-tag">LANÇAMENTO</div>` : ""}
             <div class="tl-title">${p.title}</div>
-            ${p.oldPrice ? `<div class="tl-old-price">R$ ${p.oldPrice}</div>` : ""}
-            <div class="tl-price">R$ ${p.price}</div>
+            ${p.oldPrice ? `<div class="tl-old-price">R$ ${p.oldPrice.toFixed(2)}</div>` : ""}
+            <div class="tl-price">R$ ${p.price.toFixed(2)}</div>
             <div class="tl-installment">até 6x sem juros</div>
-            <button class="btn" onclick="addToCart('${p.title}', ${Number(p.price) || 0})">COMPRAR</button>
+            <button class="btn" onclick="addToCart('${p.title}', ${p.price})">COMPRAR</button>
         `;
         productList.appendChild(card);
     });
 }
 
-// SLIDER 
-
+// ===== SLIDER =====
 new Swiper(".home-slider", {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: { el: ".swiper-pagination", clickable: true }
 });
 
-new Swiper(".home-slider",{
-    loop:true,
-    autoplay:{
-        delay:3000,
-        disableOnInteraction:false
-    },
-    pagination:{
-        el:".swiper-pagination",
-        clickable:true
-    }
-});
+// ===== SUPORTE / POPUP =====
+const contatoForm = document.getElementById('contato-form');
 
-/// Parte do popup do suporte
-document.getElementById('contato-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    fetch('Suporte_action.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(res => res.text())
-    .then(resposta => {
-        const popup = document.getElementById('popup-contato');
-        const msg = document.getElementById('popup-msg');
-        if (resposta.includes('sucesso')) {
-            msg.textContent = 'Mensagem enviada com sucesso!';
-        } else {
-            msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
-        }
-        popup.style.display = 'flex';
+if (contatoForm) {
+    contatoForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('Suporte_action.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.text())
+        .then(resposta => {
+            const popup = document.getElementById('popup-contato');
+            const msg = document.getElementById('popup-msg');
+            if (resposta.includes('sucesso')) {
+                msg.textContent = 'Mensagem enviada com sucesso!';
+            } else {
+                msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
+            }
+            popup.style.display = 'flex';
+        })
+        .catch(() => {
+            const popup = document.getElementById('popup-contato');
+            const msg = document.getElementById('popup-msg');
+            msg.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+            popup.style.display = 'flex';
+        });
     });
-});
+}
 
 function fecharPopupContato() {
     const card = document.querySelector('.popup-contato-card');
@@ -168,4 +169,3 @@ function fecharPopupContato() {
         card.classList.remove('fechando');
     }, 300);
 }
-
