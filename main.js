@@ -1,37 +1,77 @@
-let menu = document.querySelector('#menu-btn');
-let navbar = document.querySelector('.navbar');
+// ---- Menu mobile ----
+const menuBtn = document.querySelector('#menu-btn');
+const navbar  = document.querySelector('.navbar');
+if (menuBtn) {
+    menuBtn.onclick = () => {
+        menuBtn.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    };
+}
 
-menu.onclick = () => {
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-};
+// ---- Sessão: salva o nome que vem na URL (?usuario=João) ----
+(function() {
+    const params  = new URLSearchParams(window.location.search);
+    const usuario = params.get('usuario');
+    if (usuario) {
+        localStorage.setItem('tl_usuario', usuario);
+        // Remove o parâmetro da URL sem recarregar
+        const url = new URL(window.location.href);
+        url.searchParams.delete('usuario');
+        window.history.replaceState({}, '', url.toString());
+    }
+})();
 
-// ===== CARRINHO =====
+// ---- Navbar dinâmica: Login ou Nome do usuário ----
+(function() {
+    const usuario = localStorage.getItem('tl_usuario');
+    if (!navbar) return;
+
+    // Remove link de Login antigo
+    navbar.querySelectorAll('a').forEach(a => {
+        if (a.textContent.trim() === 'Login') a.remove();
+    });
+
+    if (usuario) {
+        const link = document.createElement('a');
+        link.href = 'conta.html';
+        link.innerHTML = `<i class="fas fa-user-circle" style="margin-right:.4rem"></i>${usuario.split(' ')[0]}`;
+        navbar.appendChild(link);
+    } else {
+        const link = document.createElement('a');
+        link.href = 'https://perdatotal.up.railway.app/Login/login.php';
+        link.textContent = 'Login';
+        navbar.appendChild(link);
+    }
+})();
+
+// ---- Carrinho — persiste no localStorage ----
 let cart = [];
+try { cart = JSON.parse(localStorage.getItem('tl_cart')) || []; } catch {}
 
-const cartIcon = document.getElementById("cart-icon");
+const cartIcon    = document.getElementById("cart-icon");
 const cartSidebar = document.getElementById("cart-sidebar");
 
-cartIcon.addEventListener("mouseenter", () => {
-    cartSidebar.classList.add("active");
-});
+if (cartIcon)    cartIcon.addEventListener("mouseenter", () => cartSidebar.classList.add("active"));
+if (cartSidebar) cartSidebar.addEventListener("mouseleave", () => cartSidebar.classList.remove("active"));
 
-cartSidebar.addEventListener("mouseleave", () => {
-    cartSidebar.classList.remove("active");
-});
+function saveCart() {
+    localStorage.setItem('tl_cart', JSON.stringify(cart));
+}
 
 function addToCart(name, price) {
-    const existingProduct = cart.find(item => item.name === name);
-    if (existingProduct) {
-        existingProduct.quantity += 1;
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.quantity += 1;
     } else {
         cart.push({ name, price, quantity: 1 });
     }
+    saveCart();
     updateCart();
 }
 
 function removeFromCart(name) {
     cart = cart.filter(item => item.name !== name);
+    saveCart();
     updateCart();
 }
 
@@ -39,25 +79,24 @@ function changeQuantity(name, change) {
     const product = cart.find(item => item.name === name);
     if (!product) return;
     product.quantity += change;
-    if (product.quantity <= 0) {
-        removeFromCart(name);
-        return;
-    }
+    if (product.quantity <= 0) { removeFromCart(name); return; }
+    saveCart();
     updateCart();
 }
 
 function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    const cartCount = document.getElementById("cart-count");
+    const cartItems  = document.getElementById("cart-items");
+    const cartCount  = document.getElementById("cart-count");
     const totalPrice = document.getElementById("total-price");
+    if (!cartItems) return;
+
     cartItems.innerHTML = "";
-    let total = 0;
-    let totalItems = 0;
+    let total = 0, totalItems = 0;
 
     cart.forEach(item => {
         total += item.price * item.quantity;
         totalItems += item.quantity;
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.classList.add("cart-item");
         div.innerHTML = `
             <div class="cart-product-info">
@@ -76,11 +115,24 @@ function updateCart() {
         cartItems.appendChild(div);
     });
 
-    cartCount.innerText = totalItems;
-    totalPrice.innerText = total.toFixed(2);
+    if (cartCount)  cartCount.innerText  = totalItems;
+    if (totalPrice) totalPrice.innerText = total.toFixed(2);
 }
 
-// ===== PRODUTOS =====
+// Botão finalizar — só funciona se logado
+const checkoutBtn = document.querySelector(".checkout-btn");
+if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", () => {
+        const usuario = localStorage.getItem('tl_usuario');
+        if (!usuario) {
+            window.location.href = 'https://perdatotal.up.railway.app/Login/login.php';
+        } else {
+            window.location.href = 'checkout.html';
+        }
+    });
+}
+
+// ---- Produtos ----
 const products = [
     { title: "Kit Whey Gourmet 100g", price: 164.90, oldPrice: 210.88, discount: "-13%", image: "https://www.gsuplementos.com.br/upload/produto/layout/4074/mockup.webp", launch: true },
     { title: "Kit Whey Gourmet 400g e Creatina 250g", price: 109.90, oldPrice: 149.77, discount: "-18%", image: "https://product-data.raiadrogasil.io/images/18249088.webp", launch: true },
@@ -98,10 +150,8 @@ const products = [
 ];
 
 const productList = document.getElementById("product-list");
-
 if (productList) {
-    const path = window.location.pathname;
-    const isHomePage = path === '/' || path.endsWith('index.html') || path.endsWith('index.php');
+    const isHomePage = window.location.pathname === '/' || window.location.pathname.includes('index');
     const visibleProducts = isHomePage ? products.slice(0, 3) : products;
 
     visibleProducts.forEach(p => {
@@ -109,55 +159,26 @@ if (productList) {
         card.className = "tl-card";
         card.innerHTML = `
             ${p.discount ? `<div class="tl-badge">${p.discount}</div>` : ""}
-            <div class="tl-product-img">
-                <img src="${p.image}" alt="${p.title}" loading="lazy">
-            </div>
+            <div class="tl-product-img"><img src="${p.image}" alt="${p.title}"></div>
             ${p.launch ? `<div class="tl-tag">LANÇAMENTO</div>` : ""}
             <div class="tl-title">${p.title}</div>
-            ${p.oldPrice ? `<div class="tl-old-price">R$ ${p.oldPrice.toFixed(2)}</div>` : ""}
-            <div class="tl-price">R$ ${p.price.toFixed(2)}</div>
+            ${p.oldPrice ? `<div class="tl-old-price">R$ ${p.oldPrice}</div>` : ""}
+            <div class="tl-price">R$ ${p.price}</div>
             <div class="tl-installment">até 6x sem juros</div>
-            <button class="btn" onclick="addToCart('${p.title}', ${p.price})">COMPRAR</button>
+            <button class="btn" onclick="addToCart('${p.title}', ${Number(p.price) || 0})">COMPRAR</button>
         `;
         productList.appendChild(card);
     });
 }
 
-// SLIDER 
+updateCart();
 
-new Swiper(".home-slider", {
-    loop: true,
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    pagination: { el: ".swiper-pagination", clickable: true }
-});
-
-// Parte do popup do suporte
-
-document.getElementById('contato-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    fetch('Suporte_action.php', {
-        method: 'POST',
-        body: formData
+// ---- Slider ----
+const homeSlider = document.querySelector(".home-slider");
+if (homeSlider) {
+    new Swiper(".home-slider", {
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true }
     });
-    .then(res => res.text())
-    .then(resposta => {
-        const popup = document.getElementById('popup-contato');
-        const msg = document.getElementById('popup-msg');
-        if (resposta.includes('sucesso')) {
-            msg.textContent = 'Mensagem enviada com sucesso!';
-        } else {
-            msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
-        }
-        popup.style.display = 'flex';
-    });
-}
-
-function fecharPopupContato() {
-    const card = document.querySelector('.popup-contato-card');
-    card.classList.add('fechando');
-    setTimeout(() => {
-        document.getElementById('popup-contato').style.display = 'none';
-        card.classList.remove('fechando');
-    }, 300);
 }
