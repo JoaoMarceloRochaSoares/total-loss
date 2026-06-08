@@ -38,7 +38,7 @@ if (menuBtn) {
         navbar.appendChild(link);
     } else {
         const link = document.createElement('a');
-        link.href = 'https://perdatotal.up.railway.app/Login/login.php';
+        link.href = 'Login/login.php';
         link.textContent = 'Login';
         navbar.appendChild(link);
     }
