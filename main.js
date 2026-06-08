@@ -123,41 +123,45 @@ if (productList) {
     });
 }
 
-// ===== SLIDER =====
+// SLIDER 
+<<<<<<< HEAD
 new Swiper(".home-slider", {
     loop: true,
     autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: { el: ".swiper-pagination", clickable: true }
 });
+=======
+new Swiper(".home-slider",{
+    loop:true,
+    autoplay:{
+        delay:3000,
+        disableOnInteraction:false
+    },
+    pagination:{
+        el:".swiper-pagination",
+        clickable:true
+    }
+});
 
-// ===== SUPORTE / POPUP =====
-const contatoForm = document.getElementById('contato-form');
+/// Parte do popup do suporte
 
-if (contatoForm) {
-    contatoForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        fetch('Suporte_action.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(res => res.text())
-        .then(resposta => {
-            const popup = document.getElementById('popup-contato');
-            const msg = document.getElementById('popup-msg');
-            if (resposta.includes('sucesso')) {
-                msg.textContent = 'Mensagem enviada com sucesso!';
-            } else {
-                msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
-            }
-            popup.style.display = 'flex';
-        })
-        .catch(() => {
-            const popup = document.getElementById('popup-contato');
-            const msg = document.getElementById('popup-msg');
-            msg.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
-            popup.style.display = 'flex';
-        });
+document.getElementById('contato-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    fetch('Suporte_action.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then(resposta => {
+        const popup = document.getElementById('popup-contato');
+        const msg = document.getElementById('popup-msg');
+        if (resposta.includes('sucesso')) {
+            msg.textContent = 'Mensagem enviada com sucesso!';
+        } else {
+            msg.textContent = 'Erro ao enviar mensagem. Tente novamente!';
+        }
+        popup.style.display = 'flex';
     });
 }
 
