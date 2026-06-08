@@ -51,7 +51,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
         .then(resposta => {
             if (resposta.includes('sucesso')) {
                 // Redireciona direto para o site principal após registrar
-                window.location.href = URL_SITE;
+                window.location.href = '/Login/login.php';
             } else {
                 const popup    = document.getElementById('popup');
                 const card     = document.getElementById('popup-card');
