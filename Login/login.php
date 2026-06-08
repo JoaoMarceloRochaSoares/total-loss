@@ -17,7 +17,7 @@
                     <input type="password" name="senha" required minlength="8" id="senha" placeholder="Sua senha" autocomplete="current-password">
             </div>
             <button type="submit">Entrar</button>
-            <a href="registro/registro.php">Não possui conta?</a>
+            <a href="/registro/registro.php">Não possui conta?</a>
         </div>
     </form>
     <div class="popup" id="popup" style="display:none;">
