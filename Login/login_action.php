@@ -13,11 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario   = $resultado->fetch_assoc();
 
     if ($usuario && password_verify($senha, $usuario['senha'])) {
-        // Cria a sessão com os dados do usuário
         $_SESSION['usuario_id']   = $usuario['id'];
         $_SESSION['usuario_nome'] = $usuario['nome'];
 
-        echo "Login realizado com sucesso!";
+        header("Location: /index.php");
+        exit;
     } else {
         echo "Nome ou senha incorretos!";
     }
