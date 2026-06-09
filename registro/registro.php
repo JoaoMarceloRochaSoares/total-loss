@@ -1,4 +1,4 @@
-<?php include '../conexao.php'; ?>
+<?php include __DIR__ . '/../conexao.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
