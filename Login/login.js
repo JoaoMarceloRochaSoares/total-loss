@@ -24,32 +24,43 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const senhaValida = senha.reportValidity();
 
     if (nomeValido && senhaValida) {
+        const btn = this.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn) btn.disabled = true;
+
         const formData = new FormData(this);
         fetch('login_action.php', {
             method: 'POST',
             body: formData
         })
-        .then(res => res.text())
+        .then(res => res.json())
         .then(resposta => {
-            if (resposta.includes('sucesso')) {
-                // Redireciona direto para o site principal
+            if (resposta.sucesso) {
                 window.location.href = URL_SITE;
             } else {
-                const popup    = document.getElementById('popup');
-                const card     = document.getElementById('popup-card');
-                const mensagem = document.getElementById('popup-mensagem');
-
-                mensagem.textContent = 'Nome ou senha incorretos!';
-                card.classList.remove('popup-sucesso');
-                card.classList.add('popup-erro');
-                card.classList.remove('popup-card-animar');
-                card.style.animation = '';
-                card.classList.add('popup-card-animar');
-                popup.style.display = 'flex';
+                mostrarErro(resposta.mensagem || 'Nome ou senha incorretos!');
+                if (btn) btn.disabled = false;
             }
+        })
+        .catch(() => {
+            mostrarErro('Erro de conexão. Tente novamente.');
+            if (btn) btn.disabled = false;
         });
     }
 });
+
+function mostrarErro(msg) {
+    const popup    = document.getElementById('popup');
+    const card     = document.getElementById('popup-card');
+    const mensagem = document.getElementById('popup-mensagem');
+
+    mensagem.textContent = msg;
+    card.classList.remove('popup-sucesso');
+    card.classList.add('popup-erro');
+    card.classList.remove('popup-card-animar');
+    card.style.animation = '';
+    card.classList.add('popup-card-animar');
+    popup.style.display = 'flex';
+}
 
 nome.addEventListener('input', function() {
     nome.setCustomValidity('');
