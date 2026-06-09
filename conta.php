@@ -32,7 +32,7 @@ $usuario_nome = $_SESSION['usuario_nome'];
             display: flex;
             gap: 1rem;
             margin: 2.5rem 0 2rem;
-            border-bottom: 2px solid #333;
+            border-bottom: 2px solid #ffffff;
             padding-bottom: .8rem;
         }
         .conta-tabs button {
