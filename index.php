@@ -300,6 +300,123 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
     </main>
 
+    <!-- ===== MODAL CHECKOUT ===== -->
+    <div id="checkout-overlay" class="checkout-overlay hidden">
+        <div class="checkout-modal">
+            <button class="checkout-close" onclick="fecharCheckout()">✖</button>
+
+            <!-- PASSO 1: Resumo do pedido -->
+            <div id="checkout-step-1" class="checkout-step active">
+                <h2 class="checkout-title"><i class="fas fa-shopping-bag"></i> Resumo do Pedido</h2>
+                <div id="checkout-items-list" class="checkout-items-list"></div>
+                <div class="checkout-subtotal">
+                    Total: R$ <span id="checkout-total-display">0.00</span>
+                </div>
+                <button class="btn checkout-next-btn" onclick="irParaPagamento()">
+                    Ir para Pagamento <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- PASSO 2: Dados de pagamento -->
+            <div id="checkout-step-2" class="checkout-step">
+                <button class="checkout-back" onclick="voltarResumo()">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+                <h2 class="checkout-title"><i class="fas fa-credit-card"></i> Pagamento</h2>
+
+                <div class="payment-tabs">
+                    <button class="pay-tab active" onclick="selecionarAba('cartao')">
+                        <i class="fas fa-credit-card"></i> Cartão
+                    </button>
+                    <button class="pay-tab" onclick="selecionarAba('pix')">
+                        <i class="fas fa-qrcode"></i> PIX
+                    </button>
+                    <button class="pay-tab" onclick="selecionarAba('boleto')">
+                        <i class="fas fa-barcode"></i> Boleto
+                    </button>
+                </div>
+
+                <!-- Cartão -->
+                <div id="pay-cartao" class="pay-form active">
+                    <div class="form-group">
+                        <label>Número do Cartão</label>
+                        <input type="text" id="card-number" maxlength="19" placeholder="0000 0000 0000 0000" oninput="formatarCartao(this)">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome no Cartão</label>
+                        <input type="text" id="card-name" placeholder="Como está no cartão">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Validade</label>
+                            <input type="text" id="card-expiry" maxlength="5" placeholder="MM/AA" oninput="formatarValidade(this)">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" id="card-cvv" maxlength="3" placeholder="000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Parcelas</label>
+                        <select id="card-parcelas">
+                            <option value="1">1x sem juros</option>
+                            <option value="2">2x sem juros</option>
+                            <option value="3">3x sem juros</option>
+                            <option value="6">6x sem juros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- PIX -->
+                <div id="pay-pix" class="pay-form">
+                    <div class="pix-container">
+                        <div class="pix-qr">
+                            <i class="fas fa-qrcode pix-qr-icon"></i>
+                        </div>
+                        <p class="pix-key">Chave PIX: <strong>contato@totalloss.com</strong></p>
+                        <p class="pix-info">Após o pagamento, envie o comprovante para nosso suporte.</p>
+                    </div>
+                </div>
+
+                <!-- Boleto -->
+                <div id="pay-boleto" class="pay-form">
+                    <div class="boleto-container">
+                        <i class="fas fa-barcode boleto-icon"></i>
+                        <p>O boleto será gerado após a confirmação.</p>
+                        <p class="boleto-info">Vencimento em <strong>3 dias úteis</strong>.</p>
+                    </div>
+                </div>
+
+                <button class="btn checkout-confirm-btn" onclick="confirmarPedido()">
+                    <i class="fas fa-check-circle"></i> Confirmar Pedido
+                </button>
+            </div>
+
+            <!-- PASSO 3: Confirmação -->
+            <div id="checkout-step-3" class="checkout-step">
+                <div class="checkout-success">
+                    <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                    <h2>Pedido Confirmado!</h2>
+                    <p>Obrigado pela sua compra. Você receberá um e-mail com os detalhes em breve.</p>
+                    <button class="btn" onclick="fecharCheckout(); limparCarrinho()">Continuar Comprando</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== POPUP LOGIN NECESSÁRIO ===== -->
+    <div id="popup-login-required" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:99999; align-items:center; justify-content:center;">
+        <div class="popup-login-card">
+            <i class="fas fa-lock popup-lock-icon"></i>
+            <h3>Faça login para continuar</h3>
+            <p>Você precisa estar logado para finalizar sua compra.</p>
+            <div class="popup-login-btns">
+                <a href="/Login/login.php" class="btn">Fazer Login</a>
+                <button onclick="fecharPopupLogin()" class="btn btn-outline">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ===== POPUP SUPORTE ===== -->
     <div id="popup-contato" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
         <div class="popup-contato-card" style="background:#1a1a2e; padding:2rem; border-radius:1rem; text-align:center; max-width:360px; width:90%;">
@@ -352,6 +469,9 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         </div>
     </footer>
 
+    <script>
+        const USUARIO_LOGADO = <?= $usuario_nome ? 'true' : 'false' ?>;
+    </script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src='main.js'></script>
