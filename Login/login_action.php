@@ -2,6 +2,8 @@
 session_start();
 include '../conexao.php';
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome  = $_POST['nome'];
     $senha = $_POST['senha'];
@@ -16,10 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['usuario_id']   = $usuario['id'];
         $_SESSION['usuario_nome'] = $usuario['nome'];
 
-        header("Location: /index.php");
-        exit;
+        echo json_encode(['sucesso' => true]);
     } else {
-        echo "Nome ou senha incorretos!";
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Nome ou senha incorretos!']);
     }
+} else {
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Método inválido.']);
 }
 ?>
