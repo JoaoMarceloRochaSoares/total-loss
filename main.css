@@ -1306,3 +1306,283 @@ section {
 .popup-contato-card.fechando {
     animation: fadeOut 0.3s ease forwards;
 }
+
+/* ===== CHECKOUT MODAL ===== */
+.checkout-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 99998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.checkout-overlay.hidden {
+    display: none;
+}
+
+.checkout-modal {
+    background: #1a1a1a;
+    border-radius: 1.2rem;
+    padding: 3rem;
+    width: 100%;
+    max-width: 50rem;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 0.1rem solid #333;
+    box-shadow: 0 2rem 5rem rgba(0,0,0,0.6);
+}
+
+.checkout-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.checkout-close:hover { color: rgb(238, 87, 51); }
+
+.checkout-title {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.1rem solid #333;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.checkout-title i { color: rgb(238, 87, 51); }
+
+/* Steps */
+.checkout-step { display: none; }
+.checkout-step.active { display: block; }
+
+/* Items list */
+.checkout-items-list { margin-bottom: 2rem; }
+
+.checkout-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: #222;
+    border-radius: .6rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+.checkout-item-row small { color: #aaa; margin-left: .5rem; }
+
+.checkout-subtotal {
+    text-align: right;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(238, 87, 51);
+    margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 0.1rem solid #333;
+}
+
+.checkout-next-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/* Back button */
+.checkout-back {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    transition: color 0.2s;
+}
+.checkout-back:hover { color: rgb(238, 87, 51); }
+
+/* Payment tabs */
+.payment-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.pay-tab {
+    flex: 1;
+    padding: 1rem;
+    background: #222;
+    border: 0.1rem solid #333;
+    color: #aaa;
+    font-size: 1.5rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+}
+.pay-tab.active, .pay-tab:hover {
+    background: rgb(238, 87, 51);
+    color: #fff;
+    border-color: rgb(238, 87, 51);
+}
+
+/* Pay forms */
+.pay-form { display: none; }
+.pay-form.active { display: block; }
+
+/* Form */
+.form-group {
+    margin-bottom: 1.8rem;
+}
+.form-group label {
+    display: block;
+    color: #aaa;
+    font-size: 1.4rem;
+    margin-bottom: .6rem;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: #222;
+    border: 0.1rem solid #333;
+    border-radius: .6rem;
+    color: #fff;
+    font-size: 1.6rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+.form-group input:focus,
+.form-group select:focus {
+    border-color: rgb(238, 87, 51);
+}
+.form-group select option { background: #222; }
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+.form-row .form-group { flex: 1; }
+
+/* PIX */
+.pix-container {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+.pix-qr {
+    width: 12rem;
+    height: 12rem;
+    background: #fff;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+}
+.pix-qr-icon { font-size: 8rem; color: #111; }
+.pix-key {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.pix-info { color: #aaa; font-size: 1.4rem; }
+
+/* Boleto */
+.boleto-container {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #aaa;
+    font-size: 1.5rem;
+}
+.boleto-icon {
+    font-size: 6rem;
+    color: rgb(238, 87, 51);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+.boleto-info { color: #fff; margin-top: 1rem; font-size: 1.5rem; }
+
+.checkout-confirm-btn {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+
+/* Success */
+.checkout-success {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+.success-icon {
+    font-size: 7rem;
+    color: #4CAF50;
+    margin-bottom: 2rem;
+}
+.checkout-success h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+.checkout-success p {
+    color: #aaa;
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* ===== POPUP LOGIN REQUIRED ===== */
+.popup-login-card {
+    background: #1a1a2e;
+    padding: 3rem 2.5rem;
+    border-radius: 1.2rem;
+    text-align: center;
+    max-width: 40rem;
+    width: 90%;
+    border: 0.1rem solid #333;
+}
+.popup-lock-icon {
+    font-size: 5rem;
+    color: rgb(238, 87, 51);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+.popup-login-card h3 {
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+.popup-login-card p {
+    color: #aaa;
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+}
+.popup-login-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn-outline {
+    background: transparent;
+    border: 0.1rem solid rgb(238, 87, 51);
+    color: rgb(238, 87, 51);
+}
+.btn-outline:hover {
+    background: rgb(238, 87, 51);
+    color: #fff;
+}
