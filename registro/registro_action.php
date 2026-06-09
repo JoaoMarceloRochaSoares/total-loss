@@ -2,38 +2,41 @@
 session_start();
 include '../conexao.php';
 
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome            = $_POST['nome'];
     $senha           = $_POST['senha'];
     $confirmar_senha = $_POST['confirmar_senha'];
 
     if ($senha !== $confirmar_senha) {
-        echo "As senhas não coincidem!";
+        echo json_encode(['sucesso' => false, 'mensagem' => 'As senhas não coincidem!']);
+        exit;
+    }
+
+    $verificar = $conn->prepare("SELECT * FROM usuarios WHERE nome = ?");
+    $verificar->bind_param("s", $nome);
+    $verificar->execute();
+    $resultado = $verificar->get_result();
+
+    if (mysqli_num_rows($resultado) > 0) {
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Nome já cadastrado!']);
+        exit;
+    }
+
+    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+    $sql = $conn->prepare("INSERT INTO usuarios (nome, senha) VALUES (?, ?)");
+    $sql->bind_param("ss", $nome, $senha_hash);
+
+    if ($sql->execute()) {
+        $_SESSION['usuario_id']   = $conn->insert_id;
+        $_SESSION['usuario_nome'] = $nome;
+
+        echo json_encode(['sucesso' => true]);
     } else {
-        $verificar = $conn->prepare("SELECT * FROM usuarios WHERE nome = ?");
-        $verificar->bind_param("s", $nome);
-        $verificar->execute();
-        $resultado = $verificar->get_result();
-
-        if (mysqli_num_rows($resultado) > 0) {
-            echo "Nome já cadastrado!";
-        } else {
-            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-            $sql = $conn->prepare("INSERT INTO usuarios (nome, senha) VALUES (?, ?)");
-            $sql->bind_param("ss", $nome, $senha_hash);
-
-            if ($sql->execute()) {
-                $_SESSION['usuario_id']   = $conn->insert_id;
-                $_SESSION['usuario_nome'] = $nome;
-
-                header("Location: /index.php");
-                exit;
-            } else {
-                echo "Erro: " . $conn->error;
-            }
-        }
+        echo json_encode(['sucesso' => false, 'mensagem' => 'Erro ao registrar. Tente novamente.']);
     }
 } else {
-    echo "Método inválido";
+    echo json_encode(['sucesso' => false, 'mensagem' => 'Método inválido.']);
 }
 ?>
