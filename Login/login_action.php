@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include '../conexao.php';
+include __DIR__ . '/../conexao.php';
 
 header('Content-Type: application/json');
 
