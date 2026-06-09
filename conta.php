@@ -27,12 +27,13 @@ $usuario_nome = $_SESSION['usuario_nome'];
             color: var(--white);
             margin-bottom: .4rem;
         }
+        .conta-section h2 { color: var(--white); }
         .conta-section h2 span { color: var(--green); }
         .conta-tabs {
             display: flex;
             gap: 1rem;
             margin: 2.5rem 0 2rem;
-            border-bottom: 2px solid #ffffff;
+            border-bottom: 2px solid #333;
             padding-bottom: .8rem;
         }
         .conta-tabs button {
@@ -46,8 +47,8 @@ $usuario_nome = $_SESSION['usuario_nome'];
             transition: .2s;
         }
         .conta-tabs button.ativo {
-            color: var(--green);
-            border-bottom: 3px solid var(--green);
+            color: rgb(238, 87, 51);
+            border-bottom: 3px solid rgb(238, 87, 51);
         }
         .tab-conteudo { display: none; }
         .tab-conteudo.ativo { display: block; }
