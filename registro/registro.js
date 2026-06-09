@@ -1,5 +1,5 @@
-const nome          = document.getElementById('nome');
-const senha         = document.getElementById('senha');
+const nome           = document.getElementById('nome');
+const senha          = document.getElementById('senha');
 const confirmarSenha = document.getElementById('confirmarSenha');
 let tentouEnviar = false;
 
@@ -37,40 +37,48 @@ document.querySelector('form').addEventListener('submit', function(e) {
         confirmarSenha.setCustomValidity('');
     }
 
-    const nomeValido          = nome.reportValidity();
-    const senhaValida         = senha.reportValidity();
+    const nomeValido           = nome.reportValidity();
+    const senhaValida          = senha.reportValidity();
     const confirmarSenhaValida = confirmarSenha.reportValidity();
 
     if (nomeValido && senhaValida && confirmarSenhaValida) {
+        const btn = this.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn) btn.disabled = true;
+
         const formData = new FormData(this);
         fetch('registro_action.php', {
             method: 'POST',
             body: formData
         })
-        .then(res => res.text())
+        .then(res => res.json())
         .then(resposta => {
-            if (resposta.includes('sucesso')) {
-                // Redireciona direto para o site principal após registrar
-                window.location.href = '/Login/login.php';
+            if (resposta.sucesso) {
+                window.location.href = URL_SITE;
             } else {
-                const popup    = document.getElementById('popup');
-                const card     = document.getElementById('popup-card');
-                const mensagem = document.getElementById('popup-mensagem');
-
-                mensagem.textContent = resposta.includes('cadastrado')
-                    ? 'Este nome já está cadastrado!'
-                    : 'Erro ao registrar, tente novamente!';
-
-                card.classList.remove('popup-sucesso');
-                card.classList.add('popup-erro');
-                card.classList.remove('popup-card-animar');
-                card.style.animation = '';
-                card.classList.add('popup-card-animar');
-                popup.style.display = 'flex';
+                mostrarErro(resposta.mensagem || 'Erro ao registrar, tente novamente!');
+                if (btn) btn.disabled = false;
             }
+        })
+        .catch(() => {
+            mostrarErro('Erro de conexão. Tente novamente.');
+            if (btn) btn.disabled = false;
         });
     }
 });
+
+function mostrarErro(msg) {
+    const popup    = document.getElementById('popup');
+    const card     = document.getElementById('popup-card');
+    const mensagem = document.getElementById('popup-mensagem');
+
+    mensagem.textContent = msg;
+    card.classList.remove('popup-sucesso');
+    card.classList.add('popup-erro');
+    card.classList.remove('popup-card-animar');
+    card.style.animation = '';
+    card.classList.add('popup-card-animar');
+    popup.style.display = 'flex';
+}
 
 nome.addEventListener('input', function() {
     nome.setCustomValidity('');
