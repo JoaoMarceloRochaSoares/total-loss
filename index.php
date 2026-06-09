@@ -300,99 +300,142 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
     </main>
 
-
+    <!-- ===== MODAL CHECKOUT ===== -->
     <div id="checkout-overlay" class="checkout-overlay hidden">
         <div class="checkout-modal">
             <button class="checkout-close" onclick="fecharCheckout()">✖</button>
 
+            <!-- Stepper -->
+            <div class="checkout-stepper">
+                <div class="ck-step ck-step-active" id="stepper-1">
+                    <div class="ck-step-circle">1</div>
+                    <span>Resumo</span>
+                </div>
+                <div class="ck-step-line"></div>
+                <div class="ck-step" id="stepper-2">
+                    <div class="ck-step-circle">2</div>
+                    <span>Entrega</span>
+                </div>
+                <div class="ck-step-line"></div>
+                <div class="ck-step" id="stepper-3">
+                    <div class="ck-step-circle">3</div>
+                    <span>Pagamento</span>
+                </div>
+            </div>
 
+            <!-- PASSO 1: Resumo -->
             <div id="checkout-step-1" class="checkout-step active">
                 <h2 class="checkout-title"><i class="fas fa-shopping-bag"></i> Resumo do Pedido</h2>
                 <div id="checkout-items-list" class="checkout-items-list"></div>
                 <div class="checkout-subtotal">
                     Total: R$ <span id="checkout-total-display">0.00</span>
                 </div>
-                <button class="btn checkout-next-btn" onclick="irParaPagamento()">
-                    Ir para Pagamento <i class="fas fa-arrow-right"></i>
+                <button class="btn checkout-next-btn" onclick="irParaEntrega()">
+                    Continuar <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
 
-
+            <!-- PASSO 2: Dados de Entrega -->
             <div id="checkout-step-2" class="checkout-step">
-                <button class="checkout-back" onclick="voltarResumo()">
+                <button class="checkout-back" onclick="voltarStep(1)">
                     <i class="fas fa-arrow-left"></i> Voltar
                 </button>
-                <h2 class="checkout-title"><i class="fas fa-credit-card"></i> Pagamento</h2>
+                <h2 class="checkout-title"><i class="fas fa-truck"></i> Dados para Entrega</h2>
 
-                <div class="payment-tabs">
-                    <button class="pay-tab active" onclick="selecionarAba('cartao')">
-                        <i class="fas fa-credit-card"></i> Cartão
-                    </button>
-                    <button class="pay-tab" onclick="selecionarAba('pix')">
-                        <i class="fas fa-qrcode"></i> PIX
-                    </button>
-                    <button class="pay-tab" onclick="selecionarAba('boleto')">
-                        <i class="fas fa-barcode"></i> Boleto
-                    </button>
-                </div>
-
-
-                <div id="pay-cartao" class="pay-form active">
-                    <div class="form-group">
-                        <label>Número do Cartão</label>
-                        <input type="text" id="card-number" maxlength="19" placeholder="0000 0000 0000 0000" oninput="formatarCartao(this)">
-                    </div>
-                    <div class="form-group">
-                        <label>Nome no Cartão</label>
-                        <input type="text" id="card-name" placeholder="Exatamente como no cartão">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Validade</label>
-                            <input type="text" id="card-expiry" maxlength="5" placeholder="MM/AA" oninput="formatarValidade(this)">
-                        </div>
-                        <div class="form-group">
-                            <label>CVV</label>
-                            <input type="text" id="card-cvv" maxlength="3" placeholder="000">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Parcelas</label>
-                        <select id="card-parcelas">
-                            <option value="1">1x sem juros</option>
-                            <option value="2">2x sem juros</option>
-                            <option value="3">3x sem juros</option>
-                            <option value="6">6x sem juros</option>
-                        </select>
+                <div class="form-row">
+                    <div class="form-group form-group--full">
+                        <label>Nome Completo</label>
+                        <input type="text" id="ent-nome" placeholder="Seu nome completo">
                     </div>
                 </div>
-
-
-                <div id="pay-pix" class="pay-form">
-                    <div class="pix-container">
-                        <div class="pix-qr">
-                            <i class="fas fa-qrcode pix-qr-icon"></i>
-                        </div>
-                        <p class="pix-key">Chave PIX: <strong>contato@totalloss.com</strong></p>
-                        <p class="pix-info">Após o pagamento, envie o comprovante para nosso suporte.</p>
+                <div class="form-row">
+                    <div class="form-group form-group--grow">
+                        <label>Endereço</label>
+                        <input type="text" id="ent-endereco" placeholder="Rua, Avenida...">
+                    </div>
+                    <div class="form-group form-group--small">
+                        <label>Número</label>
+                        <input type="text" id="ent-numero" placeholder="Nº">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group form-group--grow">
+                        <label>Complemento</label>
+                        <input type="text" id="ent-complemento" placeholder="Apto, Bloco... (opcional)">
+                    </div>
+                    <div class="form-group form-group--small">
+                        <label>CEP</label>
+                        <input type="text" id="ent-cep" maxlength="9" placeholder="00000-000" oninput="formatarCEP(this)">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group form-group--grow">
+                        <label>Bairro</label>
+                        <input type="text" id="ent-bairro" placeholder="Seu bairro">
+                    </div>
+                    <div class="form-group form-group--grow">
+                        <label>Cidade</label>
+                        <input type="text" id="ent-cidade" placeholder="Sua cidade">
+                    </div>
+                    <div class="form-group form-group--uf">
+                        <label>UF</label>
+                        <input type="text" id="ent-uf" maxlength="2" placeholder="RJ">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group form-group--grow">
+                        <label>E-mail</label>
+                        <input type="email" id="ent-email" placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group form-group--grow">
+                        <label>Telefone</label>
+                        <input type="tel" id="ent-tel" placeholder="(21) 99999-9999" oninput="formatarTelefone(this)">
                     </div>
                 </div>
 
-                <div id="pay-boleto" class="pay-form">
-                    <div class="boleto-container">
-                        <i class="fas fa-barcode boleto-icon"></i>
-                        <p>O boleto será gerado após a confirmação.</p>
-                        <p class="boleto-info">Vencimento em <strong>3 dias úteis</strong>.</p>
-                    </div>
-                </div>
-
-                <button class="btn checkout-confirm-btn" onclick="confirmarPedido()">
-                    <i class="fas fa-check-circle"></i> Confirmar Pedido
+                <button class="btn checkout-next-btn" onclick="irParaPagamento()">
+                    Continuar <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
 
-
+            <!-- PASSO 3: Pagamento -->
             <div id="checkout-step-3" class="checkout-step">
+                <button class="checkout-back" onclick="voltarStep(2)">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+                <h2 class="checkout-title"><i class="fas fa-credit-card"></i> Método de Pagamento</h2>
+
+                <!-- Seleção de método (estilo Readit: radio cards) -->
+                <div class="pgto-opcoes">
+                    <label class="pgto-card" id="pgto-label-cartao">
+                        <input type="radio" name="pgto" value="cartao" onchange="mostrarPagamento(this)">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Cartão de Crédito</span>
+                    </label>
+                    <label class="pgto-card" id="pgto-label-pix">
+                        <input type="radio" name="pgto" value="pix" onchange="mostrarPagamento(this)">
+                        <i class="fas fa-qrcode"></i>
+                        <span>PIX</span>
+                    </label>
+                    <label class="pgto-card" id="pgto-label-boleto">
+                        <input type="radio" name="pgto" value="boleto" onchange="mostrarPagamento(this)">
+                        <i class="fas fa-barcode"></i>
+                        <span>Boleto</span>
+                    </label>
+                </div>
+
+                <!-- Área dinâmica de pagamento (estilo Readit) -->
+                <div id="pgto-area" class="pgto-area">
+                    <p class="pgto-hint"><i class="fas fa-hand-pointer"></i> Selecione um método acima para continuar.</p>
+                </div>
+
+                <button class="btn checkout-confirm-btn" id="btn-confirmar" onclick="confirmarPedido()" style="display:none;">
+                    <i class="fas fa-check-circle"></i> Finalizar Pedido
+                </button>
+            </div>
+
+            <!-- PASSO 4: Confirmação -->
+            <div id="checkout-step-4" class="checkout-step">
                 <div class="checkout-success">
                     <div class="success-icon"><i class="fas fa-check-circle"></i></div>
                     <h2>Pedido Confirmado!</h2>
@@ -400,10 +443,11 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <button class="btn" onclick="fecharCheckout(); limparCarrinho()">Continuar Comprando</button>
                 </div>
             </div>
+
         </div>
     </div>
 
-
+    <!-- ===== POPUP LOGIN NECESSÁRIO ===== -->
     <div id="popup-login-required" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:99999; align-items:center; justify-content:center;">
         <div class="popup-login-card">
             <i class="fas fa-lock popup-lock-icon"></i>
