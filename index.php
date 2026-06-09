@@ -300,12 +300,12 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
     </main>
 
-    <!-- ===== MODAL CHECKOUT ===== -->
+
     <div id="checkout-overlay" class="checkout-overlay hidden">
         <div class="checkout-modal">
             <button class="checkout-close" onclick="fecharCheckout()">✖</button>
 
-            <!-- PASSO 1: Resumo do pedido -->
+
             <div id="checkout-step-1" class="checkout-step active">
                 <h2 class="checkout-title"><i class="fas fa-shopping-bag"></i> Resumo do Pedido</h2>
                 <div id="checkout-items-list" class="checkout-items-list"></div>
@@ -317,7 +317,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                 </button>
             </div>
 
-            <!-- PASSO 2: Dados de pagamento -->
+
             <div id="checkout-step-2" class="checkout-step">
                 <button class="checkout-back" onclick="voltarResumo()">
                     <i class="fas fa-arrow-left"></i> Voltar
@@ -336,7 +336,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     </button>
                 </div>
 
-                <!-- Cartão -->
+
                 <div id="pay-cartao" class="pay-form active">
                     <div class="form-group">
                         <label>Número do Cartão</label>
@@ -344,7 +344,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     </div>
                     <div class="form-group">
                         <label>Nome no Cartão</label>
-                        <input type="text" id="card-name" placeholder="Como está no cartão">
+                        <input type="text" id="card-name" placeholder="Exatamente como no cartão">
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -367,7 +367,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     </div>
                 </div>
 
-                <!-- PIX -->
+
                 <div id="pay-pix" class="pay-form">
                     <div class="pix-container">
                         <div class="pix-qr">
@@ -378,7 +378,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     </div>
                 </div>
 
-                <!-- Boleto -->
                 <div id="pay-boleto" class="pay-form">
                     <div class="boleto-container">
                         <i class="fas fa-barcode boleto-icon"></i>
@@ -392,7 +391,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                 </button>
             </div>
 
-            <!-- PASSO 3: Confirmação -->
+
             <div id="checkout-step-3" class="checkout-step">
                 <div class="checkout-success">
                     <div class="success-icon"><i class="fas fa-check-circle"></i></div>
@@ -404,7 +403,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         </div>
     </div>
 
-    <!-- ===== POPUP LOGIN NECESSÁRIO ===== -->
+
     <div id="popup-login-required" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:99999; align-items:center; justify-content:center;">
         <div class="popup-login-card">
             <i class="fas fa-lock popup-lock-icon"></i>
