@@ -1,12 +1,10 @@
 <?php
-// Inicia sessão ANTES de emitir HTML (sem output ainda)
-require_once __DIR__ . '/session.php';
-
-// Redireciona para login se não estiver autenticado
+session_start();
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: /Login/login.php");
     exit;
 }
+$usuario_nome = $_SESSION['usuario_nome'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -16,7 +14,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <title>Minha Conta – Total Loss</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="main.css">
     <style>
         .conta-section {
             min-height: 80vh;
@@ -29,6 +27,7 @@ if (!isset($_SESSION['usuario_id'])) {
             color: #fff;
             margin-bottom: .4rem;
         }
+        .conta-section h2 { color: #fff; }
         .conta-section h2 span { color: var(--green); }
         .conta-tabs {
             display: flex;
@@ -93,7 +92,21 @@ if (!isset($_SESSION['usuario_id'])) {
 </head>
 <body>
 
-<?php include __DIR__ . '/header.php'; ?>
+<header class="header">
+    <a href="/index.php" class="logo"><span>Total</span>Loss</a>
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <nav class="navbar">
+        <a href="/index.php#home">Início</a>
+        <a href="/index.php#about">Sobre</a>
+        <a href="/index.php#features">Serviços</a>
+        <a href="/index.php#suppl">Suplementos</a>
+        <a href="/index.php#mar">Matérias</a>
+        <a href="/index.php#support">Suporte</a>
+        <a href="/conta.php" style="color:#fff">
+            <i class="fas fa-user-circle" style="margin-right:.4rem"></i><?= htmlspecialchars($usuario_nome) ?>
+        </a>
+    </nav>
+</header>
 
 <section class="conta-section">
     <h2>Olá, <span><?= htmlspecialchars($usuario_nome) ?></span></h2>
@@ -123,6 +136,14 @@ function trocarTab(id, btn) {
     document.querySelectorAll('.conta-tabs button').forEach(b => b.classList.remove('ativo'));
     document.getElementById('tab-' + id).classList.add('ativo');
     btn.classList.add('ativo');
+}
+const menuBtn = document.querySelector('#menu-btn');
+const navbar  = document.querySelector('.navbar');
+if (menuBtn) {
+    menuBtn.onclick = () => {
+        menuBtn.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    };
 }
 </script>
 </body>
