@@ -2,6 +2,7 @@
 session_start();
 $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 ?>
+<?php /* header movido para header.php */ ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -18,27 +19,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
 <body>
 
-    <header class="header">
-        <a href="/index.php" class="logo"><span>Total</span>Loss</a>
-
-        <div id="menu-btn" class="fas fa-bars"></div>
-
-        <nav class="navbar">
-            <a href="#home">Início</a>
-            <a href="#about">Sobre</a>
-            <a href="#features">Serviços</a>
-            <a href="#suppl">Suplementos</a>
-            <a href="#mar">Matérias</a>
-            <a href="#support">Suporte</a>
-            <?php if ($usuario_nome): ?>
-                <a href="/conta.php" style="color:#fff">
-                    <i class="fas fa-user-circle" style="margin-right:.4rem"></i><?= htmlspecialchars($usuario_nome) ?>
-                </a>
-            <?php else: ?>
-                <a href="/Login/login.php">Login</a>
-            <?php endif; ?>
-        </nav>
-    </header>
+    <?php include __DIR__ . '/header.php'; ?>
 
     <div id="cart-icon">
         <i data-lucide="shopping-cart"></i>
@@ -127,7 +108,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         <p>Treine seu corpo fortemente</p>
                     </div>
                 </div>
-                <a href="html/sobre-nos.html" class="btn">Ler mais</a>
+                <a href="html/sobre-nos.php" class="btn">Ler mais</a>
             </div>
         </section>
 
@@ -144,7 +125,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Musculação</h3>
                         <p>Equipamentos de última geração para hipertrofia, força e definição muscular com acompanhamento.</p>
-                        <a href="html/musculacao.html" class="btn">Ler Mais</a>
+                        <a href="html/musculacao.php" class="btn">Ler Mais</a>
                     </div>
                 </div>
 
@@ -156,7 +137,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Treino Funcional</h3>
                         <p>Circuitos dinâmicos e de alta intensidade para melhorar seu condicionamento, força e agilidade corporal.</p>
-                        <a href="html/treino-funcional.html" class="btn">Ler Mais</a>
+                        <a href="html/treino-funcional.php" class="btn">Ler Mais</a>
                     </div>
                 </div>
 
@@ -168,7 +149,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Spinning Class</h3>
                         <p>Queime calorias rapidamente e melhore sua resistência cardiovascular com nossas aulas imersivas.</p>
-                        <a href="html/spining-class.html" class="btn">Ler Mais</a>
+                        <a href="html/spining-class.php" class="btn">Ler Mais</a>
                     </div>
                 </div>
             </div>
@@ -212,7 +193,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>3 Exercícios para perder barriga</h3>
                         <p>Aprenda exercícios simples que você pode fazer em casa para reduzir gordura abdominal.</p>
-                        <a href="html/alimentacao-saudavel.html" class="btn">Ler mais</a>
+                        <a href="html/alimentacao-saudavel.php" class="btn">Ler mais</a>
                     </div>
                 </div>
 
@@ -222,7 +203,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Treino rápido para iniciantes</h3>
                         <p>Comece no mundo fitness com exercícios fáceis e eficientes.</p>
-                        <a href="html/treino-para-iniciantes.html" class="btn">Ler mais</a>
+                        <a href="html/treino-para-iniciantes.php" class="btn">Ler mais</a>
                     </div>
                 </div>
 
@@ -232,7 +213,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Como treinar corretamente</h3>
                         <p>Evite lesões aprendendo a executar os exercícios da forma certa.</p>
-                        <a href="html/como-treinar-corretamente.html" class="btn">Ler mais</a>
+                        <a href="html/como-treinar-corretamente.php" class="btn">Ler mais</a>
                     </div>
                 </div>
             </div>
