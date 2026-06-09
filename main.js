@@ -245,7 +245,7 @@ function mostrarPagamento(radio) {
             <div class="pgto-pix">
                 <p class="pgto-area-titulo"><i class="fas fa-qrcode"></i> Escaneie o QR Code</p>
                 <img src="${urlQR}" alt="QR Code PIX" class="pix-qr-img">
-                <p class="pgto-area-chave">Chave PIX: <strong>contato@totalloss.com</strong></p>
+                <p class="pgto-area-chave">Chave PIX: <strong>21979830706</strong></p>
                 <p class="pgto-area-info">Após o pagamento, envie o comprovante para nosso suporte.</p>
             </div>
         `;
