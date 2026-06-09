@@ -9,9 +9,18 @@ if ($uri === '/') {
 
 $file = __DIR__ . $uri;
 
-// Se o arquivo existe, deixa o PHP servir normalmente
-if (file_exists($file) && !is_dir($file)) {
-    return false;
+// Arquivos estáticos (imagens, css, js) — serve diretamente
+$ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+$static = ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'webp', 'ico', 'svg', 'woff', 'woff2', 'ttf'];
+
+if (in_array($ext, $static) && file_exists($file)) {
+    return false; // servidor built-in serve o arquivo estático
+}
+
+// Arquivo PHP existe diretamente
+if (file_exists($file) && !is_dir($file) && $ext === 'php') {
+    require $file;
+    exit;
 }
 
 // Fallback: tenta com .php
