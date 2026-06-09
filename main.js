@@ -151,10 +151,10 @@ if (contatoForm) {
             }
             popup.style.display = 'flex';
         });
-    }); // <-- fechamento correto
+    });
 }
 
-// ===== CHECKOUT =====
+
 document.querySelector('.checkout-btn').addEventListener('click', () => {
     if (typeof USUARIO_LOGADO !== 'undefined' && !USUARIO_LOGADO) {
         document.getElementById('popup-login-required').style.display = 'flex';
@@ -165,7 +165,13 @@ document.querySelector('.checkout-btn').addEventListener('click', () => {
 
 function abrirCheckout() {
     if (cart.length === 0) return;
-    // Preenche resumo
+    preencherResumo();
+    ativarStep(1);
+    document.getElementById('checkout-overlay').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function preencherResumo() {
     const list = document.getElementById('checkout-items-list');
     list.innerHTML = '';
     let total = 0;
@@ -180,13 +186,25 @@ function abrirCheckout() {
         list.appendChild(div);
     });
     document.getElementById('checkout-total-display').textContent = total.toFixed(2);
+}
 
-    // Reseta para step 1
+function ativarStep(n) {
+    // Esconde todos os steps do modal
     document.querySelectorAll('.checkout-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('checkout-step-1').classList.add('active');
+    document.getElementById('checkout-step-' + n).classList.add('active');
 
-    document.getElementById('checkout-overlay').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    // Atualiza stepper visual (só tem 3 círculos no stepper)
+    const stepperMap = { 1: 1, 2: 2, 3: 3, 4: 3 };
+    const activeCircle = stepperMap[n];
+    document.querySelectorAll('.ck-step').forEach((el, i) => {
+        el.classList.remove('ck-step-active', 'ck-step-done');
+        const num = i + 1;
+        if (num < activeCircle) el.classList.add('ck-step-done');
+        else if (num === activeCircle) el.classList.add('ck-step-active');
+    });
+    document.querySelectorAll('.ck-step-line').forEach((el, i) => {
+        el.classList.toggle('ck-step-line-done', i + 1 < activeCircle);
+    });
 }
 
 function fecharCheckout() {
@@ -194,26 +212,109 @@ function fecharCheckout() {
     document.body.style.overflow = '';
 }
 
+function irParaEntrega() {
+    ativarStep(2);
+}
+
 function irParaPagamento() {
-    document.getElementById('checkout-step-1').classList.remove('active');
-    document.getElementById('checkout-step-2').classList.add('active');
+    // Reseta área de pagamento
+    document.getElementById('pgto-area').innerHTML =
+        '<p class="pgto-hint"><i class="fas fa-hand-pointer"></i> Selecione um método acima para continuar.</p>';
+    document.getElementById('btn-confirmar').style.display = 'none';
+    document.querySelectorAll('input[name="pgto"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.pgto-card').forEach(c => c.classList.remove('pgto-card--active'));
+    ativarStep(3);
 }
 
-function voltarResumo() {
-    document.getElementById('checkout-step-2').classList.remove('active');
-    document.getElementById('checkout-step-1').classList.add('active');
+function voltarStep(n) {
+    ativarStep(n);
 }
 
-function selecionarAba(aba) {
-    document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.pay-form').forEach(f => f.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-    document.getElementById('pay-' + aba).classList.add('active');
+// Estilo Readit: radio seleciona e mostra área dinâmica
+function mostrarPagamento(radio) {
+    const opcao = radio.value;
+    const area = document.getElementById('pgto-area');
+
+    // Destaca card selecionado
+    document.querySelectorAll('.pgto-card').forEach(c => c.classList.remove('pgto-card--active'));
+    document.getElementById('pgto-label-' + opcao).classList.add('pgto-card--active');
+
+    if (opcao === 'pix') {
+        const urlQR = "https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=00020126580014br.gov.bcb.pix0136contato@totalloss.com";
+        area.innerHTML = `
+            <div class="pgto-pix">
+                <p class="pgto-area-titulo"><i class="fas fa-qrcode"></i> Escaneie o QR Code</p>
+                <img src="${urlQR}" alt="QR Code PIX" class="pix-qr-img">
+                <p class="pgto-area-chave">Chave PIX: <strong>contato@totalloss.com</strong></p>
+                <p class="pgto-area-info">Após o pagamento, envie o comprovante para nosso suporte.</p>
+            </div>
+        `;
+    } else if (opcao === 'boleto') {
+        const n1 = Math.floor(Math.random() * 90000) + 10000;
+        const n2 = Math.floor(Math.random() * 90000) + 10000;
+        const n3 = Math.floor(Math.random() * 90000) + 10000;
+        const n4 = Math.floor(Math.random() * 9000) + 1000;
+        const codigo = `34191.${n1} 02345.${n2} 98765.${n3} 1 ${n4}00000000`;
+        area.innerHTML = `
+            <div class="pgto-boleto">
+                <p class="pgto-area-titulo"><i class="fas fa-barcode"></i> Boleto Gerado</p>
+                <div class="boleto-codigo-box">
+                    <i class="fas fa-barcode boleto-bars"></i>
+                    <p class="boleto-codigo">${codigo}</p>
+                    <button class="btn boleto-copiar-btn" onclick="copiarBoleto('${codigo}', this)">
+                        <i class="fas fa-copy"></i> Copiar código
+                    </button>
+                </div>
+                <p class="pgto-area-info">Vencimento em <strong>3 dias úteis</strong>. Pague em qualquer banco ou lotérica.</p>
+            </div>
+        `;
+    } else if (opcao === 'cartao') {
+        area.innerHTML = `
+            <div class="pgto-cartao">
+                <p class="pgto-area-titulo"><i class="fas fa-credit-card"></i> Dados do Cartão</p>
+                <div class="form-group form-group--full">
+                    <label>Número do Cartão</label>
+                    <input type="text" id="card-number" maxlength="19" placeholder="0000 0000 0000 0000" oninput="formatarCartao(this)">
+                </div>
+                <div class="form-group form-group--full">
+                    <label>Nome no Cartão</label>
+                    <input type="text" id="card-name" placeholder="Como está no cartão">
+                </div>
+                <div class="form-row">
+                    <div class="form-group form-group--grow">
+                        <label>Validade</label>
+                        <input type="text" id="card-expiry" maxlength="5" placeholder="MM/AA" oninput="formatarValidade(this)">
+                    </div>
+                    <div class="form-group form-group--small">
+                        <label>CVV</label>
+                        <input type="text" id="card-cvv" maxlength="3" placeholder="000">
+                    </div>
+                </div>
+                <div class="form-group form-group--full">
+                    <label>Parcelas</label>
+                    <select id="card-parcelas">
+                        <option value="1">1x sem juros</option>
+                        <option value="2">2x sem juros</option>
+                        <option value="3">3x sem juros</option>
+                        <option value="6">6x sem juros</option>
+                    </select>
+                </div>
+            </div>
+        `;
+    }
+
+    document.getElementById('btn-confirmar').style.display = 'block';
+}
+
+function copiarBoleto(codigo, btn) {
+    navigator.clipboard.writeText(codigo).then(() => {
+        btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+        setTimeout(() => btn.innerHTML = '<i class="fas fa-copy"></i> Copiar código', 2000);
+    });
 }
 
 function confirmarPedido() {
-    document.getElementById('checkout-step-2').classList.remove('active');
-    document.getElementById('checkout-step-3').classList.add('active');
+    ativarStep(4);
 }
 
 function limparCarrinho() {
@@ -232,11 +333,24 @@ function formatarValidade(input) {
     input.value = v;
 }
 
+function formatarCEP(input) {
+    let v = input.value.replace(/\D/g, '').substring(0, 8);
+    if (v.length > 5) v = v.substring(0, 5) + '-' + v.substring(5);
+    input.value = v;
+}
+
+function formatarTelefone(input) {
+    let v = input.value.replace(/\D/g, '').substring(0, 11);
+    if (v.length > 6) v = '(' + v.substring(0,2) + ') ' + v.substring(2,7) + '-' + v.substring(7);
+    else if (v.length > 2) v = '(' + v.substring(0,2) + ') ' + v.substring(2);
+    input.value = v;
+}
+
 function fecharPopupLogin() {
     document.getElementById('popup-login-required').style.display = 'none';
 }
 
-// Fecha overlay clicando fora do modal
+
 document.getElementById('checkout-overlay')?.addEventListener('click', (e) => {
     if (e.target.id === 'checkout-overlay') fecharCheckout();
 });
