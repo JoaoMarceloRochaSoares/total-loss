@@ -154,7 +154,94 @@ if (contatoForm) {
     }); // <-- fechamento correto
 }
 
-function fecharPopupContato() {
+// ===== CHECKOUT =====
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+    if (typeof USUARIO_LOGADO !== 'undefined' && !USUARIO_LOGADO) {
+        document.getElementById('popup-login-required').style.display = 'flex';
+        return;
+    }
+    abrirCheckout();
+});
+
+function abrirCheckout() {
+    if (cart.length === 0) return;
+    // Preenche resumo
+    const list = document.getElementById('checkout-items-list');
+    list.innerHTML = '';
+    let total = 0;
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+        const div = document.createElement('div');
+        div.className = 'checkout-item-row';
+        div.innerHTML = `
+            <span>${item.name} <small>x${item.quantity}</small></span>
+            <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
+        `;
+        list.appendChild(div);
+    });
+    document.getElementById('checkout-total-display').textContent = total.toFixed(2);
+
+    // Reseta para step 1
+    document.querySelectorAll('.checkout-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('checkout-step-1').classList.add('active');
+
+    document.getElementById('checkout-overlay').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function fecharCheckout() {
+    document.getElementById('checkout-overlay').classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+function irParaPagamento() {
+    document.getElementById('checkout-step-1').classList.remove('active');
+    document.getElementById('checkout-step-2').classList.add('active');
+}
+
+function voltarResumo() {
+    document.getElementById('checkout-step-2').classList.remove('active');
+    document.getElementById('checkout-step-1').classList.add('active');
+}
+
+function selecionarAba(aba) {
+    document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.pay-form').forEach(f => f.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    document.getElementById('pay-' + aba).classList.add('active');
+}
+
+function confirmarPedido() {
+    document.getElementById('checkout-step-2').classList.remove('active');
+    document.getElementById('checkout-step-3').classList.add('active');
+}
+
+function limparCarrinho() {
+    cart = [];
+    updateCart();
+}
+
+function formatarCartao(input) {
+    let v = input.value.replace(/\D/g, '').substring(0, 16);
+    input.value = v.replace(/(.{4})/g, '$1 ').trim();
+}
+
+function formatarValidade(input) {
+    let v = input.value.replace(/\D/g, '').substring(0, 4);
+    if (v.length >= 2) v = v.substring(0, 2) + '/' + v.substring(2);
+    input.value = v;
+}
+
+function fecharPopupLogin() {
+    document.getElementById('popup-login-required').style.display = 'none';
+}
+
+// Fecha overlay clicando fora do modal
+document.getElementById('checkout-overlay')?.addEventListener('click', (e) => {
+    if (e.target.id === 'checkout-overlay') fecharCheckout();
+});
+
+
     const card = document.querySelector('.popup-contato-card');
     card.classList.add('fechando');
     setTimeout(() => {
