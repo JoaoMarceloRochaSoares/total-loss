@@ -70,7 +70,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         <div class="content">
                             <span>Seja Forte, seja fit</span>
                             <h3>Torne-se mais forte do que suas desculpas.</h3>
-                            <a href="produtos.html" class="btn">Iniciar</a>
+                            <a href="produtos.php" class="btn">Iniciar</a>
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         <div class="content">
                             <span>Seja Forte, seja fit</span>
                             <h3>Supere seus limites todos os dias.</h3>
-                            <a href="produtos.html" class="btn">Iniciar</a>
+                            <a href="produtos.php" class="btn">Iniciar</a>
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         <div class="content">
                             <span>Seja Forte, seja fit</span>
                             <h3>Transforme seu corpo e sua mente.</h3>
-                            <a href="produtos.html" class="btn">Iniciar</a>
+                            <a href="produtos.php" class="btn">Iniciar</a>
                         </div>
                     </div>
 
@@ -189,7 +189,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
             <div class="products-grid" id="product-list"></div>
 
             <div class="see-more-container">
-                <a href="produtos.html" class="see-more-btn">VER MAIS PRODUTOS</a>
+                <a href="produtos.php" class="see-more-btn">VER MAIS PRODUTOS</a>
             </div>
         </section>
 
