@@ -242,6 +242,7 @@ document.getElementById('checkout-overlay')?.addEventListener('click', (e) => {
 });
 
 
+function fecharPopupContato() {
     const card = document.querySelector('.popup-contato-card');
     card.classList.add('fechando');
     setTimeout(() => {
