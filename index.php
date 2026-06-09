@@ -31,7 +31,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
             <a href="#mar">Matérias</a>
             <a href="#support">Suporte</a>
             <?php if ($usuario_nome): ?>
-                <a href="/conta.php" style="color:var(--green)">
+                <a href="/conta.php" style="color:#fff">
                     <i class="fas fa-user-circle" style="margin-right:.4rem"></i><?= htmlspecialchars($usuario_nome) ?>
                 </a>
             <?php else: ?>
