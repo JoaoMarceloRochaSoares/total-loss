@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Class | Total Loss</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../pages.css">
+</head>
+
+<body>
+
+<?php include dirname(__DIR__) . '/header.php'; ?>
+
+<section class="page-hero page-hero--spinning">
+
+    <div class="content">
+        <span>Alta intensidade • Resistência • Performance</span>
+
+        <h1>Spinning Class</h1>
+
+        <p>
+            O Spinning é uma modalidade de ciclismo indoor realizada em bicicletas
+            ergométricas com diferentes níveis de intensidade. As aulas combinam
+            música, motivação e exercícios intervalados para promover alto gasto
+            calórico e melhora significativa do condicionamento físico.
+        </p>
+    </div>
+
+</section>
+
+<section id="spinning">
+
+    <h1 class="heading">
+        <span>Como Funciona</span>
+    </h1>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <i class="fas fa-bicycle"></i>
+            <h3>Pedaladas Controladas</h3>
+
+            <p>
+                Durante a aula o aluno ajusta a carga da bicicleta para simular
+                subidas, descidas e percursos variados, trabalhando diferentes
+                grupos musculares.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Treino Cardiovascular</h3>
+
+            <p>
+                O spinning eleva a frequência cardíaca de forma segura e eficiente,
+                fortalecendo o sistema cardiovascular e aumentando a resistência.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <i class="fas fa-fire"></i>
+            <h3>Alto Gasto Calórico</h3>
+
+            <p>
+                Uma única sessão pode proporcionar grande consumo energético,
+                auxiliando processos de emagrecimento e definição corporal.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="beneficios" class="benefits">
+
+    <h1 class="heading">
+        <span>Importância do Spinning</span>
+    </h1>
+
+    <div class="benefits-container">
+
+        <div class="benefit-box">
+            <i class="fas fa-heart"></i>
+            <h3>Saúde Cardiovascular</h3>
+            <p>
+                Fortalece o coração e melhora a circulação sanguínea.
+            </p>
+        </div>
+
+        <div class="benefit-box">
+            <i class="fas fa-weight"></i>
+            <h3>Emagrecimento</h3>
+            <p>
+                Excelente aliado para quem busca reduzir gordura corporal.
+            </p>
+        </div>
+
+        <div class="benefit-box">
+            <i class="fas fa-running"></i>
+            <h3>Condicionamento</h3>
+            <p>
+                Aumenta resistência física e melhora o desempenho esportivo.
+            </p>
+        </div>
+
+        <div class="benefit-box">
+            <i class="fas fa-brain"></i>
+            <h3>Bem-estar Mental</h3>
+            <p>
+                Liberação de endorfina reduz estresse e melhora o humor.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="massa">
+
+    <h1 class="heading">
+        <span>Como o Treino Funcional Influencia no Ganho de Massa</span>
+    </h1>
+
+    <div class="features">
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="content">
+
+                    <h3>Maior Recrutamento Muscular</h3>
+
+                    <p>
+                        Exercícios funcionais utilizam vários músculos ao mesmo
+                        tempo, aumentando o estímulo para hipertrofia e força.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="content">
+
+                    <h3>Fortalecimento do Core</h3>
+
+                    <p>
+                        Um core forte melhora a estabilidade durante exercícios
+                        pesados, favorecendo ganhos musculares mais consistentes.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="content">
+
+                    <h3>Melhora da Performance</h3>
+
+                    <p>
+                        O funcional aumenta coordenação, equilíbrio e potência,
+                        permitindo treinos de musculação mais eficientes.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="content">
+
+                    <h3>Prevenção de Lesões</h3>
+
+                    <p>
+                        Com melhor mobilidade e estabilidade articular, o aluno
+                        consegue treinar por mais tempo e evoluir com segurança.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="banner banner--spinning">
+
+    <span>
+        Guia Completo
+    </span>
+
+    <h3>
+        Como Treinar Corretamente
+    </h3>
+
+    <p>
+        Aprenda a executar seus treinos da forma correta para obter
+        melhores resultados, reduzir riscos de lesões e acelerar sua evolução.
+        A técnica adequada é o fator que diferencia pessoas que apenas treinam
+        daquelas que realmente conquistam resultados duradouros.
+    </p>
+
+</section>
+
+<section id="funcional" class="materias">
+
+    <h1 class="heading">
+        <span>Treino Funcional e Ganho de Massa</span>
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1518611012118-fb4c5c683b89?q=80&w=800&auto=format&fit=crop">
+
+            <div class="content">
+                <h3>Maior Recrutamento Muscular</h3>
+
+                <p>
+                    O treinamento funcional exige que diversos grupos musculares
+                    trabalhem ao mesmo tempo para estabilizar e executar os movimentos.
+                    Diferente de exercícios isolados, ele aumenta a ativação muscular
+                    global, promovendo um estímulo mais intenso para o desenvolvimento
+                    da força e da massa muscular. Além disso, melhora a coordenação
+                    motora e a eficiência dos movimentos utilizados no dia a dia e na musculação.
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=800&auto=format&fit=crop">
+
+            <div class="content">
+                <h3>Fortalecimento do Core</h3>
+
+                <p>
+                    O core é responsável pela estabilidade do corpo durante praticamente
+                    todos os exercícios. Um abdômen, lombar e quadril fortalecidos
+                    permitem gerar mais força nos movimentos de musculação,
+                    melhorando a postura e reduzindo compensações que podem causar
+                    dores e lesões. Isso resulta em treinos mais eficientes e maior
+                    capacidade de evolução física ao longo do tempo.
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?q=80&w=800&auto=format&fit=crop">
+
+            <div class="content">
+                <h3>Mais Potência e Explosão</h3>
+
+                <p>
+                    Exercícios funcionais trabalham aceleração, potência e controle corporal,
+                    capacidades fundamentais para melhorar o desempenho esportivo e a execução
+                    de exercícios compostos. Com maior explosão muscular, o praticante consegue
+                    desenvolver melhor agachamentos, levantamento terra, supino e diversos
+                    outros movimentos que são essenciais para hipertrofia e ganho de força.
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop">
+
+            <div class="content">
+                <h3>Melhor Resistência Física</h3>
+
+                <p>
+                    O treino funcional combina exercícios de força e condicionamento,
+                    melhorando significativamente a resistência muscular e cardiovascular.
+                    Isso permite que você mantenha intensidade elevada durante mais tempo,
+                    aumentando o volume total de treinamento e favorecendo melhores ganhos
+                    de massa muscular e condicionamento geral.
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1571019613914-85f342c55f55?q=80&w=800&auto=format&fit=crop">
+
+            <div class="content">
+                <h3>Mais Equilíbrio e Estabilidade</h3>
+
+                <p>
+                    Trabalhar equilíbrio e estabilidade melhora a capacidade de controlar
+                    o corpo durante exercícios complexos. Isso gera maior segurança,
+                    melhor execução técnica e aumento da eficiência muscular,
+                    permitindo utilizar cargas maiores com menor risco de lesões.
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop">
+
+            <div class="content">
+                <h3>Complemento Perfeito para Hipertrofia</h3>
+
+                <p>
+                    Quando combinado com musculação, o treinamento funcional se torna
+                    uma poderosa ferramenta para acelerar resultados. Ele melhora a
+                    mobilidade, fortalece articulações, aumenta a resistência e ajuda
+                    na execução dos movimentos básicos, criando uma base sólida para
+                    o ganho de massa muscular de forma segura e eficiente.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Total Loss</h3>
+
+            <p>
+                Treinamento, saúde e performance em um único lugar.
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>Links</h3>
+
+            <a href="../index.html">Início</a>
+            <a href="#spinning">Spinning</a>
+            <a href="#beneficios">Benefícios</a>
+        </div>
+
+        <div class="box">
+            <h3>Contato</h3>
+
+            <p><i class="fas fa-phone"></i> (21) 99222-3333</p>
+            <p><i class="fas fa-envelope"></i> contato@totalloss.com</p>
+        </div>
+
+    </div>
+
+</footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../main.js"></script>
+    <script>
+        if (typeof lucide !== "undefined") lucide.createIcons();
+    </script>
+</body>
+</html>
