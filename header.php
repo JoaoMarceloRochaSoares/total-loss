@@ -1,5 +1,16 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
+    // Sessão persistente: dura 30 dias sem expirar ao trocar de aba
+    $sessao_duracao = 60 * 60 * 24 * 30; // 30 dias em segundos
+    ini_set('session.gc_maxlifetime', $sessao_duracao);
+    ini_set('session.cookie_lifetime', $sessao_duracao);
+    session_set_cookie_params([
+        'lifetime' => $sessao_duracao,
+        'path'     => '/',
+        'secure'   => false,   // mude para true em produção com HTTPS
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
     session_start();
 }
 $usuario_nome = $_SESSION['usuario_nome'] ?? null;
