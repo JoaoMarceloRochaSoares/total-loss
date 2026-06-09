@@ -1,4 +1,14 @@
 <?php
+$sessao_duracao = 60 * 60 * 24 * 30;
+ini_set('session.gc_maxlifetime', $sessao_duracao);
+ini_set('session.cookie_lifetime', $sessao_duracao);
+session_set_cookie_params([
+    'lifetime' => $sessao_duracao,
+    'path'     => '/',
+    'secure'   => false,
+    'httponly' => true,
+    'samesite' => 'Lax',
+]);
 session_start();
 $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 ?>
