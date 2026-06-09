@@ -24,10 +24,10 @@ $usuario_nome = $_SESSION['usuario_nome'];
         }
         .conta-section h2 {
             font-size: 2.8rem;
-            color: var(--white);
+            color: #fff;
             margin-bottom: .4rem;
         }
-        .conta-section h2 { color: var(--white); }
+        .conta-section h2 { color: #fff; }
         .conta-section h2 span { color: var(--green); }
         .conta-tabs {
             display: flex;
@@ -102,7 +102,7 @@ $usuario_nome = $_SESSION['usuario_nome'];
         <a href="/index.php#suppl">Suplementos</a>
         <a href="/index.php#mar">Matérias</a>
         <a href="/index.php#support">Suporte</a>
-        <a href="/conta.php" style="color:var(--green)">
+        <a href="/conta.php" style="color:#fff">
             <i class="fas fa-user-circle" style="margin-right:.4rem"></i><?= htmlspecialchars($usuario_nome) ?>
         </a>
     </nav>
