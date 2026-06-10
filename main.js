@@ -82,19 +82,19 @@ function updateCart() {
 
 // ===== PRODUTOS =====
 const products = [
-    { title: "Kit Whey Gourmet 100g", price: 164.90, oldPrice: 210.88, discount: "-13%", image: "https://www.gsuplementos.com.br/upload/produto/layout/4074/mockup.webp", launch: true },
-    { title: "Kit Whey Gourmet 400g e Creatina 250g", price: 109.90, oldPrice: 149.77, discount: "-18%", image: "https://product-data.raiadrogasil.io/images/18249088.webp", launch: true },
-    { title: "Q-Vita Whey Gourmet", price: 20.90, image: "https://www.qvita.com.br/img/site/1795/b/10646865.jpg" },
-    { title: "Kit Daily Whey 800g e Creatina 250g", price: 124.90, oldPrice: 166.44, discount: "-17%", image: "https://m.magazineluiza.com.br/a-static/420x420/kit-2x-whey-protein-waxy-whey-pote-900g-bcaa-100g-power-creatina-100g-waxy-maize-800g-coqueteleira-600-ml-bodybuilders/raia-fit/9426/db09a44a74a2203bb8c8f25c30197a08.jpeg", launch: true },
-    { title: "Bcaa - Leucina - Isoleucina - Valina 60 Cápsulas", price: 99.90, oldPrice: 129.90, discount: "-15%", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDlVGuNCjnbUet4xrrjsOlzihr1XaHxLQG6g&s" },
-    { title: "Barra de Proteína - Sabor limão", price: 52.72, oldPrice: 65.90, discount: "-20%", image: "https://www.gsuplementos.com.br/upload/produto/layout/1120/mockup-v3.webp" },
-    { title: "Creatina Em Pó 100g Creapure", price: 166.44, image: "https://a-static.mlcdn.com.br/280x210/bcaa-120-caps-creatina-250g-creapure-growth-supplements/maxpowersuplementos/8256935310/0c0d603299bb4d3fc72c77ada9632754.jpeg" },
-    { title: "Blend Vegan 1kg", price: 166.44, image: "https://www.gsuplementos.com.br/_nuxt/img/saude-alinhada-v2.f6dab4f.png" },
-    { title: "Whey Protein Concentrado 1kg", price: 166.44, image: "https://www.gsuplementos.com.br/upload/produto/layout/2/mockup-v2.webp" },
-    { title: "Hipercalórico 1kg Growth Supplements", price: 166.44, image: "https://www.gsuplementos.com.br/upload/produto/imagem/top-hipercal-rico-sabor-morango-1kg-growth-supplements-1.webp" },
-    { title: "Hipercalórico com Whey Protein 3kg", price: 166.44, image: "https://m.magazineluiza.com.br/a-static/420x420/combo-2x-hipercaloricos-massa-red-brutal-gainers-bolic-3kg-cada-red-series/workshapefitsuplementos/kit-2xbolic-3/864ee46687bd544c0439917bb64d7496.jpeg" },
-    { title: "100% Whey Protein Pure 900g", price: 166.44, image: "https://cdn.awsli.com.br/2500x2500/2516/2516745/produto/382822947/whey-bcaa-monster-mockup-a-87ktdttg30.jpg" },
-    { title: "100% Whey Protein 1kg", price: 166.44, image: "https://fabricadesuplementos.cdn.magazord.com.br/img/2026/04/produto/1329/chocolate-2.jpg?ims=596x596" }
+    { title: "Kit Whey Gourmet 100g", price: 164.90, oldPrice: 210.88, discount: "-22%", image: "https://www.gsuplementos.com.br/upload/produto/layout/4074/mockup.webp", launch: true, description: "Kit completo com Whey Protein Gourmet de alta qualidade. Fonte premium de proteína com sabor incrível, ideal para ganho de massa muscular e recuperação pós-treino.", weight: "100g", protein: "24g por dose" },
+    { title: "Kit Whey Gourmet 400g e Creatina 250g", price: 109.90, oldPrice: 149.77, discount: "-27%", image: "https://product-data.raiadrogasil.io/images/18249088.webp", launch: true, description: "Combo poderoso de Whey Gourmet 400g com Creatina Monohidratada 250g. Maximize seus resultados com proteína de qualidade e o suplemento mais estudado do mundo.", weight: "650g total", protein: "22g por dose" },
+    { title: "Q-Vita Whey Gourmet", price: 20.90, image: "https://www.qvita.com.br/img/site/1795/b/10646865.jpg", description: "Sachê individual de Whey Gourmet Q-Vita. Prático para carregar na bolsa e consumir em qualquer lugar, sem abrir mão do sabor e da qualidade.", weight: "35g", protein: "20g por sachê" },
+    { title: "Kit Daily Whey 800g e Creatina 250g", price: 124.90, oldPrice: 166.44, discount: "-25%", image: "https://m.magazineluiza.com.br/a-static/420x420/kit-2x-whey-protein-waxy-whey-pote-900g-bcaa-100g-power-creatina-100g-waxy-maize-800g-coqueteleira-600-ml-bodybuilders/raia-fit/9426/db09a44a74a2203bb8c8f25c30197a08.jpeg", launch: true, description: "Kit com Daily Whey 800g e Creatina Monohidratada 250g. Combinação ideal para quem busca praticidade e resultado.", weight: "1050g total", protein: "26g por dose" },
+    { title: "Bcaa - Leucina - Isoleucina - Valina 60 Cápsulas", price: 99.90, oldPrice: 129.90, discount: "-30%", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDlVGuNCjnbUet4xrrjsOlzihr1XaHxLQG6g&s", description: "BCAA com os 3 aminoácidos essenciais na proporção 2:1:1. Reduz a fadiga muscular, acelera a recuperação e preserva a massa muscular.", weight: "60 cápsulas", protein: "500mg por cápsula" },
+    { title: "Barra de Proteína", price: 52.72, oldPrice: 65.90, discount: "-20%", image: "https://www.gsuplementos.com.br/upload/produto/layout/1120/mockup-v3.webp", description: "Barra proteica, perfeita para um lanche saudável e nutritivo. Rico em proteínas e baixo em açúcar. Ideal para consumir entre as refeições ou após o treino.", weight: "60g por barra", protein: "20g por barra" },
+    { title: "Creatina Em Pó 100g Creapure", price: 166.44, image: "https://a-static.mlcdn.com.br/280x210/bcaa-120-caps-creatina-250g-creapure-growth-supplements/maxpowersuplementos/8256935310/0c0d603299bb4d3fc72c77ada9632754.jpeg", description: "Creatina Monohidratada Creapure, a mais pura do mercado. Aumenta força, potência e desempenho nos treinos de alta intensidade. Certificação alemã de pureza.", weight: "100g", protein: "—" },
+    { title: "Blend Vegan 1kg", price: 166.44, image: "https://www.gsuplementos.com.br/_nuxt/img/saude-alinhada-v2.f6dab4f.png", description: "Proteína 100% vegana com blend de ervilha, arroz e soja. Completo em aminoácidos essenciais, sem lactose e sem glúten. Ideal para veganos e intolerantes.", weight: "1kg", protein: "25g por dose" },
+    { title: "Whey Protein Concentrado 1kg", price: 166.44, image: "https://www.gsuplementos.com.br/upload/produto/layout/2/mockup-v2.webp", description: "Whey Protein Concentrado com alta concentração proteica por dose. Absorção rápida, ideal para consumo imediatamente após o treino.", weight: "1kg", protein: "24g por dose" },
+    { title: "Hipercalórico 1kg Growth Supplements", price: 166.44, image: "https://www.gsuplementos.com.br/upload/produto/imagem/top-hipercal-rico-sabor-morango-1kg-growth-supplements-1.webp", description: "Hipercalórico com alto valor calórico por dose. Ideal para hardgainers que têm dificuldade em ganhar peso. Rico em carboidratos complexos e proteínas.", weight: "1kg", protein: "20g por dose" },
+    { title: "Hipercalórico com Whey Protein 3kg", price: 166.44, image: "https://m.magazineluiza.com.br/a-static/420x420/combo-2x-hipercaloricos-massa-red-brutal-gainers-bolic-3kg-cada-red-series/workshapefitsuplementos/kit-2xbolic-3/864ee46687bd544c0439917bb64d7496.jpeg", description: "Hipercalórico premium com Whey Protein em pote econômico de 3kg. Fórmula balanceada com carboidratos, proteínas e vitaminas para ganho de massa eficiente.", weight: "3kg", protein: "28g por dose" },
+    { title: "100% Whey Protein Pure 900g", price: 166.44, image: "https://cdn.awsli.com.br/2500x2500/2516/2516745/produto/382822947/whey-bcaa-monster-mockup-a-87ktdttg30.jpg", description: "Whey Protein 100% puro, sem adição de ingredientes desnecessários. Alta concentração proteica para quem busca resultado real.", weight: "900g", protein: "27g por dose" },
+    { title: "100% Whey Protein 1kg", price: 166.44, image: "https://fabricadesuplementos.cdn.magazord.com.br/img/2026/04/produto/1329/chocolate-2.jpg?ims=596x596", description: "Whey Protein 100% de alta qualidade em pote de 1kg. Fórmula completa com aminoácidos essenciais, perfeita para atletas e praticantes de musculação.", weight: "1kg", protein: "26g por dose" }
 ];
 
 const productList = document.getElementById("product-list");
@@ -117,7 +117,10 @@ if (productList) {
             ${p.oldPrice ? `<div class="tl-old-price">R$ ${p.oldPrice.toFixed(2)}</div>` : ""}
             <div class="tl-price">R$ ${p.price.toFixed(2)}</div>
             <div class="tl-installment">até 6x sem juros</div>
-            <button class="btn" onclick="addToCart('${p.title}', ${p.price})">COMPRAR</button>
+            <div class="tl-card-actions">
+                <button class="btn-details" onclick="openProductModal(products.find(x=>x.title==='${p.title.replace(/'/g, "\\'")}'))">Ver Detalhes</button>
+                <button class="btn" onclick="addToCart('${p.title}', ${p.price})">COMPRAR</button>
+            </div>
         `;
         productList.appendChild(card);
     });
@@ -363,4 +366,58 @@ function fecharPopupContato() {
         document.getElementById('popup-contato').style.display = 'none';
         card.classList.remove('fechando');
     }, 300);
+}
+
+// ---- Detalhamento dos produtos ----
+(function() {
+    const overlay = document.createElement('div');
+    overlay.id = 'product-modal-overlay';
+    overlay.innerHTML = `
+        <div id="product-modal">
+            <button id="modal-close" aria-label="Fechar">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeProductModal();
+    });
+    document.getElementById('modal-close').addEventListener('click', closeProductModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProductModal();
+    });
+})();
+
+function openProductModal(product) {
+    document.getElementById('modal-body').innerHTML = `
+        <div class="modal-img-wrap">
+            ${product.discount ? `<div class="tl-badge">${product.discount}</div>` : ''}
+            <img src="${product.image}" alt="${product.title}">
+        </div>
+        <div class="modal-info">
+            ${product.launch ? `<div class="tl-tag">LANÇAMENTO</div>` : ''}
+            <h2 class="modal-title">${product.title}</h2>
+            <p class="modal-desc">${product.description}</p>
+            <div class="modal-specs">
+                <div class="modal-spec"><span>Peso</span>${product.weight}</div>
+                <div class="modal-spec"><span>Proteína</span>${product.protein}</div>
+            </div>
+            <div class="modal-pricing">
+                ${product.oldPrice ? `<div class="tl-old-price">R$ ${product.oldPrice.toFixed(2)}</div>` : ''}
+                <div class="modal-price">R$ ${product.price.toFixed(2)}</div>
+                <div class="tl-installment">até 6x sem juros</div>
+            </div>
+            <button class="btn modal-buy-btn" onclick="addToCart('${product.title.replace(/'/g, "\\'")}', ${Number(product.price) || 0}); closeProductModal();">
+                🛒 ADICIONAR AO CARRINHO
+            </button>
+        </div>
+    `;
+    document.getElementById('product-modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+    document.getElementById('product-modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
 }
