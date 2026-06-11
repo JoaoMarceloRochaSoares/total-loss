@@ -12,7 +12,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 <title>Spinning Class - Total Loss</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="../main.css">
+<link rel="stylesheet" href="main.css">
 
 <style>
 
@@ -147,7 +147,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
 <header class="header">
 
-    <a href="../index.php" class="logo">
+    <a href="index.php" class="logo">
         <span>Total</span>Loss
     </a>
 
@@ -155,16 +155,16 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
     <nav class="navbar">
 
-        <a href="../index.php#home">Início</a>
-        <a href="../index.php#about">Sobre</a>
-        <a href="../index.php#features">Serviços</a>
-        <a href="../index.php#suppl">Suplementos</a>
-        <a href="../index.php#mar">Matérias</a>
-        <a href="../index.php#support">Suporte</a>
+       <a href="index.php#home">Início</a>
+    <a href="index.php#about">Sobre</a>
+    <a href="index.php#features">Serviços</a>
+    <a href="index.php#suppl">Suplementos</a>
+    <a href="index.php#mar">Matérias</a>
+    <a href="index.php#support">Suporte</a>
 
         <?php if ($usuario_nome): ?>
 
-            <a href="../conta.php">
+            <a href="conta.php">
                 <i class="fas fa-user-circle" style="margin-right:.4rem"></i>
                 <?= htmlspecialchars($usuario_nome) ?>
             </a>

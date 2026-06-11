@@ -168,7 +168,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Spinning Class</h3>
                         <p>Queime calorias rapidamente e melhore sua resistência cardiovascular com nossas aulas imersivas.</p>
-                        <a href="html/spining-class.html" class="btn">Ler Mais</a>
+                        <a href="spining-class.php" class="btn">Ler Mais</a>
                     </div>
                 </div>
             </div>
