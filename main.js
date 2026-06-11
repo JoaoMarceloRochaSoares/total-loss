@@ -7,7 +7,7 @@ menu.onclick = () => {
 };
 
 // ===== CARRINHO =====
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = [];
 
 const cartIcon = document.getElementById("cart-icon");
 const cartSidebar = document.getElementById("cart-sidebar");
@@ -78,7 +78,6 @@ function updateCart() {
 
     cartCount.innerText = totalItems;
     totalPrice.innerText = total.toFixed(2);
-    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // ===== PRODUTOS =====
@@ -323,7 +322,6 @@ function confirmarPedido() {
 
 function limparCarrinho() {
     cart = [];
-    localStorage.removeItem('cart');
     updateCart();
 }
 
