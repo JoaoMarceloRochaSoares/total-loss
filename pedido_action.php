@@ -20,18 +20,17 @@ $usuario_id      = $_SESSION['usuario_id'];
 $total           = (float) $dados['total'];
 $forma_pagamento = $dados['forma_pagamento'] ?? 'desconhecido';
 $itens           = $dados['itens'];
+$status          = 'pendente';
 
-
-$stmt = $conn->prepare("INSERT INTO pedidos (usuario_id, total, forma_pagamento) VALUES (?, ?, ?)");
-$stmt->bind_param("ids", $usuario_id, $total, $forma_pagamento);
+$stmt = $conn->prepare("INSERT INTO pedidos (usuario_id, total, forma_pagamento, status) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("idss", $usuario_id, $total, $forma_pagamento, $status);
 
 if (!$stmt->execute()) {
-    echo json_encode(['sucesso' => false, 'erro' => 'Erro ao salvar pedido']);
+    echo json_encode(['sucesso' => false, 'erro' => 'Erro ao salvar pedido: ' . $stmt->error]);
     exit;
 }
 
 $pedido_id = $stmt->insert_id;
-
 
 $stmt_item = $conn->prepare("INSERT INTO itens_pedido (pedido_id, nome_produto, quantidade, preco) VALUES (?, ?, ?, ?)");
 
@@ -40,7 +39,10 @@ foreach ($itens as $item) {
     $quantidade = (int) $item['quantity'];
     $preco      = (float) $item['price'];
     $stmt_item->bind_param("isid", $pedido_id, $nome, $quantidade, $preco);
-    $stmt_item->execute();
+    if (!$stmt_item->execute()) {
+        // log silencioso, não interrompe o fluxo
+        error_log('Erro ao salvar item: ' . $stmt_item->error);
+    }
 }
 
 echo json_encode(['sucesso' => true]);
