@@ -1144,11 +1144,12 @@ section {
 .tl-tag{
     background:rgb(238, 87, 51);
     color:#fff;
-    display:inline-block;
+    display:block;
     padding:.4rem .8rem;
     border-radius:.4rem;
     font-size:1.2rem;
     margin-bottom:1rem;
+    text-align: center;
 }
 
 .see-more-container{
