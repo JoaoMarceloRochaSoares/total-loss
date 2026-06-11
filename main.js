@@ -317,7 +317,27 @@ function copiarBoleto(codigo, btn) {
 }
 
 function confirmarPedido() {
-    ativarStep(4);
+    const radioSelecionado = document.querySelector('input[name="pgto"]:checked');
+    const forma = radioSelecionado ? radioSelecionado.value : 'desconhecido';
+    const total = cart.reduce((soma, item) => soma + item.price * item.quantity, 0);
+
+    fetch('/pedido_action.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itens: cart, total: total, forma_pagamento: forma })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.sucesso) {
+            ativarStep(4);
+            limparCarrinho();
+        } else {
+            alert('Erro ao registrar pedido. Tente novamente.');
+        }
+    })
+    .catch(() => {
+        alert('Erro de conexão. Verifique sua internet e tente novamente.');
+    });
 }
 
 function limparCarrinho() {
