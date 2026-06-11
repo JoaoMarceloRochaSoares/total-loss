@@ -118,54 +118,11 @@ $usuario_nome = $_SESSION['usuario_nome'];
     </div>
 
     <div id="tab-pedidos" class="tab-conteudo ativo">
-        <?php
-        require 'conexao.php';
-        $stmt = $conn->prepare(
-            "SELECT id, total, forma_pagamento, status, criado_em
-             FROM pedidos
-             WHERE usuario_id = ?
-             ORDER BY criado_em DESC"
-        );
-        $stmt->bind_param("i", $_SESSION['usuario_id']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows === 0): ?>
-            <div class="pedidos-vazio">
-                <i class="fas fa-shopping-bag"></i>
-                <p>Você ainda não fez nenhum pedido.</p>
-                <a href="/produtos.php">Ver Produtos</a>
-            </div>
-        <?php else: ?>
-            <style>
-                .pedido-card {
-                    background: #1a1a1a;
-                    border: 1px solid #333;
-                    border-radius: .8rem;
-                    padding: 1.6rem 2rem;
-                    margin-bottom: 1.2rem;
-                }
-                .pedido-card p { color: #ccc; font-size: 1.4rem; margin: .3rem 0; }
-                .pedido-card strong { color: #fff; }
-                .pedido-status {
-                    display: inline-block;
-                    margin-top: .8rem;
-                    padding: .3rem 1rem;
-                    background: var(--green);
-                    color: #111;
-                    font-size: 1.2rem;
-                    font-weight: bold;
-                    border-radius: 2rem;
-                }
-            </style>
-            <?php while ($p = $result->fetch_assoc()): ?>
-                <div class="pedido-card">
-                    <p><strong>Pedido #<?= $p['id'] ?></strong> &nbsp;·&nbsp; <?= date('d/m/Y H:i', strtotime($p['criado_em'])) ?></p>
-                    <p>Total: <strong>R$ <?= number_format($p['total'], 2, ',', '.') ?></strong> &nbsp;·&nbsp; <?= htmlspecialchars(ucfirst($p['forma_pagamento'])) ?></p>
-                    <span class="pedido-status"><?= htmlspecialchars($p['status']) ?></span>
-                </div>
-            <?php endwhile; ?>
-        <?php endif; ?>
+        <div class="pedidos-vazio">
+            <i class="fas fa-shopping-bag"></i>
+            <p>Você ainda não fez nenhum pedido.</p>
+            <a href="/produtos.html">Ver Produtos</a>
+        </div>
     </div>
 
     <a href="/logout.php" class="btn-sair">
