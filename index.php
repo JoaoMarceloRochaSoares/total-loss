@@ -127,7 +127,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         <p>Treine seu corpo fortemente</p>
                     </div>
                 </div>
-                <a href="html/sobre-nos.html" class="btn">Ler mais</a>
+               <a href="Sobre.php" class="btn">Ler mais</a>
             </div>
         </section>
 
