@@ -1073,6 +1073,8 @@ section {
     transition:.2s;
     border:.1rem solid #333;
     overflow:hidden;
+    display:flex;
+    flex-direction:column;
 }
  
 .tl-card:hover{
@@ -1868,7 +1870,8 @@ section {
 .tl-card-actions {
     display: flex;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
 }
 
 .tl-card-actions .btn {
