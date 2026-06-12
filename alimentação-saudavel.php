@@ -207,8 +207,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                 Uma boa estratégia alimentar aumenta o desempenho
                 durante os exercícios e acelera a recuperação muscular.
             </p>
-
-            <a href="index.php#mar" class="btn">Voltar às Matérias</a>
         </div>
 
         <div class="review-slider">
