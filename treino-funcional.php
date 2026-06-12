@@ -6,7 +6,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,19 +20,18 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     margin-top:7rem;
     min-height:70vh;
     background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1920&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1920&auto=format&fit=crop')
+    center/cover;
+
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:0 9%;
 }
 
 .funcional-hero .content{
-    max-width:90rem;
+    max-width:80rem;
 }
 
 .funcional-hero span{
@@ -50,40 +48,40 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 .funcional-hero p{
     color:#ddd;
     font-size:1.8rem;
-    line-height:2;
+    line-height:1.8;
 }
 
 .funcional-info{
     background:#1a1a1a;
 }
 
-.funcional-container{
+.funcional-info .container{
     display:flex;
     flex-wrap:wrap;
     gap:5rem;
     align-items:center;
 }
 
-.funcional-image{
+.funcional-info .image{
     flex:1 1 40rem;
 }
 
-.funcional-image img{
+.funcional-info .image img{
     width:100%;
     border-radius:1rem;
 }
 
-.funcional-content{
+.funcional-info .content{
     flex:1 1 45rem;
 }
 
-.funcional-content h2{
+.funcional-info .content h2{
     color:#fff;
     font-size:4rem;
     margin-bottom:2rem;
 }
 
-.funcional-content p{
+.funcional-info .content p{
     color:#ccc;
     font-size:1.7rem;
     line-height:2;
@@ -99,7 +97,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     grid-template-columns:repeat(auto-fit,minmax(28rem,1fr));
     gap:3rem;
 }
-
 .beneficio-card{
     background:#1a1a1a;
     border:1px solid #333;
@@ -131,13 +128,69 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     line-height:1.8;
 }
 
+.massa-muscular{
+    background:#1a1a1a;
+}
+
+.massa-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(30rem,1fr));
+    gap:3rem;
+}
+
+.massa-card{
+    background:#111;
+    border:1px solid #333;
+    border-radius:1rem;
+    padding:3rem;
+    transition:.3s;
+}
+
+.massa-card:hover{
+    border-color:rgb(238,87,51);
+    box-shadow:0 0 20px rgba(238,87,51,.2);
+}
+
+.massa-card h3{
+    color:#fff;
+    font-size:2.2rem;
+    margin-bottom:1rem;
+}
+
+.massa-card p{
+    color:#aaa;
+    font-size:1.5rem;
+    line-height:1.9;
+}
+
+.destaque{
+    background:
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    url('https://pro3academia.com.br/wp-content/uploads/2024/12/Capa-Blog-Post-13-768x576.png')
+    center/cover;
+
+    text-align:center;
+}
+
+.destaque h2{
+    color:#fff;
+    font-size:4rem;
+}
+
+.destaque p{
+    color:#ddd;
+    font-size:1.8rem;
+    max-width:80rem;
+    margin:2rem auto;
+    line-height:2;
+}
+
 </style>
 
 </head>
 
 <body>
-
-<header class="header">
+    <header class="header">
 
     <a href="index.php" class="logo">
         <span>Total</span>Loss
@@ -170,7 +223,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     </nav>
 
 </header>
-
 <section class="funcional-hero">
 
     <div class="content">
@@ -180,9 +232,8 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         <h1>Treino Funcional</h1>
 
         <p>
-            O treino funcional utiliza movimentos naturais do corpo para
-            desenvolver força, resistência, mobilidade, equilíbrio e
-            coordenação, melhorando o desempenho físico dentro e fora da academia.
+            O treino funcional utiliza movimentos naturais do corpo para desenvolver
+            força, resistência, mobilidade, equilíbrio e coordenação.
         </p>
 
         <a href="#sobre" class="btn">
@@ -192,48 +243,55 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     </div>
 
 </section>
+
 <section class="funcional-info" id="sobre">
 
-    <section class="about">
+    <div class="container">
 
-        <div class="funcional-container">
+        <div class="image">
+            <img src="https://assets-cdn.wellhub.com/images/mep-cms/Wellhub_Crossfit_05_fdc58ec758.jpg?w=1024&q=65">
+        </div>
 
-            <div class="funcional-image">
+        <div class="content">
 
-                <img src="https://assets-cdn.wellhub.com/images/mep-cms/Wellhub_Crossfit_05_fdc58ec758.jpg?w=1024&q=65">
+            <span style="color:rgb(238,87,51);font-size:2rem;">
+                COMO FUNCIONA
+            </span>
 
-            </div>
+            <h2>O que é o Treino Funcional?</h2>
 
-            <div class="funcional-content">
+            <p>
+                O treino funcional é baseado em movimentos que simulam ações do dia a dia.
+            </p>
 
-                <span style="color:rgb(238,87,51);font-size:2rem;">
-                    COMO FUNCIONA
-                </span>
+            <p>
+                Trabalha vários grupos musculares simultaneamente.
+            </p>
 
-                <h2>O que é o Treino Funcional?</h2>
-
-                <p>
-                    O treino funcional é baseado em movimentos que simulam
-                    ações do dia a dia como correr, empurrar, puxar,
-                    saltar e agachar.
-                </p>
-
-                <p>
-                    Diferente dos exercícios isolados, ele trabalha
-                    vários grupos musculares ao mesmo tempo,
-                    proporcionando melhor condicionamento físico.
-                </p>
-
-                <p>
-                    Pode ser realizado utilizando peso corporal,
-                    cordas, kettlebells, cones, elásticos e diversos
-                    acessórios.
-                </p>
-
-            </div>
+            <p>
+                Promove condicionamento físico e maior gasto calórico.
+            </p>
 
         </div>
 
-    </section>
+    </div>
 
 </section>
+<section class="beneficios">
+...
+</section>
+
+<section class="massa-muscular">
+...
+</section>
+
+<section class="destaque">
+...
+</section>
+
+<footer class="footer">
+...
+</footer>
+
+</body>
+</html>
