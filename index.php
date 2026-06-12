@@ -100,7 +100,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         <!-- ===== SOBRE ===== -->
         <section id="about" class="about">
             <div class="image">
-                <img src="https://images.unsplash.com/photo-1581009137042-c552e485697a?q=80&w=800&auto=format&fit=crop"
+                <img src="https://www.caffeinearmy.com.br/cdn/shop/files/grid_pic_1_whey_choco.webp?v=1765397590&width=1946"
                     alt="Pessoa treinando" loading="lazy">
             </div>
 
@@ -138,7 +138,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
             <div class="box-container">
                 <div class="box">
                     <div class="image">
-                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=800&auto=format&fit=crop"
+                        <img src="https://media.istockphoto.com/id/2182790211/pt/foto/woman-exercise-with-lat-pulldown-machine-in-gym.jpg?s=612x612&w=0&k=20&c=Y4_Xckao-dr764tnVfpDzlMLF6Ewu3BvB1YM4tI7Zdo="
                             alt="Musculação Profissional" loading="lazy">
                     </div>
                     <div class="content">
@@ -225,7 +225,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                 </div>
 
                 <div class="box">
-                    <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=800&auto=format&fit=crop"
+                    <img src="https://totalpass.com/wp-content/uploads/2023/07/Treino-de-triceps.jpg"
                         alt="Treino iniciante" loading="lazy">
                     <div class="content">
                         <h3>Treino rápido para iniciantes</h3>
@@ -235,7 +235,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                 </div>
 
                 <div class="box">
-                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop"
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjW6-Z3HRzzVVskITMi4uoer6l4yvtBWRH3droFkL0FSAA07O5cax2ZTc7ifC90kn0ZmSuuoUbCdg9tlwhtPOvXnpttWNkwY0mrDM-_Wz7aoaVUOwzqQ2IIrLWLo5liIJLJI-OeOk8-ICLSQRT0J9qJK8fwDsi1uGcaL3qqBWMBNHVJPPw1tdszzY1iFQ9i/w1200-h630-p-k-no-nu/O%20que%20muda%20com%203%20meses%20de%20academia.jpg"
                         alt="Execução correta" loading="lazy">
                     <div class="content">
                         <h3>Como treinar corretamente</h3>
