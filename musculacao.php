@@ -197,8 +197,12 @@ section{
         <span>Força • Disciplina • Evolução</span>
         <h1>Musculação</h1>
         <p>
-            Transforme seu corpo com treino, disciplina e conhecimento.
-            A musculação é o caminho mais eficiente para evolução física e mental.
+           Os benefícios da musculação vão muito além da estética. O treinamento regular auxilia no ganho de massa muscular, acelera o metabolismo e aumenta
+            o gasto calórico diário, facilitando o controle do peso corporal. Também fortalece ossos, tendões e articulações, reduzindo o risco 
+            de lesões e doenças relacionadas ao envelhecimento. A prática frequente melhora a postura, a capacidade funcional e o condicionamento físico geral.
+             Outro ponto importante é seu impacto positivo
+             na saúde mental, ajudando a combater a ansiedade, o estresse e promovendo maior bem-estar.
+</p>
         </p>
     </div>
 
@@ -218,9 +222,8 @@ section{
     <img src="https://www.olimpiadatododia.com.br/wp-content/uploads/2025/07/Como-a-musculacao-previne-lesoes-em-corredores-e-ciclistas.jpg">
 
     <p>
-       A musculação é um treinamento de força que utiliza pesos, máquinas ou o próprio peso corporal 
-       para desenvolver músculos, aumentar a força, melhorar a saúde e elevar o desempenho físico. Quando combinada com 
-       alimentação adequada e descanso, produz excelentes resultados.
+      A musculação é muito mais do que apenas levantar pesos. Ela representa um estilo de vida baseado em disciplina, dedicação e evolução constante. Com um planejamento adequado, é possível desenvolver força, melhorar a composição corporal e aumentar a confiança. Além dos benefícios estéticos, o treinamento contribui para a saúde física e mental, ajudando na redução do estresse e no aumento da disposição diária. Cada treino é uma oportunidade de superar limites e alcançar novos objetivos. O conhecimento aliado à prática é o caminho para resultados duradouros.
+</p>
     </p>
 
 </div>
@@ -233,7 +236,7 @@ section{
      style="width:95%; height:auto; display:block; margin:5px auto; border-radius:6px;">
 
     <p>
-       A musculação ajuda no ganho de massa muscular, acelera o metabolismo, fortalece ossos e articulações, melhora a postura, reduz o estresse e contribui para uma vida mais saudável.
+     Os benefícios da musculação vão muito além da estética. O treinamento regular auxilia no ganho de massa muscular, acelera o metabolismo e aumenta o gasto calórico diário, facilitando o controle do peso corporal. Também fortalece ossos, tendões e articulações, reduzindo o risco de lesões e doenças relacionadas ao envelhecimento. A prática frequente melhora a postura, a capacidade funcional e o condicionamento físico geral. Outro ponto importante é seu impacto positivo na saúde mental, ajudando a combater a ansiedade, o estresse e promovendo maior bem-estar.
     </p>
 
 </div>
@@ -246,7 +249,7 @@ section{
      style="width:95%; height:auto; display:block; margin:5px auto; border-radius:6px;">
 
     <p>
-       Hipertrofia é o aumento do tamanho dos músculos. Ela acontece quando o treino gera estímulo suficiente e o corpo recebe nutrientes e descanso para se recuperar e crescer.
+      A hipertrofia muscular é o processo responsável pelo aumento do tamanho das fibras musculares. Esse fenômeno ocorre quando o músculo recebe estímulos adequados durante o treino e dispõe de nutrientes suficientes para sua recuperação. Após cada sessão de exercícios, o organismo inicia um processo de reparação das fibras musculares, tornando-as maiores e mais fortes. Para maximizar esse resultado, é essencial seguir uma rotina consistente de treinamento, manter uma alimentação rica em proteínas e respeitar os períodos de descanso. A combinação desses fatores é fundamental para a evolução muscular.
     </p>
 
 </div>
@@ -258,8 +261,7 @@ section{
     <img src="https://fitestrong.com.br/images/materias/2024/06/alimentos_musculo_450_394391121.png">
 
     <p>
-       Uma alimentação equilibrada fornece energia para os treinos e nutrientes para a recuperação muscular. Proteínas, carboidratos, gorduras saudáveis e hidratação são fundamentais.
-    </p>
+      A alimentação desempenha um papel decisivo nos resultados da musculação. É através dos alimentos que o organismo obtém a energia necessária para realizar os treinos e os nutrientes responsáveis pela recuperação muscular. Proteínas auxiliam na construção e manutenção dos músculos, enquanto os carboidratos fornecem combustível para atividades intensas. As gorduras saudáveis participam de processos hormonais importantes e a hidratação adequada garante o bom funcionamento do organismo. Uma dieta equilibrada e planejada potencializa o desempenho físico e acelera a conquista dos objetivos.
 
 </div>
 
@@ -271,7 +273,9 @@ section{
      style="width:100%; height:auto; display:block;">>
 
     <p>
-        OO whey protein é um suplemento rico em proteínas que auxilia na recuperação muscular e ajuda a atingir as necessidades diárias de proteína.
+        O whey protein é um dos suplementos mais populares entre praticantes de musculação devido à sua alta concentração de proteínas de rápida absorção. Ele auxilia no processo de recuperação muscular após os treinos, favorecendo a síntese proteica e contribuindo para o crescimento muscular. Além disso, pode ser uma alternativa prática para complementar a ingestão diária de proteínas quando a alimentação não é suficiente. Seu uso deve estar alinhado às necessidades individuais e integrado a uma rotina alimentar equilibrada. Quando utilizado corretamente, torna-se um excelente aliado para quem busca melhores resultados.
+</p>
+
     </p>
 
 </div>
@@ -283,7 +287,7 @@ section{
     <img src="https://underlabz.com.br/cdn/shop/articles/O-protocolo-da-performance_-como-alinhar-treino_-foco-e-disciplina-no-seu-dia-a-dia_-_-Under-Labz-_-Loja-Oficial-190955875.jpg?v=1778948864">
 
     <p>
-       Resultados na musculação dependem de consistência. Treinar regularmente, alimentar-se bem e descansar adequadamente são os pilares da evolução.
+       Os resultados na musculação são construídos ao longo do tempo por meio da consistência e da dedicação diária. Não existem fórmulas mágicas ou transformações instantâneas, mas sim a soma de pequenas ações realizadas de forma contínua. Treinar regularmente, manter uma alimentação adequada e respeitar os períodos de recuperação são os pilares fundamentais para a evolução física. A paciência e a persistência fazem toda a diferença durante a jornada. Com foco e comprometimento, é possível alcançar mudanças significativas tanto na aparência quanto na saúde e qualidade de vida.
     </p>
 
 </div>
