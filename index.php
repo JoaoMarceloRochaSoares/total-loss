@@ -83,7 +83,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     </div>
 
                     <div class="swiper-slide slide"
-                        style="background: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1920&auto=format&fit=crop') no-repeat center/cover;">
+                        style="background: url('TotalWhey.png.png') no-repeat center/cover;">
                         <div class="content">
                             <span>Seja Forte, seja fit</span>
                             <h3>Transforme seu corpo e sua mente.</h3>
