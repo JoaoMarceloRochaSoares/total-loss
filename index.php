@@ -99,7 +99,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         <!-- ===== SOBRE ===== -->
         <section id="about" class="about">
             <div class="image">
-                <img src="https://www.caffeinearmy.com.br/cdn/shop/files/grid_pic_1_whey_choco.webp?v=1765397590&width=1946"
+                <img src="Samuca-na-total-loss.png.png"
                     alt="Pessoa treinando" loading="lazy">
             </div>
 
