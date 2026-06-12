@@ -148,17 +148,25 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     </div>
                 </div>
 
-                <div class="box">
-                    <div class="image">
-                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop"
-                            alt="Treino Funcional Dinâmico" loading="lazy">
-                    </div>
-                    <div class="content">
-                        <h3>Treino Funcional</h3>
-                        <p>Circuitos dinâmicos e de alta intensidade para melhorar seu condicionamento, força e agilidade corporal.</p>
-                       <a href="funcional.php" class="btn">Ler Mais</a>
-                    </div>
-                </div>
+          <div class="box">
+              <div class="image">
+                 <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop"
+            alt="Treino Funcional Dinâmico" loading="lazy">
+            </div>
+
+             <div class="content">
+             <h3>Treino Funcional</h3>
+
+                     <p>
+                     Circuitos dinâmicos e de alta intensidade para melhorar
+                     seu condicionamento, força e agilidade corporal.
+                     </p>
+
+                     <a href="treino-funcional.php" class="btn">
+                     Ler Mais
+                 </a>
+              </div>
+            </div>
 
                 <div class="box">
                     <div class="image">

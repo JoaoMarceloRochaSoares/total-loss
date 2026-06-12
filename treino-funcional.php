@@ -6,6 +6,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,16 +20,16 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 .funcional-hero{
     margin-top:7rem;
     min-height:70vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:0 9%;
     background:
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
     url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1920&auto=format&fit=crop');
     background-size:cover;
     background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 9%;
 }
 
 .funcional-hero .content{
@@ -43,7 +44,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 .funcional-hero h1{
     color:#fff;
     font-size:6rem;
-    margin:1.5rem 0;
+    margin:1rem 0;
 }
 
 .funcional-hero p{
@@ -59,8 +60,8 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 .funcional-container{
     display:flex;
     flex-wrap:wrap;
-    align-items:center;
     gap:5rem;
+    align-items:center;
 }
 
 .funcional-image{
@@ -76,22 +77,58 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     flex:1 1 45rem;
 }
 
-.funcional-content span{
-    color:rgb(238,87,51);
-    font-size:2rem;
-}
-
 .funcional-content h2{
     color:#fff;
     font-size:4rem;
-    margin:1rem 0;
+    margin-bottom:2rem;
 }
 
 .funcional-content p{
     color:#ccc;
-    font-size:1.6rem;
+    font-size:1.7rem;
     line-height:2;
     margin-bottom:1.5rem;
+}
+
+.beneficios{
+    background:#111;
+}
+
+.beneficios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(28rem,1fr));
+    gap:3rem;
+}
+
+.beneficio-card{
+    background:#1a1a1a;
+    border:1px solid #333;
+    border-radius:1rem;
+    padding:3rem;
+    transition:.3s;
+}
+
+.beneficio-card:hover{
+    transform:translateY(-10px);
+    border-color:rgb(238,87,51);
+}
+
+.beneficio-card i{
+    font-size:4rem;
+    color:rgb(238,87,51);
+    margin-bottom:2rem;
+}
+
+.beneficio-card h3{
+    color:#fff;
+    font-size:2.2rem;
+    margin-bottom:1rem;
+}
+
+.beneficio-card p{
+    color:#aaa;
+    font-size:1.5rem;
+    line-height:1.8;
 }
 
 </style>
@@ -99,7 +136,8 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 </head>
 
 <body>
-    <header class="header">
+
+<header class="header">
 
     <a href="index.php" class="logo">
         <span>Total</span>Loss
@@ -132,6 +170,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
     </nav>
 
 </header>
+
 <section class="funcional-hero">
 
     <div class="content">
@@ -141,9 +180,9 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         <h1>Treino Funcional</h1>
 
         <p>
-            O treino funcional trabalha movimentos naturais do corpo,
-            melhorando força, resistência, equilíbrio, coordenação e
-            condicionamento físico para o dia a dia.
+            O treino funcional utiliza movimentos naturais do corpo para
+            desenvolver força, resistência, mobilidade, equilíbrio e
+            coordenação, melhorando o desempenho físico dentro e fora da academia.
         </p>
 
         <a href="#sobre" class="btn">
@@ -155,41 +194,46 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 </section>
 <section class="funcional-info" id="sobre">
 
-<section class="about">
+    <section class="about">
 
-<div class="funcional-container">
+        <div class="funcional-container">
 
-<div class="funcional-image">
+            <div class="funcional-image">
 
-<img src="https://assets-cdn.wellhub.com/images/mep-cms/Wellhub_Crossfit_05_fdc58ec758.jpg?w=1024&q=65">
+                <img src="https://assets-cdn.wellhub.com/images/mep-cms/Wellhub_Crossfit_05_fdc58ec758.jpg?w=1024&q=65">
 
-</div>
+            </div>
 
-<div class="funcional-content">
+            <div class="funcional-content">
 
-<span>COMO FUNCIONA</span>
+                <span style="color:rgb(238,87,51);font-size:2rem;">
+                    COMO FUNCIONA
+                </span>
 
-<h2>O que é o Treino Funcional?</h2>
+                <h2>O que é o Treino Funcional?</h2>
 
-<p>
-O treino funcional utiliza movimentos naturais como correr,
-agachar, saltar, empurrar e puxar.
-</p>
+                <p>
+                    O treino funcional é baseado em movimentos que simulam
+                    ações do dia a dia como correr, empurrar, puxar,
+                    saltar e agachar.
+                </p>
 
-<p>
-Ao contrário dos exercícios isolados, ele trabalha diversos
-grupos musculares simultaneamente.
-</p>
+                <p>
+                    Diferente dos exercícios isolados, ele trabalha
+                    vários grupos musculares ao mesmo tempo,
+                    proporcionando melhor condicionamento físico.
+                </p>
 
-<p>
-Isso proporciona mais gasto calórico, melhora da postura,
-coordenação motora e condicionamento físico.
-</p>
+                <p>
+                    Pode ser realizado utilizando peso corporal,
+                    cordas, kettlebells, cones, elásticos e diversos
+                    acessórios.
+                </p>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
 </section>
