@@ -150,7 +150,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
           <div class="box">
               <div class="image">
-                 <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop"
+                 <img src="https://totalpass.com/wp-content/uploads/2023/08/Exercicios-na-maquina.jpg"
             alt="Treino Funcional Dinâmico" loading="lazy">
             </div>
 
@@ -170,7 +170,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
                 <div class="box">
                     <div class="image">
-                        <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=800&auto=format&fit=crop"
+                        <img src="https://previews.123rf.com/images/wavebreakmediamicro/wavebreakmediamicro1908/wavebreakmediamicro190801416/128269984-front-view-of-diverse-fit-people-exercising-on-exercise-bike-in-fitness-center-bright-modern-gym.jpg"
                             alt="Aula de Spinning" loading="lazy">
                     </div>
                     <div class="content">
