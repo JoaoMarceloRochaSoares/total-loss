@@ -215,12 +215,12 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
             <div class="box-container">
                 <div class="box">
-                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop"
+                    <img src="https://www.tatifigueira.com.br/blog/wp-content/uploads/2024/09/6186.jpg"
                         alt="Exercícios abdominais" loading="lazy">
                     <div class="content">
                         <h3>A melhor alimentação possível para quem treina</h3>
                         <p>Saiba como se alimentar bem antes de um treino</p>
-                        <a href="alimentacao-saudavel.php" class="btn">Ler mais</a>
+                        <a href="alimentação-saudavel.php" class="btn">Ler mais</a>
                     </div>
                 </div>
 
