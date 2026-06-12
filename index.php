@@ -238,15 +238,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
             </div>
         </section>
 
-        <!-- ===== FEEDBACKS ===== -->
-        <section class="review">
-            <div class="information">
-                <span>Feedbacks</span>
-                <h3>O que nossos clientes dizem</h3>
-                <p>Quer saber o que nossos clientes falam sobre nós?</p>
-                <a href="#" class="btn">Leia Todos</a>
-            </div>
-
             <div class="swiper review-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide slide">
