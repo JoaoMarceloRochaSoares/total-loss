@@ -144,7 +144,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Musculação</h3>
                         <p>Equipamentos de última geração para hipertrofia, força e definição muscular com acompanhamento.</p>
-                        <a href="html/musculacao.html" class="btn">Ler Mais</a>
+                        <a href="musculacao.php" class="btn">Ler Mais</a>
                     </div>
                 </div>
 
