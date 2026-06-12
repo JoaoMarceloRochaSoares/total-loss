@@ -220,7 +220,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>3 Exercícios para perder barriga</h3>
                         <p>Aprenda exercícios simples que você pode fazer em casa para reduzir gordura abdominal.</p>
-                        <a href="html/alimentacao-saudavel.html" class="btn">Ler mais</a>
+                        <a href="alimentacao-saudavel.php" class="btn">Ler mais</a>
                     </div>
                 </div>
 

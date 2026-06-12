@@ -1,0 +1,285 @@
+<?php
+session_start();
+
+$usuario_nome = $_SESSION['usuario_nome'] ?? null;
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentação Saudável | Total Loss</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.php" class="logo"><span>Total</span>Loss</a>
+
+        <nav class="navbar">
+            <a href="index.php">Início</a>
+            <a href="#alimentacao">Alimentação</a>
+            <a href="#ganho">Ganho de Massa</a>
+            <a href="#dicas">Dicas</a>
+        </nav>
+    </header>
+
+    <section class="home">
+        <div class="slide"
+            style="background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;">
+
+            <div class="content">
+                <span>Nutrição e Performance</span>
+                <h3>A alimentação é o combustível dos seus resultados.</h3>
+                <a href="#ganho" class="btn">Descobrir Alimentos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="alimentacao">
+
+        <div class="image">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop"
+                alt="Alimentação saudável">
+        </div>
+
+        <div class="content">
+            <span>Alimentação Saudável</span>
+
+            <h3 class="title">
+                Uma dieta equilibrada potencializa seus treinos
+            </h3>
+
+            <p>
+                Não importa se o seu objetivo é ganhar massa muscular,
+                emagrecer ou melhorar o desempenho físico:
+                a alimentação tem papel fundamental nos resultados.
+            </p>
+
+            <p>
+                Consumir proteínas, carboidratos de qualidade,
+                gorduras saudáveis e manter uma boa hidratação
+                ajuda o corpo a se recuperar mais rápido e
+                construir músculos de forma eficiente.
+            </p>
+
+            <div class="box-container">
+
+                <div class="box">
+                    <h3><i class="fas fa-drumstick-bite"></i>Proteínas</h3>
+                    <p>Essenciais para recuperação muscular.</p>
+                </div>
+
+                <div class="box">
+                    <h3><i class="fas fa-bread-slice"></i>Carboidratos</h3>
+                    <p>Fonte principal de energia para o treino.</p>
+                </div>
+
+                <div class="box">
+                    <h3><i class="fas fa-tint"></i>Hidratação</h3>
+                    <p>Melhora o rendimento e evita fadiga.</p>
+                </div>
+
+                <div class="box">
+                    <h3><i class="fas fa-seedling"></i>Vitaminas</h3>
+                    <p>Importantes para saúde e recuperação.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="features" id="ganho">
+
+        <h1 class="heading">
+            <span>Melhores Alimentos para Ganho de Massa</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <div class="content">
+                    <h3>Peito de Frango</h3>
+
+                    <p>
+                        Rico em proteínas de alta qualidade e baixo teor de gordura.
+                        Um dos alimentos mais utilizados para hipertrofia muscular.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <div class="content">
+                    <h3>Ovos</h3>
+
+                    <p>
+                        Possuem proteínas completas, vitaminas e gorduras saudáveis,
+                        auxiliando na construção muscular.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1603046891744-76e6481f1f5d?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <div class="content">
+                    <h3>Batata Doce</h3>
+
+                    <p>
+                        Excelente fonte de carboidratos complexos,
+                        fornecendo energia para treinos intensos.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <div class="content">
+                    <h3>Arroz e Feijão</h3>
+
+                    <p>
+                        Combinação clássica que oferece energia,
+                        fibras e aminoácidos importantes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <div class="content">
+                    <h3>Banana</h3>
+
+                    <p>
+                        Rica em potássio e carboidratos,
+                        ideal para pré e pós-treino.
+                    </p>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=1000&auto=format&fit=crop">
+                </div>
+
+                <div class="content">
+                    <h3>Salmão</h3>
+
+                    <p>
+                        Fonte de proteína e ômega 3,
+                        auxiliando recuperação e saúde muscular.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="review" id="dicas">
+
+        <div class="information">
+            <h3>Dicas para Alimentação Pré e Pós Treino</h3>
+
+            <p>
+                Uma boa estratégia alimentar aumenta o desempenho
+                durante os exercícios e acelera a recuperação muscular.
+            </p>
+
+            <a href="index.php#mar" class="btn">Voltar às Matérias</a>
+        </div>
+
+        <div class="review-slider">
+
+            <div class="slide">
+                <p>
+                    <strong>Pré-Treino:</strong>
+                    Consuma carboidratos complexos como aveia,
+                    banana e batata doce cerca de 1 a 2 horas antes
+                    do treino para garantir energia.
+                </p>
+            </div>
+
+            <br>
+
+            <div class="slide">
+                <p>
+                    <strong>Pós-Treino:</strong>
+                    Priorize proteínas e carboidratos para recuperação,
+                    como frango, ovos, arroz, whey protein e frutas.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="banner">
+        <span>Nutrição + Treino</span>
+        <h3>Resultados começam na cozinha</h3>
+
+        <p>
+            Alimentação adequada, treino consistente e descanso
+            são os pilares para evolução física.
+        </p>
+
+        <a href="index.php#mar" class="btn">Voltar às Matérias</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Total Loss</h3>
+
+                <p>
+                    Seu portal de treino, saúde e alimentação.
+                </p>
+            </div>
+
+            <div class="box">
+                <h3>Links</h3>
+
+                <a href="index.php">Início</a>
+                <a href="#alimentacao">Alimentação</a>
+                <a href="#ganho">Ganho de Massa</a>
+                <a href="#dicas">Dicas</a>
+            </div>
+
+            <div class="box">
+                <h3>Contato</h3>
+
+                <p><i class="fas fa-envelope"></i> contato@totalloss.com</p>
+                <p><i class="fas fa-phone"></i> (21) 99222-3333</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
