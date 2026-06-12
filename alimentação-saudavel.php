@@ -136,7 +136,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
             <div class="box">
                 <div class="image">
-                    <img src="https://images.unsplash.com/photo-1603046891744-76e6481f1f5d?q=80&w=1000&auto=format&fit=crop">
+                    <img src="https://blog.mantiqueirabrasil.com.br/wp-content/uploads/2021/03/ovo-jumbo.jpg">
                 </div>
 
                 <div class="content">
@@ -151,7 +151,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
             <div class="box">
                 <div class="image">
-                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000&auto=format&fit=crop">
+                    <img src="https://revistajardins.pt/wp-content/uploads/2020/06/batata-doce.jpg">
                 </div>
 
                 <div class="content">
