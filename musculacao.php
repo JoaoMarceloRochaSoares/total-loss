@@ -1,391 +1,289 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Musculação - Total Loss</title>
-
-<link rel="stylesheet" href="main.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>Musculação</title>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
 
-.musculacao-page{
-    margin-top:8rem;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Nunito',sans-serif;
+    text-decoration:none;
 }
 
-.hero-musculacao{
+html{
+    font-size:62.5%;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#111;
+    color:#fff;
+}
+
+section{
+    padding:5rem 9%;
+}
+
+
+.hero{
     min-height:70vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:8rem 9%;
     background:
     linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop');
-    background-size:cover;
-    background-position:center;
-}
-
-.hero-content span{
-    color:rgb(238,87,51);
-    font-size:2rem;
-}
-
-.hero-content h1{
-    color:#fff;
-    font-size:5rem;
-    margin:2rem 0;
-}
-
-.hero-content p{
-    color:#ddd;
-    font-size:1.8rem;
-    line-height:2;
-    max-width:900px;
-    margin:auto;
-}
-
-.muscle-section{
-    padding:6rem 9%;
-    background:#111;
-}
-
-.muscle-card{
+    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop')
+    center/cover;
     display:flex;
     align-items:center;
-    gap:4rem;
-    margin-bottom:8rem;
 }
 
-.muscle-card:nth-child(even){
-    flex-direction:row-reverse;
+.hero .content{
+    max-width:75rem;
 }
 
-.muscle-image{
-    flex:1;
+.hero span{
+    color:#ff5722;
+    font-size:2rem;
+    font-weight:700;
 }
 
-.muscle-image img{
+.hero h1{
+    font-size:6rem;
+    margin:1.5rem 0;
+}
+
+.hero p{
+    font-size:1.8rem;
+    color:#ddd;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:2rem;
+    padding:1.2rem 3rem;
+    background:linear-gradient(130deg,#ff5722 93%,transparent 90%);
+    color:#fff;
+    font-size:1.7rem;
+    border-radius:.5rem;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+
+.heading{
+    text-align:center;
+    margin-bottom:5rem;
+    position:relative;
+}
+
+.heading::before{
+    content:'';
+    position:absolute;
+    top:50%;
+    left:0;
     width:100%;
+    height:.1rem;
+    background:#444;
+    z-index:-1;
+}
+
+.heading span{
+    background:#111;
+    padding:.8rem 2rem;
+    border:.1rem solid #555;
+    border-radius:.5rem;
+    color:#ff5722;
+    font-size:3rem;
+    font-weight:bold;
+}
+
+
+.bloco{
+    max-width:1100px;
+    margin:0 auto 8rem auto;
+    text-align:center;
+}
+
+.bloco h2{
+    font-size:3.8rem;
+    color:#ff5722;
+    margin-bottom:2rem;
+}
+
+.bloco p{
+    font-size:1.8rem;
+    line-height:2;
+    color:#ccc;
+    text-align:justify;
+}
+
+
+.bloco img{
+    width:100%;
+    max-width:850px;
     height:450px;
     object-fit:cover;
     border-radius:1rem;
-}
-
-.muscle-content{
-    flex:1;
-}
-
-.muscle-content span{
-    color:rgb(238,87,51);
-    font-size:1.8rem;
-}
-
-.muscle-content h2{
-    color:#fff;
-    font-size:3.8rem;
-    margin:1rem 0;
-}
-
-.muscle-content p{
-    color:#bbb;
-    font-size:1.6rem;
-    line-height:2;
-}
-
-.benefits{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:2rem;
-    margin-top:3rem;
-}
-
-.benefit{
-    background:#1a1a1a;
-    padding:2rem;
-    border-radius:1rem;
-    border:1px solid #222;
-}
-
-.benefit h4{
-    color:#fff;
-    font-size:1.8rem;
-    margin-bottom:.5rem;
-}
-
-.benefit p{
-    color:#aaa;
-    font-size:1.4rem;
-}
-
-.product-highlight{
-    padding:6rem 9%;
-    background:#1a1a1a;
-}
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:3rem;
-    margin-top:4rem;
-}
-
-.product-box{
-    background:#111;
-    border-radius:1rem;
-    overflow:hidden;
+    margin:3rem auto;
+    display:block;
+    border:2px solid #333;
     transition:.3s;
-    border:1px solid #222;
 }
 
-.product-box:hover{
-    transform:translateY(-10px);
-    border-color:rgb(238,87,51);
+.bloco img:hover{
+    transform:scale(1.02);
+    border-color:#ff5722;
 }
 
-.product-box img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
+
+.cards-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(30rem,1fr));
+    gap:3rem;
 }
 
-.product-info{
-    padding:2rem;
+.card{
+    background:#1a1a1a;
+    border:.1rem solid #333;
+    border-radius:1rem;
+    padding:2.5rem;
+    transition:.3s;
 }
 
-.product-info h3{
+.card:hover{
+    transform:translateY(-1rem);
+    border-color:#ff5722;
+}
+
+.card h3{
+    font-size:2.5rem;
+    margin-bottom:1.5rem;
     color:#fff;
-    font-size:2.2rem;
 }
 
-.product-info p{
-    color:#aaa;
-    font-size:1.5rem;
-    margin-top:1rem;
+.card ul{
+    padding-left:2rem;
 }
 
-.more-products{
-    text-align:center;
-    margin-top:4rem;
-}
-
-@media(max-width:991px){
-
-.hero-content h1{
-    font-size:3.8rem;
-}
-
-.muscle-card,
-.muscle-card:nth-child(even){
-    flex-direction:column;
-}
-
-.benefits{
-    grid-template-columns:1fr;
-}
-
+.card li{
+    font-size:1.6rem;
+    color:#bbb;
+    line-height:1.8;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<header class="header">
 
-    <a href="index.php" class="logo">
-        <span>Total</span>Loss
-    </a>
+<section class="hero">
 
-    <div id="menu-btn" class="fas fa-bars"></div>
-
-       <nav class="navbar">
-        <a href="index.php">Início</a>
-        <a href="index.php#about">Sobre</a>
-        <a href="index.php#features">Serviços</a>
-        <a href="index.php#suppl">Suplementos</a>
-        <a href="index.php#mar">Matérias</a>
-        <a href="index.php#support">Suporte</a>
-
-        <?php if ($usuario_nome): ?>
-
-            <a href="conta.php">
-                <i class="fas fa-user-circle"></i>
-                <?= htmlspecialchars($usuario_nome) ?>
-            </a>
-
-        <?php else: ?>
-
-            <a href="Login/login.php">Login</a>
-
-        <?php endif; ?>
-
-    </nav>
-
-</header>
-
-<section class="hero-musculacao musculacao-page">
-
-    <div class="hero-content">
-
-        <span>Treino de Força</span>
-
-        <h1>Musculação para Evolução Real</h1>
-
+    <div class="content">
+        <span>Força • Disciplina • Evolução</span>
+        <h1>Musculação</h1>
         <p>
-            A musculação é uma das práticas mais eficientes para quem busca
-            ganho de massa muscular, aumento de força, melhora da postura,
-            definição corporal e mais qualidade de vida.
+            Transforme seu corpo com treino, disciplina e conhecimento.
+            A musculação é o caminho mais eficiente para evolução física e mental.
         </p>
-
     </div>
 
 </section>
 
-<section class="muscle-section">
 
-    <div class="muscle-card">
+<section>
 
-        <div class="muscle-image">
-            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200">
-        </div>
+<div class="heading">
+    <span>Guia de Musculação</span>
+</div>
 
-        <div class="muscle-content">
+<div class="bloco">
 
-            <span>Hipertrofia</span>
+    <h2>O Que é Musculação</h2>
 
-            <h2>Construa Massa Muscular</h2>
+    <img src="https://www.olimpiadatododia.com.br/wp-content/uploads/2025/07/Como-a-musculacao-previne-lesoes-em-corredores-e-ciclistas.jpg">
 
-            <p>
-                A hipertrofia ocorre através da combinação entre treinamento,
-                alimentação equilibrada e recuperação adequada.
-            </p>
+    <p>
+       A musculação é um treinamento de força que utiliza pesos, máquinas ou o próprio peso corporal 
+       para desenvolver músculos, aumentar a força, melhorar a saúde e elevar o desempenho físico. Quando combinada com 
+       alimentação adequada e descanso, produz excelentes resultados.
+    </p>
 
-            <div class="benefits">
+</div>
 
-                <div class="benefit">
-                    <h4>Mais força</h4>
-                    <p>Evolução contínua.</p>
-                </div>
+<div class="bloco">
 
-                <div class="benefit">
-                    <h4>Mais volume</h4>
-                    <p>Desenvolvimento muscular.</p>
-                </div>
+    <h2>Benefícios</h2>
 
-                <div class="benefit">
-                    <h4>Postura melhor</h4>
-                    <p>Fortalecimento corporal.</p>
-                </div>
+    <img src="https://i.pinimg.com/736x/95/94/dc/9594dc6e7e2d009569c28f44e712cb4d.jpg"
+     style="width:95%; height:auto; display:block; margin:5px auto; border-radius:6px;">
 
-                <div class="benefit">
-                    <h4>Desempenho</h4>
-                    <p>Mais rendimento nos treinos.</p>
-                </div>
+    <p>
+       A musculação ajuda no ganho de massa muscular, acelera o metabolismo, fortalece ossos e articulações, melhora a postura, reduz o estresse e contribui para uma vida mais saudável.
+    </p>
 
-            </div>
+</div>
 
-        </div>
+<div class="bloco">
 
-    </div>
+    <h2>Hipertrofia</h2>
 
-    <div class="muscle-card">
+    <img src="https://brunorodrigonutri.com.br/wp-content/uploads/2024/10/O-que-e-hipertrofia-muscular-e-como-fazer-1024x825.jpg"
+     style="width:95%; height:auto; display:block; margin:5px auto; border-radius:6px;">
 
-        <div class="muscle-image">
-            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200">
-        </div>
+    <p>
+       Hipertrofia é o aumento do tamanho dos músculos. Ela acontece quando o treino gera estímulo suficiente e o corpo recebe nutrientes e descanso para se recuperar e crescer.
+    </p>
 
-        <div class="muscle-content">
+</div>
 
-            <span>Técnica Correta</span>
+<div class="bloco">
 
-            <h2>Treine com Segurança</h2>
+    <h2>Alimentação</h2>
 
-            <p>
-                Uma boa execução ativa melhor a musculatura e reduz
-                significativamente os riscos de lesões.
-            </p>
+    <img src="https://fitestrong.com.br/images/materias/2024/06/alimentos_musculo_450_394391121.png">
 
-        </div>
+    <p>
+       Uma alimentação equilibrada fornece energia para os treinos e nutrientes para a recuperação muscular. Proteínas, carboidratos, gorduras saudáveis e hidratação são fundamentais.
+    </p>
 
-    </div>
+</div>
 
-    <div class="muscle-card">
+<div class="bloco">
 
-        <div class="muscle-image">
-            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200">
-        </div>
+    <h2>Whey Protein</h2>
 
-        <div class="muscle-content">
+    <img src="https://soldiersnutrition.com.br/cdn/shop/files/f7c93a90-867e-40dc-8591-85c7a02c5dd4-otytvp6vri.webp?v=1771352599"
+     style="width:100%; height:auto; display:block;">>
 
-            <span>Consistência</span>
+    <p>
+        OO whey protein é um suplemento rico em proteínas que auxilia na recuperação muscular e ajuda a atingir as necessidades diárias de proteína.
+    </p>
 
-            <h2>Resultados Reais</h2>
+</div>
 
-            <p>
-                A disciplina diária é o fator que mais influencia a evolução
-                física ao longo do tempo.
-            </p>
+<div class="bloco">
 
-        </div>
+    <h2>Disciplina</h2>
 
-    </div>
+    <img src="https://underlabz.com.br/cdn/shop/articles/O-protocolo-da-performance_-como-alinhar-treino_-foco-e-disciplina-no-seu-dia-a-dia_-_-Under-Labz-_-Loja-Oficial-190955875.jpg?v=1778948864">
 
-</section>
+    <p>
+       Resultados na musculação dependem de consistência. Treinar regularmente, alimentar-se bem e descansar adequadamente são os pilares da evolução.
+    </p>
 
-<section class="product-highlight">
-
-    <h1 class="heading">
-        <span>Produtos Recomendados</span>
-    </h1>
-
-    <div class="product-grid">
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1622484212850-eb596d769edc?q=80&w=1200">
-            <div class="product-info">
-                <h3>Whey Protein</h3>
-                <p>Recuperação muscular e suporte para hipertrofia.</p>
-            </div>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1200">
-            <div class="product-info">
-                <h3>Hipercalórico</h3>
-                <p>Ideal para quem busca aumento de peso e massa muscular.</p>
-            </div>
-        </div>
-
-        <div class="product-box">
-            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200">
-            <div class="product-info">
-                <h3>Creatina</h3>
-                <p>Mais força, energia e desempenho nos treinos.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="more-products">
-        <a href="produtos.php" class="btn">Ver Mais Produtos</a>
-    </div>
-
-</section>
-
-<script src="main.js"></script>
-
-</body>
-</html>
+</div>
