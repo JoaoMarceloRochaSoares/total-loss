@@ -10,287 +10,397 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Como Treinar Corretamente - Total Loss</title>
+<title>Como Treinar Corretamente | Total Loss</title>
 
 <link rel="stylesheet" href="main.css">
 
 <style>
 
-.treino-page{
-    padding-top:12rem;
-    min-height:100vh;
-    background:#111;
+:root{
+    --black:#0a0a0a;
+    --dark:#111111;
+    --orange:#ff5b2e;
+    --white:#ffffff;
+    --border:rgba(255,255,255,.08);
 }
 
-.treino-hero{
-    text-align:center;
-    margin-bottom:6rem;
+body{
+    background:var(--black);
+    color:var(--white);
+    font-family:Arial, Helvetica, sans-serif;
 }
 
-.treino-hero h1{
-    color:#fff;
-    font-size:5rem;
-    margin-bottom:2rem;
-}
+/* HERO */
 
-.treino-hero span{
-    color:rgb(238,87,51);
-}
-
-.treino-hero p{
-    max-width:900px;
+.training-page{
+    max-width:1400px;
     margin:auto;
-    color:#ccc;
-    font-size:1.8rem;
-    line-height:1.8;
+    padding:120px 8%;
 }
 
-.treino-content{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:3rem;
-}
+/* BLOCOS */
 
-.treino-box{
-    background:#1a1a1a;
-    border:.1rem solid #333;
-    border-radius:1rem;
-    padding:3rem;
-}
-
-.treino-box h2{
-    color:#fff;
-    font-size:2.8rem;
-    margin-bottom:2rem;
-}
-
-.treino-box p{
-    color:#ccc;
-    font-size:1.6rem;
-    line-height:2;
-}
-
-.produto-info{
-    display:grid;
-    grid-template-columns:1fr 300px;
-    gap:3rem;
-    align-items:center;
-    margin-top:3rem;
-    background:#1a1a1a;
-    border:.1rem solid #333;
-    border-radius:1rem;
-    padding:2rem;
-    transition:.3s;
-}
-
-.produto-info:hover{
-    border-color:rgb(238,87,51);
-    transform:translateY(-5px);
-}
-
-.produto-texto h3{
-    color:#fff;
-    font-size:2.6rem;
-    margin-bottom:1rem;
-}
-
-.produto-texto p{
-    color:#ccc;
-    font-size:1.6rem;
-    line-height:1.9;
-}
-
-.produto-card{
-    background:#000;
-    height:250px;
+.training-block{
     display:flex;
-    justify-content:center;
     align-items:center;
-    border-radius:1rem;
-    overflow:hidden;
+    gap:60px;
+    margin-bottom:120px;
 }
 
-.produto-card img{
+.training-block:nth-child(even){
+    flex-direction:row-reverse;
+}
+
+.training-image{
+    flex:1;
+}
+
+.training-image img{
     width:100%;
-    height:100%;
-    object-fit:contain;
+    height:500px;
+    object-fit:cover;
+    border-radius:18px;
 }
 
-.catalogo-final{
-    text-align:center;
-    margin-top:6rem;
+.training-content{
+    flex:1;
 }
 
-.catalogo-final h2{
-    color:#fff;
+.training-subtitle{
+    color:var(--orange);
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.training-title{
     font-size:3rem;
-    margin-bottom:2rem;
+    line-height:1.2;
+    margin-bottom:25px;
 }
 
-.catalogo-final p{
-    color:#ccc;
-    font-size:1.6rem;
-    margin-bottom:3rem;
+.training-text{
+    color:#d8d8d8;
+    line-height:1.9;
+    margin-bottom:35px;
 }
 
-@media(max-width:768px){
+.training-benefits{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
 
-    .produto-info{
-        grid-template-columns:1fr;
-    }
+.benefit h4{
+    color:white;
+    margin-bottom:10px;
+}
 
-    .produto-card{
-        height:220px;
-    }
+.benefit p{
+    color:#bfbfbf;
+    line-height:1.7;
+}
 
-    .treino-hero h1{
-        font-size:3.8rem;
-    }
+/* PRODUTOS */
+
+.products-section{
+    margin-top:50px;
+}
+
+.products-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-bottom:30px;
+}
+
+.product-card{
+    background:var(--dark);
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration:none;
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--orange);
+}
+
+.product-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:25px;
+}
+
+.product-info h3{
+    color:white;
+    margin-bottom:12px;
+}
+
+.product-info p{
+    color:#bdbdbd;
+    line-height:1.7;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:991px){
+
+.training-block{
+    flex-direction:column !important;
+}
+
+.training-title{
+    font-size:2rem;
+}
+
+.products-grid{
+    grid-template-columns:1fr;
+}
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<section class="treino-page">
+<section class="training-page">
 
-<div class="treino-hero">
-    <h1>Como <span>Treinar Corretamente</span></h1>
+    <!-- BLOCO 1 -->
 
-    <p>
-        Treinar corretamente vai muito além de simplesmente levantar peso.
-        Um treino eficiente depende da execução correta dos exercícios,
-        alimentação adequada, descanso e constância. Seguindo esses princípios,
-        você consegue melhores resultados, reduz o risco de lesões e melhora
-        sua evolução física ao longo do tempo.
-    </p>
-</div>
+    <div class="training-block">
 
-<div class="treino-content">
+        <div class="training-image">
+            <img src="images/treino-peito.jpg">
+        </div>
 
-    <div class="treino-box">
+        <div class="training-content">
 
-        <h2>Princípios de um Treino Eficiente</h2>
+            <div class="training-subtitle">
+                Treino Inteligente
+            </div>
 
-        <p>
-            Antes de aumentar as cargas, aprenda a executar cada exercício
-            corretamente. A postura adequada ativa melhor os músculos e evita
-            lesões.
-            <br><br>
+            <h2 class="training-title">
+                A execução correta vale mais do que aumentar a carga
+            </h2>
 
-            Procure treinar de forma consistente, respeitando períodos de
-            descanso e recuperação muscular. O crescimento muscular acontece
-            durante o descanso e não apenas durante o treino.
-            <br><br>
-
-            Uma alimentação equilibrada e rica em proteínas também é
-            fundamental para fornecer energia e favorecer a recuperação dos
-            músculos após cada sessão.
-        </p>
-
-    </div>
-
-    <!-- WHEY -->
-
-    <div class="produto-info">
-
-        <div class="produto-texto">
-
-            <h3>Whey Protein</h3>
-
-            <p>
-                O Whey Protein é uma das fontes de proteína mais utilizadas por
-                praticantes de musculação. Sua principal função é auxiliar na
-                recuperação e construção muscular.
-                <br><br>
-
-                O uso mais comum acontece após o treino, quando o organismo
-                necessita de proteínas para reparar as fibras musculares
-                trabalhadas. Também pode ser utilizado para complementar a
-                ingestão diária de proteínas.
+            <p class="training-text">
+                Muitos praticantes acreditam que levantar mais peso é o
+                único caminho para evoluir. Porém, a técnica correta gera
+                maior ativação muscular, melhora os resultados e reduz
+                riscos de lesão.
             </p>
 
-        </div>
+            <div class="training-benefits">
 
-        <div class="produto-card">
-            <img src="img/whey.png" alt="Whey Protein">
+                <div class="benefit">
+                    <h4>Maior ativação muscular</h4>
+                    <p>Estimula corretamente o músculo alvo.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Menos lesões</h4>
+                    <p>Proteção para articulações e tendões.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Mais desempenho</h4>
+                    <p>Treinos mais eficientes.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Melhores resultados</h4>
+                    <p>Evolução consistente.</p>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <!-- HIPERCALORICO -->
+    <!-- BLOCO 2 -->
 
-    <div class="produto-info">
+    <div class="training-block">
 
-        <div class="produto-texto">
+        <div class="training-image">
+            <img src="images/treino-costas.jpg">
+        </div>
 
-            <h3>Hipercalórico</h3>
+        <div class="training-content">
 
-            <p>
-                O Hipercalórico é indicado para pessoas que possuem dificuldade
-                em ganhar peso ou atingir a quantidade necessária de calorias
-                ao longo do dia.
-                <br><br>
+            <div class="training-subtitle">
+                Treino de Costas
+            </div>
 
-                Pode ser consumido entre refeições ou após os treinos para
-                aumentar o aporte energético. Quando combinado com uma rotina
-                de treinos adequada, auxilia no ganho de massa muscular.
+            <h2 class="training-title">
+                Concentre-se na contração muscular
+            </h2>
+
+            <p class="training-text">
+                Durante remadas e puxadas, o foco deve estar em sentir
+                os músculos das costas trabalhando. Isso aumenta a
+                eficiência do exercício e melhora o desenvolvimento.
             </p>
 
-        </div>
+            <div class="training-benefits">
 
-        <div class="produto-card">
-            <img src="img/hipercalorico.png" alt="Hipercalórico">
+                <div class="benefit">
+                    <h4>Mais consciência corporal</h4>
+                    <p>Melhora a execução.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Ganhos superiores</h4>
+                    <p>Mais estímulo muscular.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Postura melhor</h4>
+                    <p>Fortalecimento da região dorsal.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Maior estabilidade</h4>
+                    <p>Segurança em outros exercícios.</p>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <!-- BARRA -->
+    <!-- BLOCO 3 -->
 
-    <div class="produto-info">
+    <div class="training-block">
 
-        <div class="produto-texto">
+        <div class="training-image">
+            <img src="images/treino-perna.jpg">
+        </div>
 
-            <h3>Barra Proteica</h3>
+        <div class="training-content">
 
-            <p>
-                As barras proteicas são práticas para quem precisa de uma opção
-                rápida durante o dia.
-                <br><br>
+            <div class="training-subtitle">
+                Treino de Pernas
+            </div>
 
-                Elas podem ser utilizadas como lanche intermediário,
-                principalmente em momentos em que não é possível realizar uma
-                refeição completa. São úteis para complementar proteínas e
-                auxiliar na manutenção da dieta.
+            <h2 class="training-title">
+                Amplitude completa gera melhores resultados
+            </h2>
+
+            <p class="training-text">
+                Exercícios executados com amplitude correta recrutam mais
+                fibras musculares e promovem maior crescimento muscular.
             </p>
 
-        </div>
+            <div class="training-benefits">
 
-        <div class="produto-card">
-            <img src="img/barra-proteica.png" alt="Barra Proteica">
+                <div class="benefit">
+                    <h4>Mais hipertrofia</h4>
+                    <p>Maior recrutamento muscular.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Força funcional</h4>
+                    <p>Movimentos mais completos.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Mobilidade</h4>
+                    <p>Melhora da flexibilidade.</p>
+                </div>
+
+                <div class="benefit">
+                    <h4>Desenvolvimento equilibrado</h4>
+                    <p>Crescimento uniforme.</p>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+    <!-- PRODUTOS -->
 
-<div class="catalogo-final">
+    <section class="products-section">
 
-    <h2>Conheça nossos suplementos</h2>
+        <h2 class="products-title">
+            Produtos Recomendados
+        </h2>
 
-    <p>
-        Agora que você já sabe como treinar corretamente e como utilizar os
-        principais suplementos, visite nosso catálogo e encontre os produtos
-        ideais para sua rotina.
-    </p>
+        <div class="products-grid">
 
-    <a href="catalogo.php" class="btn">
-        Ver Catálogo
-    </a>
+            <a href="catalogos.php" class="product-card">
+                <img src="images/whey.jpg">
+                <div class="product-info">
+                    <h3>Whey Protein</h3>
+                    <p>Ideal para recuperação muscular.</p>
+                </div>
+            </a>
 
-</div>
+            <a href="catalogos.php" class="product-card">
+                <img src="images/barra.jpg">
+                <div class="product-info">
+                    <h3>Barra Proteica</h3>
+                    <p>Lanche rápido e nutritivo.</p>
+                </div>
+            </a>
+
+            <a href="catalogos.php" class="product-card">
+                <img src="images/hipercalorico.jpg">
+                <div class="product-info">
+                    <h3>Hipercalórico</h3>
+                    <p>Auxilia no ganho de massa.</p>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="products-grid">
+
+            <a href="catalogos.php" class="product-card">
+                <img src="images/pretreino.jpg">
+                <div class="product-info">
+                    <h3>Pré-Treino</h3>
+                    <p>Mais energia durante o treino.</p>
+                </div>
+            </a>
+
+            <a href="catalogos.php" class="product-card">
+                <img src="images/creatina.jpg">
+                <div class="product-info">
+                    <h3>Creatina</h3>
+                    <p>Força e desempenho.</p>
+                </div>
+            </a>
+
+            <a href="catalogos.php" class="product-card">
+                <img src="images/kit.jpg">
+                <div class="product-info">
+                    <h3>Kit Ganho de Massa</h3>
+                    <p>Combinação completa para evolução.</p>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
 
 </section>
 
