@@ -51,7 +51,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 margin-top:7rem;
 background:
 linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.75)),
-url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1920&auto=format&fit=crop')
+url('https://cdn.pixabay.com/photo/2021/11/10/06/23/workout-6783020_1280.jpg')
 center/cover;">
 
     <span>Guia Completo</span>
@@ -219,9 +219,9 @@ center/cover;">
         aumenta a segurança durante os treinos.
     </p>
 
-    <a href="index.php" class="btn">
-        Voltar ao Início
-    </a>
+    <a href="index.php#mar" class="btn">
+    Voltar para Matérias
+</a>
 
 </section>
 
