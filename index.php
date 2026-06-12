@@ -232,7 +232,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Como treinar corretamente</h3>
                         <p>Evite lesões aprendendo a executar os exercícios da forma certa.</p>
-                        <a href="html/como-treinar-corretamente.php" class="btn">Ler mais</a>
+                        <a href="html/como-treinar.php" class="btn">Ler mais</a>
                     </div>
                 </div>
             </div>
