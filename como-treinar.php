@@ -1,3 +1,8 @@
+<?php
+session_start();
+$usuario_nome = $_SESSION['usuario_nome'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -7,365 +12,285 @@
 
 <title>Como Treinar Corretamente - Total Loss</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="main.css">
 
 <style>
 
-:root{
---black:#0a0a0a;
---dark:#111111;
---green:#0f3d2e;
---green-hover:#14513d;
---gold:#c8a96b;
---white:#ffffff;
---border:rgba(255,255,255,.08);
+.treino-page{
+    padding-top:12rem;
+    min-height:100vh;
+    background:#111;
 }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+.treino-hero{
+    text-align:center;
+    margin-bottom:6rem;
 }
 
-body{
-background:var(--black);
-color:var(--white);
+.treino-hero h1{
+    color:#fff;
+    font-size:5rem;
+    margin-bottom:2rem;
 }
 
-.hero{
-height:70vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:2rem;
-background:
-linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920');
-background-size:cover;
-background-position:center;
+.treino-hero span{
+    color:rgb(238,87,51);
 }
 
-.hero-content h1{
-font-size:4rem;
-margin-bottom:1rem;
-color:var(--gold);
+.treino-hero p{
+    max-width:900px;
+    margin:auto;
+    color:#ccc;
+    font-size:1.8rem;
+    line-height:1.8;
 }
 
-.hero-content p{
-font-size:1.2rem;
-max-width:700px;
-margin:auto;
-line-height:1.8;
+.treino-content{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3rem;
 }
 
-.section{
-padding:6rem 9%;
+.treino-box{
+    background:#1a1a1a;
+    border:.1rem solid #333;
+    border-radius:1rem;
+    padding:3rem;
 }
 
-.heading{
-text-align:center;
-font-size:3rem;
-margin-bottom:4rem;
-color:var(--gold);
+.treino-box h2{
+    color:#fff;
+    font-size:2.8rem;
+    margin-bottom:2rem;
 }
 
-.info-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:2rem;
+.treino-box p{
+    color:#ccc;
+    font-size:1.6rem;
+    line-height:2;
 }
 
-.info-box{
-background:var(--dark);
-padding:2rem;
-border-radius:1rem;
-border:1px solid var(--border);
-transition:.3s;
+.produto-info{
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:3rem;
+    align-items:center;
+    margin-top:3rem;
+    background:#1a1a1a;
+    border:.1rem solid #333;
+    border-radius:1rem;
+    padding:2rem;
+    transition:.3s;
 }
 
-.info-box:hover{
-transform:translateY(-10px);
+.produto-info:hover{
+    border-color:rgb(238,87,51);
+    transform:translateY(-5px);
 }
 
-.info-box i{
-font-size:2rem;
-color:var(--gold);
-margin-bottom:1rem;
+.produto-texto h3{
+    color:#fff;
+    font-size:2.6rem;
+    margin-bottom:1rem;
 }
 
-.info-box h3{
-margin-bottom:1rem;
+.produto-texto p{
+    color:#ccc;
+    font-size:1.6rem;
+    line-height:1.9;
 }
 
-.info-box p{
-line-height:1.8;
-color:#ccc;
+.produto-card{
+    background:#000;
+    height:250px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:1rem;
+    overflow:hidden;
 }
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:2rem;
+.produto-card img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-.product-card{
-background:var(--dark);
-border-radius:1rem;
-overflow:hidden;
-border:1px solid var(--border);
-transition:.3s;
+.catalogo-final{
+    text-align:center;
+    margin-top:6rem;
 }
 
-.product-card:hover{
-transform:translateY(-10px);
+.catalogo-final h2{
+    color:#fff;
+    font-size:3rem;
+    margin-bottom:2rem;
 }
 
-.product-card img{
-width:100%;
-height:220px;
-object-fit:cover;
+.catalogo-final p{
+    color:#ccc;
+    font-size:1.6rem;
+    margin-bottom:3rem;
 }
 
-.product-content{
-padding:2rem;
-}
+@media(max-width:768px){
 
-.product-content h3{
-margin-bottom:1rem;
-color:var(--gold);
-}
+    .produto-info{
+        grid-template-columns:1fr;
+    }
 
-.product-content p{
-color:#ccc;
-line-height:1.8;
-}
+    .produto-card{
+        height:220px;
+    }
 
-.timeline{
-max-width:900px;
-margin:auto;
-}
+    .treino-hero h1{
+        font-size:3.8rem;
+    }
 
-.timeline-step{
-background:var(--dark);
-padding:2rem;
-margin-bottom:2rem;
-border-left:5px solid var(--gold);
-border-radius:.5rem;
-}
-
-.timeline-step h3{
-margin-bottom:.8rem;
-color:var(--gold);
-}
-
-.cta{
-text-align:center;
-padding:6rem 2rem;
-background:linear-gradient(135deg,var(--green),#081b14);
-}
-
-.cta h2{
-font-size:3rem;
-margin-bottom:1rem;
-}
-
-.cta p{
-font-size:1.1rem;
-margin-bottom:2rem;
-}
-
-.btn{
-display:inline-block;
-padding:1rem 3rem;
-background:var(--gold);
-color:#000;
-font-weight:bold;
-text-decoration:none;
-border-radius:5rem;
-transition:.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-.back{
-position:fixed;
-top:20px;
-left:20px;
-z-index:999;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<a href="index.php" class="btn back">
-    <i class="fas fa-arrow-left"></i> Voltar
-</a>
+<section class="treino-page">
 
-<section class="hero">
-<div class="hero-content">
-<h1>Como Treinar Corretamente</h1>
-<p>
-Aprenda os princípios fundamentais para ganhar massa muscular,
-perder gordura e melhorar sua performance sem cometer erros que
-atrasam seus resultados.
-</p>
-</div>
-</section>
+<div class="treino-hero">
+    <h1>Como <span>Treinar Corretamente</span></h1>
 
-<section class="section">
-
-<h2 class="heading">Passos Fundamentais</h2>
-
-<div class="info-grid">
-
-<div class="info-box">
-<i class="fas fa-dumbbell"></i>
-<h3>Aquecimento</h3>
-<p>
-Antes de iniciar qualquer treino faça entre 5 e 10 minutos de
-aquecimento. Isso reduz o risco de lesões e melhora seu desempenho.
-</p>
+    <p>
+        Treinar corretamente vai muito além de simplesmente levantar peso.
+        Um treino eficiente depende da execução correta dos exercícios,
+        alimentação adequada, descanso e constância. Seguindo esses princípios,
+        você consegue melhores resultados, reduz o risco de lesões e melhora
+        sua evolução física ao longo do tempo.
+    </p>
 </div>
 
-<div class="info-box">
-<i class="fas fa-running"></i>
-<h3>Execução Correta</h3>
-<p>
-Priorize a técnica antes da carga. Movimentos corretos geram mais
-resultado e protegem suas articulações.
-</p>
-</div>
+<div class="treino-content">
 
-<div class="info-box">
-<i class="fas fa-clock"></i>
-<h3>Descanso</h3>
-<p>
-Respeite os intervalos entre séries e tenha pelo menos 7 a 8 horas
-de sono por noite para recuperação muscular.
-</p>
-</div>
+    <div class="treino-box">
 
-<div class="info-box">
-<i class="fas fa-apple-alt"></i>
-<h3>Alimentação</h3>
-<p>
-Sem alimentação adequada não existe evolução consistente.
-Consuma proteínas, carboidratos e gorduras saudáveis.
-</p>
-</div>
+        <h2>Princípios de um Treino Eficiente</h2>
 
-</div>
+        <p>
+            Antes de aumentar as cargas, aprenda a executar cada exercício
+            corretamente. A postura adequada ativa melhor os músculos e evita
+            lesões.
+            <br><br>
 
-</section>
+            Procure treinar de forma consistente, respeitando períodos de
+            descanso e recuperação muscular. O crescimento muscular acontece
+            durante o descanso e não apenas durante o treino.
+            <br><br>
 
-<section class="section">
+            Uma alimentação equilibrada e rica em proteínas também é
+            fundamental para fornecer energia e favorecer a recuperação dos
+            músculos após cada sessão.
+        </p>
 
-<h2 class="heading">Suplementos e Como Utilizar</h2>
+    </div>
 
-<div class="products">
+    <!-- WHEY -->
 
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1622484212850-eb596d769edc?q=80&w=1200" alt="">
-<div class="product-content">
-<h3>Whey Protein</h3>
-<p>
-Ideal após o treino para auxiliar na recuperação muscular.
-Pode ser consumido junto com água ou leite logo após a atividade física.
-</p>
-</div>
-</div>
+    <div class="produto-info">
 
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1605296867424-35fc25c9212a?q=80&w=1200" alt="">
-<div class="product-content">
-<h3>Creatina</h3>
-<p>
-Consumir diariamente. Auxilia no aumento da força,
-explosão muscular e recuperação entre os treinos.
-</p>
-</div>
-</div>
+        <div class="produto-texto">
 
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200" alt="">
-<div class="product-content">
-<h3>Barra de Proteína</h3>
-<p>
-Excelente para lanches rápidos durante o dia.
-Ajuda a atingir a meta diária de proteínas.
-</p>
-</div>
-</div>
+            <h3>Whey Protein</h3>
 
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200" alt="">
-<div class="product-content">
-<h3>Pré-Treino</h3>
-<p>
-Consumir cerca de 30 minutos antes do treino para
-aumentar energia, foco e disposição.
-</p>
-</div>
-</div>
+            <p>
+                O Whey Protein é uma das fontes de proteína mais utilizadas por
+                praticantes de musculação. Sua principal função é auxiliar na
+                recuperação e construção muscular.
+                <br><br>
 
-</div>
+                O uso mais comum acontece após o treino, quando o organismo
+                necessita de proteínas para reparar as fibras musculares
+                trabalhadas. Também pode ser utilizado para complementar a
+                ingestão diária de proteínas.
+            </p>
 
-</section>
+        </div>
 
-<section class="section">
+        <div class="produto-card">
+            <img src="img/whey.png" alt="Whey Protein">
+        </div>
 
-<h2 class="heading">Exemplo de Rotina Correta</h2>
+    </div>
 
-<div class="timeline">
+    <!-- HIPERCALORICO -->
 
-<div class="timeline-step">
-<h3>1. Antes do treino</h3>
-<p>Hidratação + refeição leve ou pré-treino.</p>
-</div>
+    <div class="produto-info">
 
-<div class="timeline-step">
-<h3>2. Aquecimento</h3>
-<p>5 a 10 minutos de cardio leve.</p>
-</div>
+        <div class="produto-texto">
 
-<div class="timeline-step">
-<h3>3. Treino principal</h3>
-<p>Foco na execução perfeita dos movimentos.</p>
-</div>
+            <h3>Hipercalórico</h3>
 
-<div class="timeline-step">
-<h3>4. Pós-treino</h3>
-<p>Whey Protein + refeição rica em proteínas.</p>
-</div>
+            <p>
+                O Hipercalórico é indicado para pessoas que possuem dificuldade
+                em ganhar peso ou atingir a quantidade necessária de calorias
+                ao longo do dia.
+                <br><br>
 
-<div class="timeline-step">
-<h3>5. Recuperação</h3>
-<p>Sono de qualidade e descanso muscular.</p>
-</div>
+                Pode ser consumido entre refeições ou após os treinos para
+                aumentar o aporte energético. Quando combinado com uma rotina
+                de treinos adequada, auxilia no ganho de massa muscular.
+            </p>
+
+        </div>
+
+        <div class="produto-card">
+            <img src="img/hipercalorico.png" alt="Hipercalórico">
+        </div>
+
+    </div>
+
+    <!-- BARRA -->
+
+    <div class="produto-info">
+
+        <div class="produto-texto">
+
+            <h3>Barra Proteica</h3>
+
+            <p>
+                As barras proteicas são práticas para quem precisa de uma opção
+                rápida durante o dia.
+                <br><br>
+
+                Elas podem ser utilizadas como lanche intermediário,
+                principalmente em momentos em que não é possível realizar uma
+                refeição completa. São úteis para complementar proteínas e
+                auxiliar na manutenção da dieta.
+            </p>
+
+        </div>
+
+        <div class="produto-card">
+            <img src="img/barra-proteica.png" alt="Barra Proteica">
+        </div>
+
+    </div>
 
 </div>
 
-</section>
+<div class="catalogo-final">
 
-<section class="cta">
+    <h2>Conheça nossos suplementos</h2>
 
-<h2>Pronto para Evoluir?</h2>
+    <p>
+        Agora que você já sabe como treinar corretamente e como utilizar os
+        principais suplementos, visite nosso catálogo e encontre os produtos
+        ideais para sua rotina.
+    </p>
 
-<p>
-Agora que você sabe como treinar corretamente,
-conheça os suplementos que podem acelerar seus resultados.
-</p>
+    <a href="catalogo.php" class="btn">
+        Ver Catálogo
+    </a>
 
-<a href="produtos.php" class="btn">
-    VER CATÁLOGO DE PRODUTOS
-</a>
+</div>
 
 </section>
 
