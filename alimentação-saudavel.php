@@ -152,7 +152,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
             <div class="box">
                 <div class="image">
-                    <img src="https://revistajardins.pt/wp-content/uploads/2020/06/batata-doce.jpg'">
+                    <img src="https://thumbs.dreamstime.com/b/tigela-com-arroz-branco-cru-e-feij%C3%A3o-v%C3%A1rios-gr%C3%A3os-de-em-v%C3%A1rias-sementes-297629894.jpg">
                 </div>
 
                 <div class="content">
