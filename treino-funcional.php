@@ -189,10 +189,10 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
 
 <header class="header">
-    <a href="index.html" class="logo"><span>Total</span>Loss</a>
+   <a href="index.php" class="logo"><span>Total</span>Loss</a>
 
     <nav class="navbar">
-        <a href="index.html">Início</a>
+        <a href="index.php">Início</a>
         <a href="#sobre">Sobre</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#massa">Massa Muscular</a>
@@ -348,9 +348,9 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
         treinamento completo.
     </p>
 
-    <a href="index.html" class="btn">
-        Voltar ao Início
-    </a>
+   <a href="index.php" class="btn">
+    Voltar ao Início
+   </a>
 
 </section>
 
@@ -367,7 +367,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
         <div class="box">
             <h3>Links</h3>
-            <a href="index.html">Início</a>
+            <a href="index.php">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#beneficios">Benefícios</a>
         </div>

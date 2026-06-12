@@ -19,7 +19,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 <body>
 
     <header class="header">
-        <a href="/index.php" class="logo"><span>Total</span>Loss</a>
+        <a href="index.php" class="logo"><span>Total</span>Loss</a>
 
         <div id="menu-btn" class="fas fa-bars"></div>
 
