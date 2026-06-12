@@ -204,8 +204,8 @@ z-index:999;
 
 <body>
 
-<a href="../index.php" class="btn back">
-<i class="fas fa-arrow-left"></i> Voltar
+<a href="index.php" class="btn back">
+    <i class="fas fa-arrow-left"></i> Voltar
 </a>
 
 <section class="hero">
@@ -363,8 +363,8 @@ Agora que você sabe como treinar corretamente,
 conheça os suplementos que podem acelerar seus resultados.
 </p>
 
-<a href="../produtos.php" class="btn">
-VER CATÁLOGO DE PRODUTOS
+<a href="produtos.php" class="btn">
+    VER CATÁLOGO DE PRODUTOS
 </a>
 
 </section>
