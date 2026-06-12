@@ -1,8 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -209,8 +211,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
     <div id="menu-btn" class="fas fa-bars"></div>
 
-    <nav class="navbar">
-
+       <nav class="navbar">
         <a href="index.php">Início</a>
         <a href="index.php#about">Sobre</a>
         <a href="index.php#features">Serviços</a>
