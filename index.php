@@ -156,7 +156,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Treino Funcional</h3>
                         <p>Circuitos dinâmicos e de alta intensidade para melhorar seu condicionamento, força e agilidade corporal.</p>
-                        <a href="html/treino-funcional.html" class="btn">Ler Mais</a>
+                       <a href="funcional.php" class="btn">Ler Mais</a>
                     </div>
                 </div>
 
