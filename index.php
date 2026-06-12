@@ -230,7 +230,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <div class="content">
                         <h3>Treino rápido para iniciantes</h3>
                         <p>Comece no mundo fitness com exercícios fáceis e eficientes.</p>
-                        <a href="html/treino-para-iniciantes.html" class="btn">Ler mais</a>
+                        <a href="treino-para-iniciantes.php" class="btn">Ler mais</a>
                     </div>
                 </div>
 
