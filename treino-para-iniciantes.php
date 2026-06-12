@@ -210,7 +210,6 @@ footer{
             e aprenda os fundamentos da musculação.
         </p>
 
-        <a href="#treinos" class="btn">Ver Treinos</a>
         <a href="index.php#mar" class="btn" style="margin-left:10px;">
     Voltar às Matérias
 </a>
