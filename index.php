@@ -60,7 +60,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
 
     <main>
 
-        <!-- ===== HOME SLIDER ===== -->
         <section id="home" class="home">
             <div class="swiper home-slider">
                 <div class="swiper-wrapper">
@@ -69,7 +68,6 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         style="background: url('img/TotalLoss.png.png') no-repeat center center/cover;">
                         <div class="content">
                             <span>Seja Forte, seja fit</span>
-                            <h3>Torne-se mais forte do que suas desculpas.</h3>
                             <a href="produtos.php" class="btn">Iniciar</a>
                         </div>
                     </div>
