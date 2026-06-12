@@ -68,7 +68,7 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                         style="background: url('img/TotalLoss.png.png') no-repeat center center/cover;">
                         <div class="content">
                             <span>Seja Forte, seja fit</span>
-                            <span>Venha para TotalLoss
+                            <h3>Venha para TotalLoss</h3>
                             <a href="produtos.php" class="btn">Iniciar</a>
                         </div>
                     </div>
