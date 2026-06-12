@@ -125,26 +125,27 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                 </div>
 
                 <div class="content">
-                    <h3>Ovos</h3>
+                    <h3>Batata doce</h3>
 
                     <p>
-                        Possuem proteínas completas, vitaminas e gorduras saudáveis,
-                        auxiliando na construção muscular.
+                       Excelente fonte de carboidratos
+                        complexos, fornecendo energia
+                         para treinos intensos.
                     </p>
                 </div>
             </div>
 
             <div class="box">
                 <div class="image">
-                    <img src="https://blog.mantiqueirabrasil.com.br/wp-content/uploads/2021/03/ovo-jumbo.jpg">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000&auto=format&fit=crop">
                 </div>
 
                 <div class="content">
-                    <h3>Batata Doce</h3>
+                    <h3>Ovos</h3>
 
                     <p>
-                        Excelente fonte de carboidratos complexos,
-                        fornecendo energia para treinos intensos.
+                        Possuem proteínas completas, vitaminas e gorduras saudáveis,
+                        auxiliando na construção muscular.
                     </p>
                 </div>
             </div>
