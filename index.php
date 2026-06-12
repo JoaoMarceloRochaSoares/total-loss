@@ -218,8 +218,8 @@ $usuario_nome = $_SESSION['usuario_nome'] ?? null;
                     <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop"
                         alt="Exercícios abdominais" loading="lazy">
                     <div class="content">
-                        <h3>3 Exercícios para perder barriga</h3>
-                        <p>Aprenda exercícios simples que você pode fazer em casa para reduzir gordura abdominal.</p>
+                        <h3>A melhor alimentação possível para quem treina</h3>
+                        <p>Saiba como se alimentar bem antes de um treino</p>
                         <a href="alimentacao-saudavel.php" class="btn">Ler mais</a>
                     </div>
                 </div>
